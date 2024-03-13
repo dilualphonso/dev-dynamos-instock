@@ -16,7 +16,7 @@
 @mixin mobile-font-h3{
   font-size: 0.813rem;
   font-weight: 600;
-    font-family: "Titillium-SemiBoldItalic";
+    font-family: "Titillium-SemiBold";
     line-height: 1.25rem;
 
 }
@@ -34,4 +34,11 @@
   font-family: "Titillium-Regular";;
   line-height: 1.625rem;
   font-weight: 400;
+}
+
+@mixin mobile-font-body-medium{
+  font-size: 0.813rem;
+  font-family: "Titillium-Regular";;
+  line-height: 1.25rem;
+ // font-weight: 400;
 }

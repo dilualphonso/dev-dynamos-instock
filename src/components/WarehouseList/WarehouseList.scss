@@ -33,17 +33,20 @@
         text-align: left;
         @include mobile-font-h3;
         color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
+
 
 
     }
     &__address{
         text-align: left;
         //font-family:"Titillium-Regular" ;
-        @include mobile-font-body-large;
+        @include mobile-font-body-medium;
     }
     &__name{
         color :#2E66E5;
-        @include mobile-font-body-large;
+        @include mobile-font-body-medium;
 
 
 
@@ -56,6 +59,8 @@ flex-direction: row;
     &__name-label{
        @include mobile-font-h3;
        color: $secondary-slate;
+       margin-bottom: 0rem;
+       text-transform: uppercase;
 
     }
     &__name-container{
@@ -76,6 +81,8 @@ align-items: flex-start;
     &__contact-name-label{
         @include mobile-font-h3;
         color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
 
     }
 
@@ -90,11 +97,31 @@ align-items: flex-start;
 
         @include mobile-font-h3;
         color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
 
     }
     &__name-label{
         @include mobile-font-h3;
         color: $secondary-slate;
+    }
+    &__contact-name{
+        @include mobile-font-body-medium;
+    }
+    &__contact-email{
+        @include mobile-font-body-medium;
+    }
+    &__contact-phone{
+        @include mobile-font-body-medium;
+    }
+    &__arrowImg{
+        width:1.5rem;
+        height:1.5rem;
+        padding-right: 0.25rem;
+
+    }
+    &__divider{
+        border:1px solid $secondary-cloud;
     }
 
 

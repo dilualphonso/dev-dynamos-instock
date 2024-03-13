@@ -26,15 +26,16 @@ function WarehousesListPage (){
 
     return (
         <section className="warehouses">
+            <div className="warehouses__top-container">
             <h1 className="warehouses__title">Warehouses</h1>
         <div>
             <div>
-            <input type = "text" placeholder="Search"/>
+            <input className='warehouses__search' type = "text" placeholder="Search..."/>
            </div>
     <div>
-    <button className="warehouses__button">Add New Warehouse</button>
+    <button className="warehouses__button">+ Add New Warehouse</button>
     </div>
-
+    </div>
 
     </div>
     <section>

@@ -14,7 +14,7 @@ function WarehouseList ({warehouses}){
 
       {warehouses.map((warehouse) => (
         <div key={warehouse.id}>
-               <hr/>
+               <hr className="warehouse__divider"/>
 
                <div className="warehouse__container">
 
@@ -24,13 +24,13 @@ function WarehouseList ({warehouses}){
             <h4 className="warehouse__name-label">Warehouse</h4>
             <div className="warehouse__arrow-wrapper">
             <div className="warehouse__name">{warehouse.warehouse_name}</div>
-            <img src={ArrowImage} alt= "arrowImage"/>
+            <img className="warehouse__arrowImg" src={ArrowImage} alt= "arrowImage"/>
             </div>
 
           </div>
           <div className="warehouse__address-container">
             <h4 className="warehouse__address-label">Address</h4>
-            <div className="warehouse__address">{warehouse.address},{warehouse.city},{warehouse.country}</div>
+            <div className="warehouse__address">{warehouse.address},<div>{warehouse.city},{warehouse.country}</div></div>
           </div>
           </div>
           <div className="warehouse__right-container">
