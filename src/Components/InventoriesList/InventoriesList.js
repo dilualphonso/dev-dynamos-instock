@@ -1,5 +1,5 @@
 import './InventoriesList.scss'
-import { Inventory } from '../Inventory/Inventory'
+import { InventoryItem } from '../InventoryItem/InventoryItem'
 
 export const InventoriesList = ({ inventories, warehouseId }) => {
   return (
@@ -14,7 +14,7 @@ export const InventoriesList = ({ inventories, warehouseId }) => {
           //     && inventory.item_name !== "Soap"))
           .map(
             (inventory =>
-              <Inventory
+              <InventoryItem
                 key={inventory.id}
                 inventory={inventory}
                 warehouseId={warehouseId} />))}

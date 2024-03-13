@@ -1,7 +1,7 @@
-import './Inventory.scss'
+import './InventoryItem.scss'
 import { Link } from 'react-router-dom';
 
-export const Inventory = ({ inventory, warehouseId }) => {
+export const InventoryItem = ({ inventory, warehouseId }) => {
   const {
     id,
     warehouse_name,
