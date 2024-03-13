@@ -1,0 +1,18 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/global" as *;
+
+.header {
+  background-color: $bg-dark;
+  padding: 3rem 2rem;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    font-family: "Titillium-Bold";
+  }
+}
