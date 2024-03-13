@@ -1,6 +1,6 @@
 import Logo from "../../assets/logo/InStock-Logo_1x.png";
 import { Link } from "react-router-dom";
-import "../Header.scss";
+import "./Header.scss";
 
 const Header = () => {
   <header className="header">
@@ -11,3 +11,5 @@ const Header = () => {
     </Link>
   </header>;
 };
+
+export default Header;
