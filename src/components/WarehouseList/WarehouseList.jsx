@@ -1,4 +1,5 @@
-import './WarehouseList.scss'
+import './WarehouseList.scss';
+
 import ArrowImage from "../../assets/Icons/chevron_right-24px.svg"
 
 function WarehouseList ({warehouses}){
@@ -6,14 +7,10 @@ function WarehouseList ({warehouses}){
 
     return (
         <section className="warehouse">
-            <h1 className="warehouse__title">Warehouses</h1>
+
         <div>
-            <div>
-            <input type = "text" placeholder="Search"/>
-           </div>
-    <div>
-    <button>Add New Warehouse</button>
-    </div>
+
+
 
       {warehouses.map((warehouse) => (
         <div key={warehouse.id}>

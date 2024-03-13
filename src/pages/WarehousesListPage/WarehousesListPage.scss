@@ -1,0 +1,13 @@
+.warehouses{
+    background-color: aqua;
+    &__title{
+        color: aqua;
+
+    }
+    &__button{
+        width: 100%;
+        height: 3rem;
+        color: aqua;
+
+    }
+}

@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "../styles/typography" as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -10,4 +11,27 @@
   @media (min-width: $desktop-breakpoint) {
     @content;
   }
+}
+
+@mixin mobile-font-h3{
+  font-size: 0.813rem;
+  font-weight: 600;
+    font-family: "Titillium-SemiBoldItalic";
+    line-height: 1.25rem;
+
+}
+
+// @mixin mobile-font-h3{
+//   font-size: 0.875rem;
+//   font-weight: 600;
+//     font-family: "AvenirNextLTPro";
+//     line-height: 1.375rem;
+
+// }
+
+@mixin mobile-font-body-large{
+  font-size: 0.938rem;
+  font-family: "Titillium-Regular";;
+  line-height: 1.625rem;
+  font-weight: 400;
 }
