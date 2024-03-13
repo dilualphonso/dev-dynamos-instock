@@ -1,0 +1,76 @@
+.warehouse{
+
+    &__container{
+        display:flex;
+        flex-direction: row;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+
+    }
+    &__left-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+        width: 50%;
+    }
+    &__right-container{
+        display:flex;
+        flex-direction: column;
+        // justify-content: left;
+         //align-items: last baseline;
+        width: 50%;
+
+    }
+
+    &__address-label{
+        text-align: left;
+    }
+    &__address{
+        text-align: left;
+    }
+    &__name{
+        color :#2E66E5;
+
+
+
+
+    }
+    &__arrow-wrapper{
+display:flex;
+flex-direction: row;
+    }
+    &__name-label{
+
+    }
+    &__name-container{
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+    }
+
+    &__contact-name-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+align-items: flex-start;
+
+    }
+
+    &__contact-info-container{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+align-items: flex-start;
+    }
+
+    &__contact-info-label{
+        font-size: 12px;
+
+    }
+
+
+
+}
