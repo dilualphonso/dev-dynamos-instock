@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { InventoriesList } from "../../Components/InventoriesList/InventoriesList";
 
-export const Inventories = () => {
+const InventoryListPage = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const { id } = useParams();
-  let endpoint = 'inventories';
+  let endpoint = 'api/inventories';
   if (id) {
-    endpoint = `warehouses/${id}/inventories`;
+    endpoint = `api/warehouses/${id}/inventories`;
   }
   const inventoriesUrl = `${baseUrl}/${endpoint}`;
 
@@ -48,3 +48,5 @@ export const Inventories = () => {
     <InventoriesList inventories={inventories} warehouseId={id} />
   )
 }
+
+export default InventoryListPage;
