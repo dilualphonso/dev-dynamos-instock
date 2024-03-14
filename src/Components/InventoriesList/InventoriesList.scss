@@ -15,7 +15,7 @@
       flex-direction: row;
       justify-content: space-between;
     }
-  }  
+  }
 
   &__actions {
     @include tablet {
@@ -83,5 +83,9 @@
   &__items {
     list-style: none;
     padding: 0;
+    border-top: 0.063rem solid $secondary-cloud;
+    @include tablet {
+      border-top: none;
+    }
   }
 }
