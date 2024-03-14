@@ -16,8 +16,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      {/* work in progress */}
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/warehouses" element={<WarehousesListPage />} />
