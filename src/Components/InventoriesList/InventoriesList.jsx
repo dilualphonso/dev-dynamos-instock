@@ -10,7 +10,7 @@ export const InventoriesList = ({ inventories, warehouseId }) => {
           <form action="/search" method="get" className="inventories-list__search-container">
             <input type="search" className="inventories-list__search" placeholder="Search..."></input>
           </form>
-          <button className="inventories-list__add-button">Add New Item</button>
+          <button className="inventories-list__button">+ Add New Item</button>
         </div>
       </div>
 
@@ -35,5 +35,4 @@ export const InventoriesList = ({ inventories, warehouseId }) => {
       </ul>
     </section>
   )
-
 }

@@ -1,3 +1,99 @@
-.warehouse-inventory {
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+.inventory {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-top: 0.063rem solid $secondary-cloud;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    align-content: baseline;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  &__warehouse {
+    margin-left: 12rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__value {
+    @include mobile-font-h3;
+  }
+
+  &__item-name {
+    color: #2e66e5;
+    display: flex;
+    align-items: center;
+    @include tablet {
+      padding-top: 0.7rem;
+    }
+  }
+
+  &__status-text {
+    text-transform: uppercase;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 20px;
+    background-color: rgb(234, 234, 234);
+  }
+
+  &__actions {
+    @include tablet {
+      gap: 1rem;
+    }
+  }
+}
+
+.inventory__label {
+  @include tablet {
+    display: none;
+  }
+}
+
+.inventory__warehouse--has-warehouse {
   display: none;
+}
+
+.red-text {
+  color: $sup-red;
+}
+
+.green-text {
+  color: $sup-green;
 }
