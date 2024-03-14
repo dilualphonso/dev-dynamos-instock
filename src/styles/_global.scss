@@ -35,6 +35,10 @@ button {
 
 }
 
+legend{
+  @include formFieldHeading();
+}
+
 label{
   font-family: Titillium-Bold, sans-serif;
   font-size: 0.8125rem;
