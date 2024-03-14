@@ -8,7 +8,7 @@ function WarehouseDetailsForm() {
         <section className="warehouse-form">
             <form className="warehouse-form__form">
                 <fieldset className="warehouse-form__details-container">
-                    <legend>Warehouse Details</legend>
+                    <legend className="warehouse-form__sub-heading">Warehouse Details</legend>
 
                     <label className="warehouse-form__label" htmlFor="warehouseName">Warehouse Name</label>
                     <input className="warehouse-form__input" type="text" name="warehouseName" id="warehouseName" placeholder="Warehouse Name"/>
@@ -22,17 +22,17 @@ function WarehouseDetailsForm() {
 
                     <label className="warehouse-form__label" htmlFor="city">City</label>
                     <input className="warehouse-form__input" type="text" name="city" id="city" placeholder="City"/>
-                    {false&&
+                    {false &&
                     <label className="warehouse-form__label warehouse-form__label--error" htmlFor="city"></label>}
 
                     <label className="warehouse-form__label" htmlFor="country">Country</label>
                     <input className="warehouse-form__input" type="text" name="country" id="country" placeholder="Country"/>
-                    {false&&
+                    {false &&
                     <label className="warehouse-form__label warehouse-form__label--error" htmlFor="country"></label>}
 
                 </fieldset>
                 <fieldset className="warehouse-form__contact-container">
-                    <legend>Contact Details</legend>
+                    <legend className="warehouse-form__sub-heading">Contact Details</legend>
 
                     <label className="warehouse-form__label" htmlFor="contactName">Contact Name</label>
                     <input className="warehouse-form__input" type="text" name="contactName" id="contactName" placeholder="Contact Name"/>
@@ -46,12 +46,12 @@ function WarehouseDetailsForm() {
 
                     <label className="warehouse-form__label" htmlFor="phoneNumber">Phone Number</label>
                     <input className="warehouse-form__input" type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"/>
-                    {false&&
+                    {false &&
                     <label className="warehouse-form__label warehouse-form__label--error" htmlFor="phoneNumber"></label>}
 
                     <label className="warehouse-form__label" htmlFor="email">Email</label>
                     <input className="warehouse-form__input" type="text" name="email" id="email" placeholder="Email"/>
-                    {false&&
+                    {false &&
                     <label className="warehouse-form__label warehouse-form__label--error" htmlFor="email"></label>}
 
                 </fieldset>
