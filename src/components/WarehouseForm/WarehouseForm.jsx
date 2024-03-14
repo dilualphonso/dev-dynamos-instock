@@ -9,7 +9,8 @@ function WarehouseDetailsForm() {
             <form className="warehouse-form__form">
                 <fieldset className="warehouse-form__details-container">
                     {/* Use h3 instead of fieldset as the styling of fieldset would have required non-felx styling */}
-                    <h3 className="warehouse-form__sub-heading">Warehouse Details</h3>
+                    <legend className="warehouse-form__sub-heading warehouse-form__sub-heading--in-border">Warehouse Details</legend>
+                    <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Warehouse Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="warehouseName">Warehouse Name</label>
                     <input className="warehouse-form__input" type="text" name="warehouseName" id="warehouseName" placeholder="Warehouse Name"/>
@@ -34,7 +35,8 @@ function WarehouseDetailsForm() {
                 </fieldset>
                 <fieldset className="warehouse-form__contact-container">
                     {/* Use h3 instead of fieldset as the styling of fieldset would have required non-felx styling */}
-                    <h3 className="warehouse-form__sub-heading">Contact Details</h3>
+                    <legend className="warehouse-form__sub-heading warehouse-form__sub-heading--in-border">Contact Details</legend>
+                    <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Contact Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="contactName">Contact Name</label>
                     <input className="warehouse-form__input" type="text" name="contactName" id="contactName" placeholder="Contact Name"/>
