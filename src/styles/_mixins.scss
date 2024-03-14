@@ -40,6 +40,11 @@
   line-height: 2.25rem;
   color: $primary-black;
   margin: 0;
+
+  @include tablet(){
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
 }
 
 @mixin formFieldHeading() {
@@ -48,6 +53,11 @@
   line-height: 1.75rem;
   color: $primary-black;
   margin: 0;
+
+  @include tablet(){
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 @mixin backArrowStyle() {
@@ -86,6 +96,7 @@
   color: $secondary-slate;
   background-color: $white;
   border: 0.0625rem solid $secondary-cloud;
+  font-weight: 600;
 
   &:hover {
     color: $primary-indigo;
