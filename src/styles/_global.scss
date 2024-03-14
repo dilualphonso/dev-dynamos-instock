@@ -1,3 +1,7 @@
+@use "./colors" as *;
+@use "./typography" as *;
+@use "./mixins" as *;
+
 *,
 *::before,
 *::after {
@@ -17,4 +21,59 @@ button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 1.25rem;
+
+  @include tablet(){
+    height: 2.375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+}
+
+legend{
+  @include formFieldHeading();
+}
+
+label{
+  font-family: Titillium-Bold, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: $primary-black;
+  padding-bottom: 0.25rem;
+}
+
+input{
+  border-radius: 1.25rem;
+  background-color: $white;
+  margin: 0;
+  padding: 0.25rem 1rem;
+  width: 100%;
+  height: 2.25rem;
+  outline: none;
+  border: 0.0625rem solid $secondary-cloud;
+
+  font-family: Titillium-Regular, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: $primary-black;
+  
+  @include tablet(){
+    height: 2.375rem;
+  }
+
+  &:active, &:focus, &:focus-within{
+    border-color: $primary-indigo;
+  }
+
+  ::placeholder{
+    font-family: Titillium-Regular, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    color: $secondary-slate;
+  }
+
 }
