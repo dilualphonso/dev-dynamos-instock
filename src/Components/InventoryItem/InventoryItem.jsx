@@ -59,9 +59,9 @@ export const InventoryItem = ({ inventory, warehouseId }) => {
         </div>
       </div>
       <div className="inventory__actions">
-        <button className="inventory__action-button" onClick={handleDeleteClick}>
+        <div className="inventory__action-button" onClick={handleDeleteClick}>
           <DeleteIcon />
-        </button>
+        </div>
         <Link to={`/inventory/${id}/edit`} className="inventory__action-button">
           <EditIcon />
         </Link>

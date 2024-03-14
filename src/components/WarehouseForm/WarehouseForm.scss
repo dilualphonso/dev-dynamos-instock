@@ -1,0 +1,76 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+
+.fieldsetStyle{
+    @include columnFlex();
+    align-items: flex-start;
+    border: none;
+    padding: 0 1.5rem;
+}
+
+.warehouse-form{
+    @include columnFlex();
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    &__form{
+        @include columnFlex();
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__details-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: 1.5rem;
+        border-bottom: 0.0625rem solid $secondary-cloud;
+    }
+
+    &__contact-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: 1.5rem;
+    }
+
+    &__sub-heading{
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__label{
+        margin-top: $mobileVerticalSpaceBetweenComponents;
+        
+    }
+
+    &__input{
+
+    }
+
+    &__error{
+
+    }
+
+    &__button-container{
+        @include rowFlex();
+        padding: 1rem 1.5rem;
+        justify-content: center;
+        background-color: $bg-light;
+
+    }
+    
+    &__button{
+        &--cancel{
+            @include buttonSecondary();
+            margin-right: 0.5rem;
+        }
+
+        &--add{
+            @include buttonPrimary();
+            margin-left: 0.5rem;
+        }
+    }
+}

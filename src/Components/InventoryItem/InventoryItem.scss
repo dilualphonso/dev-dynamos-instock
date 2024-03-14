@@ -83,6 +83,13 @@
   }
 
   &__actions {
+    &-button {
+      cursor: pointer;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
     @include tablet {
       display: flex;
       flex-direction: row;
@@ -90,7 +97,7 @@
       gap: 1rem;
       padding-top: 0.5rem;
     }
-  }
+  }  
 }
 
 .inventory__label {
