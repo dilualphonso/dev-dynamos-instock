@@ -11,12 +11,17 @@
         // flex-direction: row;
     }
     &__container{
-        display:flex;
+       display:flex;
         flex-direction: row;
+        justify-content: space-between;
+
         margin-left: 1rem;
         margin-right: 1rem;
         @include tablet{
-        justify-content: space-between;
+            display: inline;
+       // min-width: 10rem;
+
+
 
         }
 
@@ -27,7 +32,7 @@
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
-        width: 50%;
+       // width: 50%;
         @include tablet{
             flex-direction: row;
             justify-content: space-between;
@@ -38,7 +43,7 @@
         flex-direction: column;
         // justify-content: left;
          //align-items: last baseline;
-        width: 50%;
+       // width: 50%;
        //justify-content: flex-start;
        @include tablet {
         flex-direction: row;
@@ -218,9 +223,13 @@ align-items: flex-start;
  }
  &__wrapper {
     @include tablet{
+
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    //justify-content: space-between;
+    //flex-basis: 150px;
+
+
 
     }
  }
