@@ -16,15 +16,19 @@
 
         //width: 100%;
         width: 100%;
-        height: 2rem;
+        height: 2.25rem;
         margin-top: 1rem;
         background-color: $primary-indigo;
         border-radius: 20px;
         @include mobile-font-h3;
         color :$white;
-        padding-bottom: 10px;
-        padding-top: 5px;
+
+        padding: 1rem;
         margin-bottom: 1.5rem;
+        @include tablet {
+            height: 2.375rem;
+           // margin-left: 2rem;
+        }
 
 
 
@@ -37,7 +41,8 @@
         border: 1px solid $secondary-cloud;
         background-color: none;
         background-image: url('../../assets/Icons/search-24px.svg');
-        background-position: 15.5rem 0.25rem;
+        background-position: 95% 0.25rem;
+
         background-repeat: no-repeat;
         padding-left: 1rem;
         padding-bottom: 0.625rem;
@@ -45,15 +50,42 @@
         @include mobile-font-h3;
         //margin-bottom: 1rem;
 
+        @include tablet{
+            height: 2.375rem;
+
+        }
+
 
     }
     &__top-container{
-        display: flexbox;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+       // justify-content: center;
+        //align-items: center;
 margin-left: 1rem;
 margin-right: 1rem;
+margin-left: 2rem;
+margin-right: 2rem;
+
+
+@include tablet{
+
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+    }
+
+    &__left-wrapper{
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+           align-items: last baseline;
+            //justify-content: flex-end;
+            gap: 1rem;
+
+        }
     }
 
 

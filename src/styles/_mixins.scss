@@ -20,6 +20,13 @@
     line-height: 1.25rem;
 
 }
+@mixin desktop-tablet-font-h3{
+  font-size: 0.873rem;
+  font-weight: 600;
+    font-family: "Titillium-SemiBold";
+    line-height: 1.375rem;
+
+}
 
 // @mixin mobile-font-h3{
 //   font-size: 0.875rem;

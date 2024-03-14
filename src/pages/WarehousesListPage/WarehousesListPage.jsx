@@ -28,7 +28,7 @@ function WarehousesListPage (){
         <section className="warehouses">
             <div className="warehouses__top-container">
             <h1 className="warehouses__title">Warehouses</h1>
-        <div>
+             <div className="warehouses__left-wrapper">
             <div>
             <input className='warehouses__search' type = "text" placeholder="Search..."/>
            </div>

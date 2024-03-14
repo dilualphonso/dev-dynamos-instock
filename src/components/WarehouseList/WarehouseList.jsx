@@ -3,60 +3,89 @@ import './WarehouseList.scss';
 import ArrowImage from "../../assets/Icons/chevron_right-24px.svg"
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg"
 import editIcon from "../../assets/Icons/edit-24px.svg"
-function WarehouseList ({warehouses}){
+import sortIcon from "../../assets/Icons/sort-24px.svg"
+function WarehouseList({ warehouses }) {
   // console.log(warehouses);
 
-    return (
-        <section className="warehouse">
+  return (
+    <section className="warehouse">
 
-        <div>
-
-
-
-      {warehouses.map((warehouse) => (
-        <div key={warehouse.id}>
-               <hr className="warehouse__divider"/>
-
-               <div className="warehouse__container">
-
-<div className="warehouse__left-container">
-          <div className="warehouse__name-container">
-
-            <h4 className="warehouse__name-label">Warehouse</h4>
-            <div className="warehouse__arrow-wrapper">
-            <div className="warehouse__name">{warehouse.warehouse_name}</div>
-            <img className="warehouse__arrowImg" src={ArrowImage} alt= "arrowImage"/>
-            </div>
-
-
+      <div>
+        <div className="warehouse__tab-headings">
+          <div className="warehouse__headings-name">
+            <h4 className="warehouse__name-heading">Warehouse</h4>
+            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
           </div>
-          <div className="warehouse__address-container">
-            <h4 className="warehouse__address-label">Address</h4>
-            <div className="warehouse__address">{warehouse.address},<div>{warehouse.city},{warehouse.country}</div></div>
+          <div className="warehouse__headings-address">
+            <h4 className="warehouse__address-heading">Address</h4>
+            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
           </div>
-          <img src ={deleteIcon} alt ="delete-trash"/>
+          <div className="warehouse__headings-contact-name">
+            <h4 className="warehouse__contact-name-heading">Contact Name</h4>
+            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
           </div>
-          <div className="warehouse__right-container">
-          <div className="warehouse__contact-name-container">
-            <h4 className="warehouse__contact-name-label">Contact Name</h4>
-            <div className="warehouse__contact-name">{warehouse.contact_name}</div>
+          <div className="warehouse__headings-contact-info">
+            <h4 className="warehouse__contact-info-heading">Contact Information</h4>
+            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
           </div>
 
-          <div className="warehouse__contact-info-container">
-            <h4 className="warehouse__contact-info-label">Contact Information</h4>
-            <div className="warehouse__contact-phone" >{warehouse.contact_phone}</div>
-            <div className="warehouse__contact-email">{warehouse.contact_email}</div>
-          </div>
-            <img className ="warehouse__edit-icon"src={editIcon} alt="edit-icon" />
-          </div>
-          </div>
-
+          <h4 className="warehouse__actions">Actions</h4>
+          <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
         </div>
-      ))}
-    </div>
+        {warehouses.map((warehouse) => (
+          <div key={warehouse.id}>
+            <hr className="warehouse__divider" />
+            <div className='warehouse__wrapper'>
+
+              <div className="warehouse__container">
+
+                <div className="warehouse__left-container">
+                  <div className="warehouse__name-container">
+
+                    <h4 className="warehouse__name-label">Warehouse</h4>
+                    <div className="warehouse__arrow-wrapper">
+                      <div className="warehouse__name">{warehouse.warehouse_name}</div>
+                      <img className="warehouse__arrowImg" src={ArrowImage} alt="arrowImage" />
+                    </div>
+
+
+                  </div>
+                  <div className="warehouse__address-container">
+                    <h4 className="warehouse__address-label">Address</h4>
+                    <div className="warehouse__address">{warehouse.address},<div>{warehouse.city},</div>{warehouse.country}</div>
+                  </div>
+
+                </div>
+                <div className="warehouse__right-container">
+                  <div className="warehouse__contact-name-container">
+                    <h4 className="warehouse__contact-name-label">Contact Name</h4>
+                    <div className="warehouse__contact-name">{warehouse.contact_name}</div>
+                  </div>
+
+                  <div className="warehouse__contact-info-container">
+                    <h4 className="warehouse__contact-info-label">Contact Information</h4>
+                    <div className='warehouse__contact-info'>
+                      <div className="warehouse__contact-phone" >{warehouse.contact_phone}</div>
+                      <div className="warehouse__contact-email">{warehouse.contact_email}</div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div className='warehouse__icons'>
+                <img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" />
+                <img className="warehouse__edit-icon" src={editIcon} alt="edit-icon" />
+              </div>
+            </div>
+          </div>
+
+        ))}
+      </div>
 
     </section>
-    );
+  );
 }
 
-export default  WarehouseList;
+export default WarehouseList;
