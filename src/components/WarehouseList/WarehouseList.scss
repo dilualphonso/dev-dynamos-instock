@@ -26,6 +26,8 @@
         // justify-content: left;
          //align-items: last baseline;
         width: 50%;
+       //justify-content: flex-start;
+
 
     }
 
@@ -43,10 +45,11 @@
         text-align: left;
         //font-family:"Titillium-Regular" ;
         @include mobile-font-body-medium;
+        margin-bottom: 1rem;
     }
     &__name{
         color :#2E66E5;
-        @include mobile-font-body-medium;
+        @include mobile-font-h3;
 
 
 
@@ -123,7 +126,16 @@ align-items: flex-start;
     &__divider{
         border:1px solid $secondary-cloud;
     }
+ &__edit-icon{
+    height:1.5rem;
+    width: 1.5rem;
+    margin-right:1rem;
+    margin-top: 1rem;
+    //align-items: flex-end;
+    margin-left: 7rem;
+    margin-bottom: 1rem;
 
+ }
 
 
 }
