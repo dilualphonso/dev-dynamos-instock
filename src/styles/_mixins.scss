@@ -38,3 +38,52 @@
   margin-right: 0.5rem;
   background: url("../assets/icons/arrow_back-24px.svg");
 }
+
+@mixin columnFlex(){
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@mixin rowFlex(){
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+@mixin buttonPrimary(){
+  color: $white;
+  background-color: $primary-indigo;
+  border: none;
+
+  &:hover{
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}
+
+@mixin buttonSecondary(){
+  color: $secondary-slate;
+  background-color: $white;
+  border: 0.0625rem solid $secondary-cloud;
+
+  &:hover{
+    color: $primary-indigo;
+    background-color: $white;
+    border: 0.0625rem solid $primary-indigo;
+  }
+}
+
+@mixin buttonDelete(){
+  color: $white;
+  background-color: $sup-red;
+  border: none;
+
+  &:hover{
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}
