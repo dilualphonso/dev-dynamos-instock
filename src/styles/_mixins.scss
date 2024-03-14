@@ -13,10 +13,28 @@
     @content;
   }
 }
-// @mixin buttonstyle() {
-// }
 
-@mixin pageHeading(){
+@mixin mobile-font-h3 {
+  font-size: 0.813rem;
+  font-weight: 600;
+  font-family: "Titillium-SemiBold";
+  line-height: 1.25rem;
+}
+
+@mixin mobile-font-body-large {
+  font-size: 0.938rem;
+  font-family: "Titillium-Regular";
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin mobile-font-body-medium {
+  font-size: 0.813rem;
+  font-family: "Titillium-Regular";
+  line-height: 1.25rem;
+}
+
+@mixin pageHeading() {
   font-family: Titillium-SemiBold, sans-serif;
   font-size: 1.75rem;
   line-height: 2.25rem;
@@ -29,7 +47,7 @@
   }
 }
 
-@mixin formFieldHeading(){
+@mixin formFieldHeading() {
   font-family: Titillium-SemiBold, sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -42,57 +60,57 @@
   }
 }
 
-@mixin backArrowStyle(){
+@mixin backArrowStyle() {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 0.5rem;
   background: url("../assets/icons/arrow_back-24px.svg");
 }
 
-@mixin columnFlex(){
+@mixin columnFlex() {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
   justify-content: flex-start;
 }
 
-@mixin rowFlex(){
+@mixin rowFlex() {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
 }
 
-@mixin buttonPrimary(){
+@mixin buttonPrimary() {
   color: $white;
   background-color: $primary-indigo;
   border: none;
 
-  &:hover{
+  &:hover {
     color: $white;
     background-color: $bg-dark;
     border: none;
   }
 }
 
-@mixin buttonSecondary(){
+@mixin buttonSecondary() {
   color: $secondary-slate;
   background-color: $white;
   border: 0.0625rem solid $secondary-cloud;
   font-weight: 600;
 
-  &:hover{
+  &:hover {
     color: $primary-indigo;
     background-color: $white;
     border: 0.0625rem solid $primary-indigo;
   }
 }
 
-@mixin buttonDelete(){
+@mixin buttonDelete() {
   color: $white;
   background-color: $sup-red;
   border: none;
 
-  &:hover{
+  &:hover {
     color: $white;
     background-color: $bg-dark;
     border: none;

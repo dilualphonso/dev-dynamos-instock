@@ -1,4 +1,10 @@
-function InventoryListPage() {
-  return <div></div>;
+import { InventoriesList } from "../../components/InventoriesList/InventoriesList";
+
+const InventoryListPage = () => {
+
+  return (
+    <InventoriesList />
+  )
 }
+
 export default InventoryListPage;
