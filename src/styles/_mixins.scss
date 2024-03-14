@@ -1,4 +1,6 @@
-@use "variables" as *;
+@use "./variables" as *;
+@use "./typography" as *;
+@use "./colors" as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -13,3 +15,26 @@
 }
 // @mixin buttonstyle() {
 // }
+
+@mixin pageHeading(){
+  font-family: Titillium-SemiBold, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  color: $primary-black;
+  margin: 0;
+}
+
+@mixin formFieldHeading(){
+  font-family: Titillium-SemiBold, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $primary-black;
+  margin: 0;
+}
+
+@mixin backArrowStyle(){
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  background: url("../assets/icons/arrow_back-24px.svg");
+}
