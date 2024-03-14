@@ -1,5 +1,6 @@
 import './InventoriesList.scss'
 import { InventoryItem } from '../InventoryItem/InventoryItem'
+import { Link } from 'react-router-dom'
 
 export const InventoriesList = ({ inventories, warehouseId }) => {
   return (
@@ -10,7 +11,9 @@ export const InventoriesList = ({ inventories, warehouseId }) => {
           <form action="/search" method="get" className="inventories-list__search-container">
             <input type="search" className="inventories-list__search" placeholder="Search..."></input>
           </form>
-          <button className="inventories-list__button">+ Add New Item</button>
+          <button className="inventories-list__button">
+            <Link to="/inventory/add" className="link-white">+ Add New Item</Link>
+          </button>
         </div>
       </div>
 

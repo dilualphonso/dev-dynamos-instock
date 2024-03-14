@@ -19,6 +19,7 @@ export const InventoryItem = ({ inventory, warehouseId }) => {
 
   const handleDeleteClick = () => {
     setDeleteConfirm(true);
+    console.log('a popup window is needed');
   }
 
   return (

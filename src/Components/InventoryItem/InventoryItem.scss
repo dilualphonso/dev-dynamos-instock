@@ -8,6 +8,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 0.063rem solid $secondary-cloud;
+  white-space: nowrap;
 
   @include tablet {
     display: flex;
@@ -17,6 +18,13 @@
     align-content: baseline;
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  &__box {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__container {
@@ -67,6 +75,7 @@
 
   &__status-text {
     text-transform: uppercase;
+    white-space: nowrap;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     border-radius: 20px;
@@ -75,7 +84,11 @@
 
   &__actions {
     @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
       gap: 1rem;
+      padding-top: 0.5rem;
     }
   }
 }

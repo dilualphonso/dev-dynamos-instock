@@ -21,7 +21,6 @@ const InventoryListPage = () => {
       try {
         const response = await axios.get(inventoriesUrl);
         setInventories(response.data);
-        console.log(inventories);
         setIsLoading(false);
 
       } catch (err) {
