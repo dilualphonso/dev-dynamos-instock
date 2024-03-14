@@ -4,38 +4,45 @@
 
 
 .warehouse{
-
+width:100%;
 
     @include tablet {
-        //  display: flex;
-        // flex-direction: row;
+         display: flex;
+        flex-flow: column nowrap;
     }
     &__container{
-       display:flex;
+        width:100%;
+        display:flex;
         flex-direction: row;
-        justify-content: space-between;
-
         margin-left: 1rem;
         margin-right: 1rem;
         @include tablet{
-            display: inline;
-       // min-width: 10rem;
-
-
+        min-width: none;
+        margin: 0;
+background-color: #2E66E5;
+flex-basis: 90%;
 
         }
 
 
+    }
+
+    &__warehouse__box{
+        width:100%;
+        display:flex;
     }
     &__left-container{
         display:flex;
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
-       // width: 50%;
+        width: 50%;
         @include tablet{
             flex-direction: row;
             justify-content: space-between;
+            width:100%;
+            background-color: green;
+            flex-basis: 45%;
              }
     }
     &__right-container{
@@ -43,12 +50,14 @@
         flex-direction: column;
         // justify-content: left;
          //align-items: last baseline;
-       // width: 50%;
+        width: 50%;
        //justify-content: flex-start;
        @include tablet {
         flex-direction: row;
         justify-content: space-between;
-
+        width:100%;
+        flex-basis: 55%;
+        background-color: red;
        }
 
 
@@ -74,8 +83,10 @@
         margin-bottom: 1rem;
         @include tablet{
            width:10rem;
-           margin-left: 2rem;
-           padding-right: 1rem;
+        //    margin-left: 2rem;
+        //    padding-right: 1rem;
+        margin:0;
+        padding:0;
 
 
 
@@ -88,8 +99,10 @@
         @include tablet{
             //width:10rem;
         // margin-left: 2rem;
-        padding-left: 1rem;
+        //padding-left: 1rem;
        // margin-right: 1rem;
+       margin:0;
+       padding:0;
          }
 
 
@@ -100,7 +113,8 @@
 display:flex;
 flex-direction: row;
 @include tablet {
-    width: 9rem
+   // width: 9rem
+   width: 100%;
 }
     }
     &__name-label{
@@ -117,7 +131,8 @@ justify-content: flex-start;
 align-items: flex-start;
 @include tablet{
    // width: 7rem;
-    flex-basis: 20%;
+    flex-basis: 45%;
+    background-color: blueviolet;
 }
     }
 
@@ -126,6 +141,11 @@ align-items: flex-start;
         flex-direction: column;
         justify-content: flex-start;
 align-items: flex-start;
+@include tablet{
+    width:100%;
+    flex-basis: 45%;
+    background-color: blue;
+}
 
     }
 
@@ -145,6 +165,11 @@ align-items: flex-start;
         flex-direction: column;
         justify-content: flex-start;
 align-items: flex-start;
+@include tablet{
+    width:100%;
+    flex-basis: 55%;
+    background-color: saddlebrown;
+}
     }
 
     &__contact-info-label{
@@ -170,6 +195,7 @@ align-items: flex-start;
         @include mobile-font-body-medium;
         @include tablet{
             width: 8rem;
+          // width: 100%;
         }
     }
     &__contact-email{
@@ -217,19 +243,19 @@ align-items: flex-start;
     flex-direction: row;
     justify-content: space-between;
     @include tablet{
-        width:6rem;
+       // width:6rem;
+       flex-basis: 10%;
+       background-color: aqua;
     }
 
  }
  &__wrapper {
     @include tablet{
-
     display: flex;
     flex-direction: row;
-    //justify-content: space-between;
-    //flex-basis: 150px;
-
-
+    justify-content: space-between;
+    background-color: bisque;
+    width: 100%;
 
     }
  }
@@ -246,14 +272,17 @@ align-items: flex-start;
     display:none;
     @include tablet {
     display: flex;
-     flex-direction: row;
+     //flex-direction: row;
     justify-content: space-between;
+   // justify-content: flex-start;
     @include desktop-tablet-font-h3;
     //margin-left: 2rem;
     background-color: $bg-light;
     //margin-right: 2rem;
-    //width: 100%;
+    width: 100%;
     height: 2rem;
+    margin: 0;
+    padding: 0;
 
 
     }
@@ -286,9 +315,13 @@ align-items: flex-start;
             //padding-bottom:1.75rem;
             //margin-left: 2rem;
             //width: 7rem;
-            padding-right: 2rem;
+            //padding-right: 2rem;
             //padding-top: 4px;
-            padding-top: 4px;
+           padding:0;
+           margin: 0;
+            flex-basis: 23%;
+            width: 100%;
+            background-color: orange;
 
 
         }
@@ -340,10 +373,12 @@ align-items: flex-start;
     @include tablet {
         display: flex;
         flex-direction: row;
-        margin-left: 2rem;
-        //padding-bottom:1.75rem;
-        margin-bottom: 0;
-        padding-top: 4px;
+        padding:0;
+        margin: 0;
+      //  padding-top: 4px;
+      flex-basis: 18.5%;
+      width:100%;
+     // background-color: blueviolet;
 
 
 
@@ -356,11 +391,11 @@ align-items: flex-start;
     @include tablet {
         display: flex;
         flex-direction: row;
-        margin-right: 1rem;
-       // padding-bottom:1.75rem;
-       // margin-left: 1rem;
-       //padding-left: 1rem;
-       padding-top: 4px;
+        padding:0;
+        margin: 0;
+        flex-basis: 27%;
+        width: 100%;
+       // background-color: blue;
 
 
 
@@ -382,11 +417,15 @@ align-items: flex-start;
     @include tablet {
         display: flex;
         flex-direction: row;
-        //margin-right: 2rem;
-        //padding-bottom:1.75rem;
-        margin-right: 1.5rem;
-        padding-top: 4px;
-
+        // //margin-right: 2rem;
+        // //padding-bottom:1.75rem;
+        // margin-right: 1.5rem;
+        // padding-top: 4px;
+        padding:0;
+        margin: 0;
+        flex-basis: 25%;
+        width: 100%;
+        background-color: saddlebrown;
 
 
 
@@ -445,11 +484,18 @@ align-items: flex-start;
     @include tablet {
         display: flex;
         flex-direction: row;
-        margin-right: 2rem;
+        //margin-right: 2rem;
         //padding-bottom:2rem;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 4px;
+       // padding-top: 4px;
+       width: 100%;
+       flex-basis: 9%;
+//align-items: end;
+//align-items: flex-end;
+justify-content: left;
+       background-color: aqua;
+
 
 
 
@@ -475,6 +521,25 @@ align-items: flex-start;
         height: 2rem;
 
 
+    }
+ }
+
+ &__test{
+    display: none;
+    @include tablet {
+        display: flex;
+       // justify-content: flex-start;
+        justify-content: space-between;
+     width:100%;
+    }
+ }
+
+ &__address-container{
+    @include tablet {
+        width:100%;
+        display:flex;
+        flex-basis: 55%;
+        background-color: orange;
     }
  }
 

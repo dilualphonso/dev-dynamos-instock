@@ -10,7 +10,7 @@ function WarehouseList({ warehouses }) {
   return (
     <section className="warehouse">
 
-      <div>
+      <div className= "warehouse__box">
         <div className="warehouse__tab-headings">
           <div className="warehouse__headings-name">
             <h4 className="warehouse__name-heading">Warehouse</h4>
@@ -30,11 +30,11 @@ function WarehouseList({ warehouses }) {
           </div>
 
           <h4 className="warehouse__actions">Actions</h4>
-          <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
+          {/* <img className="warehouse__sort" src={sortIcon} alt="sorting icon" /> */}
         </div>
         {warehouses.map((warehouse) => (
-          <div key={warehouse.id}>
-            <hr className="warehouse__divider" />
+          <div className="warehouse__test" key={warehouse.id}>
+
             <div className='warehouse__wrapper'>
 
               <div className="warehouse__container">
@@ -52,7 +52,7 @@ function WarehouseList({ warehouses }) {
                   </div>
                   <div className="warehouse__address-container">
                     <h4 className="warehouse__address-label">Address</h4>
-                    <div className="warehouse__address">{warehouse.address},<div>{warehouse.city},</div>{warehouse.country}</div>
+                    <p className="warehouse__address">{warehouse.address},{warehouse.city},{warehouse.country}</p>
                   </div>
 
                 </div>
@@ -78,7 +78,9 @@ function WarehouseList({ warehouses }) {
                 <img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" />
                 <img className="warehouse__edit-icon" src={editIcon} alt="edit-icon" />
               </div>
+
             </div>
+           {/* / <hr className="warehouse__divider" /> */}
           </div>
 
         ))}
