@@ -41,7 +41,7 @@ export const InventoriesList = ({ id }) => {
   }
 
   if (inventories.length === 0) {
-    return <p>No inventories available</p>
+    return;
   }
 
   return (
