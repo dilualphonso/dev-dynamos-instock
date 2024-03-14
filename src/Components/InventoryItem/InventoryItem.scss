@@ -97,7 +97,7 @@
       gap: 1rem;
       padding-top: 0.5rem;
     }
-  }  
+  }
 }
 
 .inventory__label {
@@ -117,3 +117,46 @@
 .green-text {
   color: $sup-green;
 }
+
+// .inventory__box {
+//   display: flex;
+
+//   .inventory__container {
+//     flex-basis: 70%;
+
+//     .inventory__wrapper {
+//       flex-basis: 70%;
+
+//       .inventory__details-left {
+//         flex-basis: 40%;
+
+//         .inventory__item {
+//           flex-basis: 40%;
+//         }
+//         .inventory__category {
+//           flex-basis: 40%;
+//         }
+//       }
+
+//       .inventory__details-right {
+//         flex-basis: 40%;
+
+//         .inventory__status {
+//           flex-basis: 40%;
+//         }
+//         .inventory__quantity {
+//           flex-basis: 40%;
+//         }
+//       }
+//     }
+
+//     .inventory__warehouse {
+//       flex-basis: 20%;
+//     }
+//   }
+
+//   .inventory__actions {
+//     flex: 10%;
+//     justify-content: center;
+//   }
+// }
