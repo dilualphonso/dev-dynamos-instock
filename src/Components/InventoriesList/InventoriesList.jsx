@@ -43,7 +43,7 @@ export const InventoriesList = ({ id }) => {
   }
 
   return (
-    <section className="inventories-list">
+    <article className="inventories-list">
       {!id &&
         <div className="inventories-list__header">
           <h1 className="inventories-list__title">Inventory</h1>
@@ -80,6 +80,6 @@ export const InventoriesList = ({ id }) => {
           )
         )}
       </ul>
-    </section>
+    </article>
   )
 }
