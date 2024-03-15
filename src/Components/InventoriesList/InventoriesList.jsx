@@ -43,7 +43,7 @@ export const InventoriesList = ({ id }) => {
   }
 
   return (
-    <section className="inventories-list">
+    <article className="inventories-list">
       {!id &&
         <div className="inventories-list__header">
           <h1 className="inventories-list__title">Inventory</h1>
@@ -62,7 +62,11 @@ export const InventoriesList = ({ id }) => {
         <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
         <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
         <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
-        <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
+        {!id && (
+          <p className="inventories-list__label inventories-list__labels--warehouse">
+            WAREHOUSE
+          </p>
+        )}
         <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
       </div>
 
@@ -76,6 +80,6 @@ export const InventoriesList = ({ id }) => {
           )
         )}
       </ul>
-    </section>
+    </article>
   )
 }

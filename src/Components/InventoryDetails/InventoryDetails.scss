@@ -15,8 +15,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
     border-bottom: 0.0625rem solid $secondary-cloud;
     @include pageHeading;
   }
