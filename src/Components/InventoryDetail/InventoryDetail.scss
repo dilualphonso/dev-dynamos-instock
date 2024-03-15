@@ -1,0 +1,93 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+.inventory-detail__edit-button {
+  background-color: $primary-indigo;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.inventory-detail__edit-icon {
+  display: inline-block;
+}
+.inventory-detail__edit-text {
+  display: none;
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.inventory-detail {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.063rem solid $secondary-cloud;
+    @include pageHeading;
+  }
+
+  &__icon {
+    margin-top: 0.5rem;
+  }
+
+  &__name {
+    margin-left: 1rem;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: baseline;
+    color: $primary-black;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  &__label {
+    @include itemLabel;
+  }
+
+  &__text {
+    @include itemText;
+  }
+
+  &__status-quantity {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  &__status-quantity-details {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+  }
+
+  &__text-status {
+    @include stockStatus;
+  }
+}
+
+.red-text {
+  color: $sup-red;
+}
+
+.green-text {
+  color: $sup-green;
+}
