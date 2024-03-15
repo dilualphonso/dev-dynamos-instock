@@ -2,597 +2,461 @@
 @use '../../styles/mixins'as *;
 @use '../../styles/typography'as *;
 
-
-.warehouse{
-width:100%;
+.warehouse {
+    width: 100%;
 
     @include tablet {
-         display: flex;
+        display: flex;
         flex-flow: column nowrap;
     }
-    &__container{
-        width:100%;
-        display:flex;
+
+    &__container {
+        width: 100%;
+        display: flex;
         flex-direction: row;
-       // margin-left: 1rem;
-       // margin-right: 1rem;
-        @include tablet{
-       // min-width: none;
 
-        margin: 0;
-//background-color: #2E66E5;
-padding: 0;
-flex-basis: 90%;
-gap:5%;
-
+        @include tablet {
+            margin: 0;
+            padding: 0;
+            flex-basis: 90%;
+            gap: 5%;
         }
 
-        @include desktop{
+        @include desktop {
             flex-basis: 90%;
             gap: 12%;
         }
-
-
     }
 
-    &__warehouse__box{
-        width:100%;
-        display:flex;
+    &__warehouse__box {
+        width: 100%;
+        display: flex;
     }
-    &__left-container{
-        display:flex;
+
+    &__left-container {
+        display: flex;
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
         margin-left: 1rem;
         width: 50%;
-        @include tablet{
+
+        @include tablet {
             flex-direction: row;
             justify-content: space-between;
-            width:100%;
-            //background-color: green;
+            width: 100%;
             flex-basis: 40%;
-             }
+        }
     }
-    &__right-container{
-        display:flex;
+
+    &__right-container {
+        display: flex;
         flex-direction: column;
-        // justify-content: left;
-         //align-items: last baseline;
         width: 45%;
-       //justify-content: flex-start;
-       @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        width:100%;
-        flex-basis: 55%;
-       // background-color: red;
-       }
 
-
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            flex-basis: 55%;
+        }
     }
 
-    &__address-label{
+    &__address-label {
         text-align: left;
         @include mobile-font-h3;
         color: $secondary-slate;
         margin-bottom: 0rem;
         text-transform: uppercase;
-        @include tablet{
-            display:none;
+
+        @include tablet {
+            display: none;
         }
-
-
-
     }
-    &__address{
+
+    &__address {
         text-align: left;
-        //font-family:"Titillium-Regular" ;
         @include mobile-font-body-medium;
         width: 70%;
         margin-bottom: 1rem;
         margin-top: 0;
-        @include tablet{
-           width:10rem;
-        //    margin-left: 2rem;
-        //    padding-right: 1rem;
-        margin:0;
-        padding:0;
 
-
-
+        @include tablet {
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
-
     }
-    &__name{
-        color :#2E66E5;
+
+    &__name {
+        color: #2E66E5;
         @include mobile-font-h3;
-        @include tablet{
-            //width:10rem;
-        // margin-left: 2rem;
-        //padding-left: 1rem;
-       // margin-right: 1rem;
-       margin:0;
-       padding:0;
-       margin-left: 1rem;
 
-         }
-
-
-
-
-    }
-    &__arrow-wrapper{
-display:flex;
-flex-direction: row;
-@include tablet {
-   // width: 9rem
-   width: 100%;
-}
-    }
-    &__name-label{
-       @include mobile-font-h3;
-       color: $secondary-slate;
-       margin-bottom: 0rem;
-       text-transform: uppercase;
-
-    }
-    &__name-container{
-display:flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: flex-start;
-@include tablet{
-   // width: 7rem;
-    flex-basis: 50%;
-   // background-color: blueviolet;
-   padding-top: 0.5rem;
-}
+        @include tablet {
+            margin: 0;
+            padding: 0;
+            margin-left: 1rem;
+        }
     }
 
-    &__contact-name-container{
-        display:flex;
-        flex-direction: column;
-        justify-content: flex-start;
-align-items: flex-start;
-@include tablet{
-    width:100%;
-    flex-basis: 30%;
-  //  background-color: blue;
+    &__arrow-wrapper {
+        display: flex;
+        flex-direction: row;
 
-}
-
+        @include tablet {
+            width: 100%;
+        }
     }
 
-    &__contact-name-label{
+    &__name-label {
         @include mobile-font-h3;
         color: $secondary-slate;
         margin-bottom: 0rem;
         text-transform: uppercase;
-        @include tablet{
-            display:none;
-        }
-
     }
 
-    &__contact-info-container{
-        display:flex;
+    &__name-container {
+        display: flex;
         flex-direction: column;
         justify-content: flex-start;
-align-items: flex-start;
-width: 100%;
-@include tablet{
-    width:100%;
-    flex-basis: 55%;
-    //background-color: saddlebrown;
-}
+        align-items: flex-start;
+
+        @include tablet {
+            flex-basis: 50%;
+            padding-top: 0.5rem;
+        }
     }
 
-    &__contact-info-label{
+    &__contact-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
 
+        @include tablet {
+            width: 100%;
+            flex-basis: 30%;
+        }
+    }
+
+    &__contact-name-label {
         @include mobile-font-h3;
         color: $secondary-slate;
         margin-bottom: 0rem;
         text-transform: uppercase;
-        @include tablet{
-            display:none;
-        }
 
+        @include tablet {
+            display: none;
+        }
     }
-    &__name-label{
+
+    &__contact-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+
+        @include tablet {
+            width: 100%;
+            flex-basis: 55%;
+        }
+    }
+
+    &__contact-info-label {
         @include mobile-font-h3;
         color: $secondary-slate;
-        @include tablet{
-            display:none;
-        }
+        margin-bottom: 0rem;
+        text-transform: uppercase;
 
-    }
-    &__contact-name{
-        @include mobile-font-body-medium;
-        @include tablet{
-          //  width: 8rem;
-          // width: 100%;
+        @include tablet {
+            display: none;
         }
     }
-    &__contact-email{
+
+    &__name-label {
+        @include mobile-font-h3;
+        color: $secondary-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__contact-name {
+        @include mobile-font-body-medium;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__contact-email {
         @include mobile-font-body-medium;
     }
-    &__contact-phone{
+
+    &__contact-phone {
         @include mobile-font-body-medium;
     }
-    &__arrowImg{
-        width:1.5rem;
-        height:1.5rem;
-        padding-right: 0.25rem;
 
-    }
-
- &__edit-icon{
-
-    height:1.5rem;
-    width: 1.5rem;
-    margin-right:1rem;
-    margin-top: 1rem;
-    //align-items: flex-end;
-    //margin-left: 80%;
-    margin-bottom: 1rem;
-    @include tablet{
-       // width: 1.5rem;
-    margin-right: 1rem;
-    }
-
- }
- &__delete-icon{
-
-    margin-left: 1rem;
-    @include tablet{
-       // width: 1.5rem;
+    &__arrowImg {
+        width: 1.5rem;
         height: 1.5rem;
+        padding-right: 0.25rem;
+    }
+
+    &__edit-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-right: 1rem;
         margin-top: 1rem;
-      // margin-right: 1rem;
-        margin-left: 0rem;
-    }
- }
+        margin-bottom: 1rem;
 
- &__icons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @include tablet{
-
-      flex-basis: 11%;
-       //background-color: aqua;
-       //justify-content: space-between;
-       //margin-right: 1rem;
-
-    }
-    @include desktop{
-        flex-basis: 8%;
-
+        @include tablet {
+            // width: 1.5rem;
+            margin-right: 1rem;
+        }
     }
 
- }
- &__wrapper {
-    border-top: 1px solid $secondary-cloud;
-    @include tablet{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    //background-color: bisque;
-    width: 100%;
-height: 5rem;
-padding-top: 1rem;
-align-items: center;
-padding-bottom: 1rem;
+    &__delete-icon {
+        margin-left: 1rem;
 
-    }
- }
-
- &__contact-info{
-    @include tablet{
-     //   width: 10rem;
-       // margin-left: 2rem;
+        @include tablet {
+            height: 1.5rem;
+            margin-top: 1rem;
+            margin-left: 0rem;
+        }
     }
 
- }
- &__tab-headings{
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-    display:none;
-    @include tablet {
-      //  display:none;
-    display: flex;
-     //flex-direction: row;
-    justify-content: space-between;
-   // justify-content: flex-start;
-    @include desktop-tablet-font-h3;
-    //margin-left: 2rem;
-    background-color: $bg-light;
-    //margin-right: 2rem;
-    width: 100%;
-    height: 2rem;
-    margin: 0;
-    padding: 0;
+        @include tablet {
+            flex-basis: 11%;
+        }
 
-
-
+        @include desktop {
+            flex-basis: 8%;
+        }
     }
- }
 
- &__address-heading{
-    display: none;
-    @include tablet{
-        display: unset;
-      // margin-right: 2rem;
-      padding-bottom: 0;
-      margin-top: 0;
-      margin-bottom: 0;
+    &__wrapper {
+        border-top: 1px solid $secondary-cloud;
 
-
-
-
-
-
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            height: 5rem;
+            padding-top: 1rem;
+            align-items: center;
+            padding-bottom: 1rem;
+        }
     }
-}
 
-    &__headings-address{
-        display:none;
+    &__contact-info {
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__tab-headings {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            @include desktop-tablet-font-h3;
+            background-color: $bg-light;
+            width: 100%;
+            height: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__address-heading {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__headings-address {
+        display: none;
 
         @include tablet {
             display: flex;
             flex-direction: row;
             margin-right: 1rem;
-            //padding-bottom:1.75rem;
-            //margin-left: 2rem;
-            //width: 7rem;
-            //padding-right: 2rem;
-            //padding-top: 4px;
-           padding:0;
-           margin: 0;
+            padding: 0;
+            margin: 0;
             flex-basis: 16%;
             width: 100%;
-            //margin-left:2rem;
-          //  background-color: orange;
-
-
         }
-        @include desktop{
+
+        @include desktop {
             flex-basis: 20%;
         }
- }
-
- &__address-heading{
-    display: none;
-    @include tablet{
-        display: unset;
-      // margin-right: 2rem;
-      padding-bottom: 0;
-      margin-bottom: 0;
-
-
-
-
-
-
-    }
- }
-
-
- &__sort{
-    display:none;
-    @include tablet {
-        display: unset;
-//padding-top: 1rem;
-       width: 1rem;
-       height: 1rem;
-    //    padding-top: 10px;
-       margin-left: 2px;
-       //margin-top: 4px;
-       margin-top: 0.25rem;
-
-
-
-
-
-
     }
 
- }
+    &__address-heading {
+        display: none;
 
-
- &__headings-name{
-
-    display:none;
-
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        padding:0;
-        margin: 0;
-      //  padding-top: 4px;
-      flex-basis: 20%;
-      width:100%;
-     // background-color: blueviolet;
-    margin-left: 2rem;
-
-   // flex-basis: 15%;
-
-
+        @include tablet {
+            display: unset;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
     }
 
-    @include desktop{
-        padding-left: 1rem;
+    &__sort {
+        display: none;
 
+        @include tablet {
+            display: unset;
+            width: 1rem;
+            height: 1rem;
+            margin-left: 2px;
+            margin-top: 0.25rem;
+        }
     }
 
- }
- &__headings-contact-name{
-    display:none;
+    &__headings-name {
+        display: none;
 
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        padding:0;
-        margin: 0;
-        flex-basis: 22%;
-        width: 100%;
-       // background-color: blue;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 20%;
+            width: 100%;
+            margin-left: 2rem;
+        }
 
-
-
-    }
-    @include desktop{
-        flex-basis: 18%;
-    }
- }
-
- &__name-heading{
-    display:none;
-   @include tablet {
-    display:unset;
-    margin-top: 0;
-    margin-bottom: 0;
-    }
- }
-
- &__headings-contact-info{
-    display:none;
-
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        // //margin-right: 2rem;
-        // //padding-bottom:1.75rem;
-        // margin-right: 1.5rem;
-        // padding-top: 4px;
-        padding:0;
-        margin: 0;
-        flex-basis: 25%;
-        width: 100%;
-        //background-color: saddlebrown;
-
-
-
-
-    }
-    @include desktop{
-        flex-basis: 25%;
+        @include desktop {
+            padding-left: 1rem;
+        }
     }
 
- }
+    &__headings-contact-name {
+        display: none;
 
- &__contact-info-heading{
-    display:none;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 22%;
+            width: 100%;
+        }
 
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        //margin-right: 2rem;
-        //padding-bottom:1.75rem;
-       // margin-right: 1.5rem;
-        margin-top: 0;
-        margin-bottom: 0;
-        //padding-top: 4px;
-
-
-
-
-
-
-
+        @include desktop {
+            flex-basis: 18%;
+        }
     }
 
- }
+    &__name-heading {
+        display: none;
 
- &__contact-name-heading{
-    display:none;
-
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        //margin-right: 2rem;
-        //padding-bottom:1.75rem;
-       // margin-right: 1.5rem;
-        margin-top: 0;
-        margin-bottom: 0;
-
-
-
-
-
-
+        @include tablet {
+            display: unset;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
- }
 
+    &__headings-contact-info {
+        display: none;
 
- &__actions{
-    display:none;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 25%;
+            width: 100%;
+        }
 
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-      //  margin-right: 2rem;
-        //padding-bottom:2rem;
-        margin-top: 0;
-        margin-bottom: 0;
-       // padding-top: 4px;
-      // width: 100%;
-       flex-basis: 11%;
-//align-items: end;
-//align-items: flex-end;
-justify-content: left;
-    //   background-color: aqua;
-
-
-
-
+        @include desktop {
+            flex-basis: 25%;
+        }
     }
-    @include desktop {
-        flex-basis:8% ;
+
+    &__contact-info-heading {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
- }
 
- &__tab-container{
-    display:none;
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        // margin-right: 2rem;
-        // //padding-bottom:2rem;
-        // margin-top: 0;
-        // margin-bottom: 0;
-        // padding-top: 4px;
-        justify-content: space-between;
-        @include desktop-tablet-font-h3;
-        //margin-left: 2rem;
-        background-color: $bg-light;
-        //margin-right: 2rem;
-        width: 100%;
-        height: 2rem;
+    &__contact-name-heading {
+        display: none;
 
-
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
- }
 
- &__test{
-    //display: none;
-    @include tablet {
-        display: flex;
-        //justify-content: flex-start;
-        justify-content: space-between;
-        //margin-top: 1rem;
-    width:100%;
+    &__actions {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+            flex-basis: 11%;
+            justify-content: left;
+        }
+
+        @include desktop {
+            flex-basis: 8%;
+        }
     }
- }
 
- &__address-container{
-    @include tablet {
-        width:25%;
-        display:flex;
-        flex-basis: 35%;
-       // background-color: orange;
+    &__tab-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            @include desktop-tablet-font-h3;
+            background-color: $bg-light;
+            width: 100%;
+            height: 2rem;
+        }
     }
- }
 
+    &__test {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
 
+    &__address-container {
+        @include tablet {
+            width: 25%;
+            display: flex;
+            flex-basis: 35%;
+        }
+    }
 }

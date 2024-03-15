@@ -22,7 +22,7 @@ function WarehousesListPage (){
             };
             fetchWarehouses();
         },[]);
-  // console.log(warehouses);
+
 
     return (
         <section className="warehouses">
