@@ -86,7 +86,7 @@
   }
 
   &__item-name {    
-    color: #2e66e5;
+    color: $primary-indigo;
     display: flex;
     align-items: center;
     @include tablet {      
@@ -96,15 +96,7 @@
   }
 
   &__status-text {
-    text-transform: uppercase;
-    white-space: nowrap;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border-radius: 20px;
-    background-color: rgb(234, 234, 234);
-    @include tablet {
-      padding-top: 0.3rem;
-    }
+    @include stockStatus;
   }
 
   &__actions {
