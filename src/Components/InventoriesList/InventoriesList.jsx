@@ -73,12 +73,12 @@ export const InventoriesList = ({ id }) => {
         </div>
       )}
       <div className="inventories-list__labels">
-        <p className="inventories-list__label">INVENTORY ITEM</p>
-        <p className="inventories-list__label">CATEGORY</p>
-        <p className="inventories-list__label">STATUS</p>
-        <p className="inventories-list__label">QTY</p>
-        <p className="inventories-list__label">WAREHOUSE</p>
-        <p className="inventories-list__label">ACTIONS</p>
+        <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
+        <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
+        <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
+        <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
+        <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
+        <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
       </div>
 
       <ul className="inventories-list__items">

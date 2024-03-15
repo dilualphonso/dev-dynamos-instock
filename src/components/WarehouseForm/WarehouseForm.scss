@@ -8,6 +8,7 @@
     align-items: flex-start;
     border: none;
     padding: 0 1.5rem;
+    margin: 0;
 
     @include tablet(){
         padding: 0 2rem;
@@ -36,7 +37,7 @@
     &__details-container{
         @extend .fieldsetStyle;
         background-color: $white;
-        padding-bottom: 1.5rem;
+        padding-bottom: $verticalSpaceBetweenComponents;
         border-bottom: 0.0625rem solid $secondary-cloud;
 
         @include tablet(){
@@ -46,27 +47,65 @@
             border-bottom: none;
             border-right: 0.0625rem solid $secondary-cloud;
         }
+
+        @include desktop(){
+            margin-bottom: 0.5rem;
+            padding-bottom: $verticalSpaceBetweenComponents;
+        }
     }
 
     &__contact-container{
         @extend .fieldsetStyle;
         background-color: $white;
-        padding-bottom: 1.5rem;
+        padding-bottom: $verticalSpaceBetweenComponents;
 
         @include tablet(){
             flex-basis: 49.425%;
             padding-bottom: 0.5rem;
             margin-bottom: $verticalSpaceBetweenComponents;
         }
+
+        @include desktop(){
+            margin-bottom: 0.5rem;
+            padding-bottom: $verticalSpaceBetweenComponents;
+        }
     }
 
     &__sub-heading{
         @include formFieldHeading();
-        padding-top: 1rem;
+        padding-top: $mobileVerticalSpaceBetweenComponents;
         padding-bottom: 0.5rem;
+
+        &--in-border{
+            display: flex;
+        }
+
+        &--under-border{
+            display: none;
+        }
 
         @include tablet(){
             padding-top: 0;
+
+            &--in-border{
+                display: none;
+            }
+    
+            &--under-border{
+                display: flex;
+            }
+        }
+
+        @include desktop(){
+            padding-top: 0;
+
+            &--in-border{
+                display: flex;
+            }
+    
+            &--under-border{
+                display: none;
+            }
         }
     }
 
@@ -88,7 +127,7 @@
 
     &__button-container{
         @include rowFlex();
-        padding: 1rem 1.5rem;
+        padding: $mobileVerticalSpaceBetweenComponents 1.5rem;
         justify-content: center;
         background-color: $bg-light;
 

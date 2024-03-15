@@ -3,20 +3,7 @@
 @use "../../styles/variables" as *;
 
 .add-warehouse{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 100%;
-    padding: 0 1rem;
-    overflow: hidden;
-    background-color: $white;
-    border-radius: 0.25rem;
-
-    @include tablet(){
-        padding: 0 2rem;
-    }
+    @include pageCard();
 
     &__heading-container{
         display: flex;
