@@ -118,11 +118,20 @@
     }
 
     &__input{
+        &--error{
+            @include inputErrorStyle();
+        }
 
     }
 
     &__error{
+        @include errorLabel();
+        display: flex;
+        align-items: center;
+    }
 
+    &__errorIcon{
+        @include errorIconStyle();
     }
 
     &__button-container{
