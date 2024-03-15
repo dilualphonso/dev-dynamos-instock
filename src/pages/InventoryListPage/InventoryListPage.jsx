@@ -1,9 +1,12 @@
 import { InventoriesList } from "../../components/InventoriesList/InventoriesList";
+import './InventoryListPage.scss'
 
 const InventoryListPage = () => {
 
-  return (
-    <InventoriesList />
+  return (    
+    <section>
+      <InventoriesList className="inventory-list-section"/>
+    </section>
   )
 }
 

@@ -7,12 +7,10 @@ import axios from "axios";
 export const InventoriesList = ({ id }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   let endpoint = "api/inventories";
-  console.log(id);
   if (id) {
     endpoint = `api/warehouses/${id}/inventories`;
   }
   const inventoriesUrl = `${baseUrl}/${endpoint}`;
-  console.log(inventoriesUrl);
 
   const [inventories, setInventories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +45,7 @@ export const InventoriesList = ({ id }) => {
   }
 
   return (
-    <section className="inventories-list">
+    <article className="inventories-list">
       {!id && (
         <div className="inventories-list__header">
           <h1 className="inventories-list__title">Inventory</h1>
@@ -73,12 +71,26 @@ export const InventoriesList = ({ id }) => {
         </div>
       )}
       <div className="inventories-list__labels">
-        <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
-        <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
-        <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
-        <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
-        <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
-        <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
+        <p className="inventories-list__label inventories-list__labels--item">
+          INVENTORY ITEM
+        </p>
+        <p className="inventories-list__label inventories-list__labels--category">
+          CATEGORY
+        </p>
+        <p className="inventories-list__label inventories-list__labels--status">
+          STATUS
+        </p>
+        <p className="inventories-list__label inventories-list__labels--qty">
+          QTY
+        </p>
+        {!id && (
+          <p className="inventories-list__label inventories-list__labels--warehouse">
+            WAREHOUSE
+          </p>
+        )}
+        <p className="inventories-list__label inventories-list__labels--actions">
+          ACTIONS
+        </p>
       </div>
 
       <ul className="inventories-list__items">
@@ -90,6 +102,6 @@ export const InventoriesList = ({ id }) => {
           />
         ))}
       </ul>
-    </section>
+    </article>
   );
 };
