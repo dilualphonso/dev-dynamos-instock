@@ -1,4 +1,6 @@
-@use "variables" as *;
+@use "./variables" as *;
+@use "./typography" as *;
+@use "./colors" as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -11,5 +13,106 @@
     @content;
   }
 }
-// @mixin buttonstyle() {
-// }
+
+@mixin mobile-font-h3 {
+  font-size: 0.813rem;
+  font-weight: 600;
+  font-family: "Titillium-SemiBold";
+  line-height: 1.25rem;
+}
+
+@mixin mobile-font-body-large {
+  font-size: 0.938rem;
+  font-family: "Titillium-Regular";
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin mobile-font-body-medium {
+  font-size: 0.813rem;
+  font-family: "Titillium-Regular";
+  line-height: 1.25rem;
+}
+
+@mixin pageHeading() {
+  font-family: Titillium-SemiBold, sans-serif;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  color: $primary-black;
+  margin: 0;
+
+  @include tablet(){
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+@mixin formFieldHeading() {
+  font-family: Titillium-SemiBold, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $primary-black;
+  margin: 0;
+
+  @include tablet(){
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin backArrowStyle() {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  background: url("../assets/icons/arrow_back-24px.svg");
+}
+
+@mixin columnFlex() {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@mixin rowFlex() {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+@mixin buttonPrimary() {
+  color: $white;
+  background-color: $primary-indigo;
+  border: none;
+
+  &:hover {
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}
+
+@mixin buttonSecondary() {
+  color: $secondary-slate;
+  background-color: $white;
+  border: 0.0625rem solid $secondary-cloud;
+  font-weight: 600;
+
+  &:hover {
+    color: $primary-indigo;
+    background-color: $white;
+    border: 0.0625rem solid $primary-indigo;
+  }
+}
+
+@mixin buttonDelete() {
+  color: $white;
+  background-color: $sup-red;
+  border: none;
+
+  &:hover {
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}

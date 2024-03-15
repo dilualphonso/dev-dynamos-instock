@@ -1,0 +1,114 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+
+.fieldsetStyle{
+    @include columnFlex();
+    align-items: flex-start;
+    border: none;
+    padding: 0 1.5rem;
+
+    @include tablet(){
+        padding: 0 2rem;
+    }
+}
+
+.warehouse-form{
+    @include columnFlex();
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    &__form{
+        @include columnFlex();
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+        @include tablet(){
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: row wrap;
+        }
+    }
+
+    &__details-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: 1.5rem;
+        border-bottom: 0.0625rem solid $secondary-cloud;
+
+        @include tablet(){
+            flex-basis: 49.425%;
+            padding-bottom: 0.5rem;
+            margin-bottom: $verticalSpaceBetweenComponents;
+            border-bottom: none;
+            border-right: 0.0625rem solid $secondary-cloud;
+        }
+    }
+
+    &__contact-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: 1.5rem;
+
+        @include tablet(){
+            flex-basis: 49.425%;
+            padding-bottom: 0.5rem;
+            margin-bottom: $verticalSpaceBetweenComponents;
+        }
+    }
+
+    &__sub-heading{
+        @include formFieldHeading();
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+
+        @include tablet(){
+            padding-top: 0;
+        }
+    }
+
+    &__label{
+        margin-top: $mobileVerticalSpaceBetweenComponents;
+        
+        @include tablet(){
+            margin-top: $verticalSpaceBetweenComponents;
+        }
+    }
+
+    &__input{
+
+    }
+
+    &__error{
+
+    }
+
+    &__button-container{
+        @include rowFlex();
+        padding: 1rem 1.5rem;
+        justify-content: center;
+        background-color: $bg-light;
+
+        @include tablet(){
+            flex-basis: 100%;
+            padding: 1rem 2rem;
+            justify-content: flex-end;
+        }
+
+    }
+    
+    &__button{
+        &--cancel{
+            @include buttonSecondary();
+            margin-right: 0.5rem;
+        }
+
+        &--add{
+            @include buttonPrimary();
+            margin-left: 0.5rem;
+        }
+    }
+}
