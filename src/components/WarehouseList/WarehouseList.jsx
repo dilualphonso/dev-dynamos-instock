@@ -2,8 +2,8 @@ import './WarehouseList.scss';
 
 import arrowImage from "../../assets/icons/chevron_right-24px.svg"
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
-import editIcon from "../../assets/icons/delete_outline-24px.svg"
-import sortIcon from "../../assets/icons/edit-24px.svg"
+import editIcon from "../../assets/icons/edit-24px.svg"
+import sortIcon from "../../assets/icons/sort-24px.svg"
 function WarehouseList({ warehouses }) {
   // console.log(warehouses);
 
