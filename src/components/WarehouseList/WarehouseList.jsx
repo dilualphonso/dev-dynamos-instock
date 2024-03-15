@@ -30,9 +30,12 @@ function WarehouseList({ warehouses }) {
           </div>
 
           <h4 className="warehouse__actions">Actions</h4>
+
           {/* <img className="warehouse__sort" src={sortIcon} alt="sorting icon" /> */}
         </div>
+
         {warehouses.map((warehouse) => (
+
           <div className="warehouse__test" key={warehouse.id}>
 
             <div className='warehouse__wrapper'>
@@ -52,7 +55,7 @@ function WarehouseList({ warehouses }) {
                   </div>
                   <div className="warehouse__address-container">
                     <h4 className="warehouse__address-label">Address</h4>
-                    <p className="warehouse__address">{warehouse.address},{warehouse.city},{warehouse.country}</p>
+                    <p className="warehouse__address">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                   </div>
 
                 </div>
@@ -80,10 +83,11 @@ function WarehouseList({ warehouses }) {
               </div>
 
             </div>
-           {/* / <hr className="warehouse__divider" /> */}
+
           </div>
 
         ))}
+
       </div>
 
     </section>
