@@ -9,10 +9,8 @@ import { ReactComponent as EditWhiteIcon } from '../../assets/icons/edit-white-2
 export const InventoryDetails = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const { id } = useParams();
-  console.log(id);
   const endpoint = `api/inventories/${id}`;
   const inventoryUrl = `${baseUrl}/${endpoint}`;
-  console.log(inventoryUrl);
 
   const [inventory, setInventory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
