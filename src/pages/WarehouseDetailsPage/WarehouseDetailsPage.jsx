@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Router,
-  Route,
-  useParams,
-  Link,
-} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { BASE_URL } from "../../constant-variables";
 import axios from "axios";
 import { InventoriesList } from "../../components/InventoriesList/InventoriesList";
@@ -65,9 +59,11 @@ const WarehouseDetailsPage = (props) => {
           <div className="warehouse-address">
             <h4>WAREHOUSE ADDRESS</h4>
             <div className="warehouse-address__location">
-              <p>{warehouse.address}</p>
-              <p>{warehouse.city}</p>
-              <p>{warehouse.country}</p>
+              <p>{`${warehouse.address}, `}</p>
+              <div>
+                <p>{`${warehouse.city}, `}</p>
+                <p>{`${warehouse.country}, `}</p>
+              </div>
             </div>
           </div>
           <div className="contact">

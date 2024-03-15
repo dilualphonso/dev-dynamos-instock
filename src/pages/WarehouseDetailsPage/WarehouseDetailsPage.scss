@@ -11,44 +11,14 @@
 .single-warehouse-container {
   padding: 1rem;
 
-  .nav-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &__city {
-      display: flex;
-      h1 {
-        @include mobile-font-h1;
-        margin: 0;
-      }
-    }
-    &__edit-container {
-      display: flex;
-      align-items: center;
-      width: auto;
-      height: 0.9375rem;
-    }
-    &__edit {
-      padding: 0.15625rem;
-      background-color: $primary-indigo;
-      border-radius: 50%;
-      &--tablet {
-        display: none;
-        @include tablet {
-          display: block;
-        }
-      }
-      @include tablet {
-        display: flex;
-        flex-direction: row;
-      }
-    }
-  }
-
   .information-container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
     p {
       font-family: "Titillium-Regular";
       font-size: 0.8125rem;
@@ -65,14 +35,66 @@
       flex-direction: column;
       &__location {
         display: flex;
+        @include tablet {
+          flex-direction: column;
+        }
+        div {
+          display: flex;
+        }
       }
     }
-    .contact {
-      display: flex;
-      margin-top: 1rem;
-      .contact-details {
-        margin-left: 5rem;
+  }
+  .contact {
+    display: flex;
+    margin-top: 1rem;
+    @include tablet {
+      margin: 0;
+      padding-left: 2rem;
+    }
+    .contact-details {
+      margin-left: 5rem;
+    }
+  }
+  // @include tablet {
+  //   display: flex;
+  //   flex-direction: row;
+  // }
+}
+.nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__city {
+    display: flex;
+    h1 {
+      @include mobile-font-h1;
+      margin: 0;
+    }
+  }
+  &__edit-container {
+    display: flex;
+    align-items: center;
+
+    background-color: $primary-indigo;
+    border-radius: 50%;
+    padding: 0.5rem;
+    @include tablet {
+      border-radius: 30%;
+    }
+  }
+  &__edit {
+    width: auto;
+    height: 1.125rem;
+    &--tablet {
+      display: none;
+      @include tablet {
+        display: block;
+        color: $white;
       }
+    }
+    @include tablet {
+      display: flex;
+      flex-direction: row;
     }
   }
 }
