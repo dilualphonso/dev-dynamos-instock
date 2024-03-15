@@ -2,6 +2,7 @@ import './WarehousesListPage.scss'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import { Link } from 'react-router-dom';
 
 function WarehousesListPage (){
 
@@ -33,7 +34,7 @@ function WarehousesListPage (){
             <input className='warehouses__search' type = "text" placeholder="Search..."/>
            </div>
     <div>
-    <button className="warehouses__button">+ Add New Warehouse</button>
+   <Link to="/warehouses/add"> <button className="warehouses__button">+ Add New Warehouse</button></Link>
     </div>
     </div>
 
