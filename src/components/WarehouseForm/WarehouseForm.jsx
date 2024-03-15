@@ -140,8 +140,10 @@ function WarehouseDetailsForm() {
     const addWarehouse = async(warehouse) =>{
         try{
             const response = await axios.post(`${BASE_URL}/warehouses`, warehouse);
-            console.log(response.data);
-            // TODO success message?
+            // console.log(response.data);
+            if(!!response.data){
+                // TODO success message?
+            }
 
         }catch(error){
             console.log(error);
@@ -293,7 +295,7 @@ function WarehouseDetailsForm() {
                 </fieldset>
                 <div className="warehouse-form__button-container">
                     <button className="warehouse-form__button warehouse-form__button--cancel" onClick={cancelClickHandler}>Cancel</button>
-                    <button className="warehouse-form__button warehouse-form__button--add">Add Warehouse</button>
+                    <button className="warehouse-form__button warehouse-form__button--add">+ Add Warehouse</button>
                 </div>
             </form>
         </section>
