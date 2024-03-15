@@ -20,6 +20,13 @@
   font-family: "Titillium-SemiBold";
   line-height: 1.25rem;
 }
+@mixin desktop-tablet-font-h3{
+  font-size: 0.873rem;
+  font-weight: 600;
+    font-family: "Titillium-SemiBold";
+    line-height: 1.375rem;
+
+}
 
 @mixin mobile-font-body-large {
   font-size: 0.938rem;
@@ -158,7 +165,7 @@
 
   border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.3125rem 0 #13182C1A;
-  
+
   z-index: 1;
 
   @include tablet(){
@@ -170,7 +177,7 @@
     width: 80%;
     margin: 0 auto;
   }
-  
+
 }
 
 @mixin stockStatus() {
@@ -189,7 +196,7 @@
   font-family: Titillium-Regular;
   color: $secondary-slate;
   font-size: 0.688rem;
-  line-height: 1rem;    
+  line-height: 1rem;
   font-weight: 500;
   margin: 0;
 
@@ -203,7 +210,7 @@
   font-family: Titillium-SemiBold;
   color: $primary-black;
   font-size: 0.813rem;
-  line-height: 1.25rem;    
+  line-height: 1.25rem;
   font-weight: 400;
   margin: 0;
 
