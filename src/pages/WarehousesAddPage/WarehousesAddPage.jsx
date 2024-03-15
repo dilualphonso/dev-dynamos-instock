@@ -11,7 +11,7 @@ function WarehousesAddPage() {
                 <Link className="add-warehouse__back-link" to="/warehouses"></Link>
                 <h1 className="add-warehouse__heading">Add New Warehouse</h1>
             </article>
-            <WarehouseForm />
+            <WarehouseForm warehouseToEdit={null} />
         </section>
     );
 }
