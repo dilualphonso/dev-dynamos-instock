@@ -69,33 +69,35 @@ export const InventoryDetails = () => {
           </button>
         </div>
       </div>
-      <div className="inventory-detail__details">
-        <div className="inventory-detail__description">
-          <p className="inventory-detail__label">ITEM DESCRIPTION</p>
-          <p className="inventory-detail__text">{description}</p>
+      <div className='inventory-detail__content'>
+        <div className="inventory-detail__details">
+          <div className="inventory-detail__description">
+            <p className="inventory-detail__label">ITEM DESCRIPTION</p>
+            <p className="inventory-detail__text">{description}</p>
+          </div>
+          <div className="inventory-detail__category">
+            <p className="inventory-detail__label">CATEGORY</p>
+            <p className="inventory-detail__text">{category}</p>
+          </div>
         </div>
-        <div className="inventory-detail__category">
-          <p className="inventory-detail__label">CATEGORY</p>
-          <p className="inventory-detail__text">{category}</p>
-        </div>
-      </div>
-      <div className="inventory-detail__status-quantity">
-        <div className="inventory-detail__status-quantity-details">
-          <div className="inventory-detail__status">
-            <p className="inventory-detail__label">STATUS</p>
-            <p className={`inventory-detail__text inventory-detail__text-status 
+        <div className="inventory-detail__status-quantity">
+          <div className="inventory-detail__status-quantity-details">
+            <div className="inventory-detail__status">
+              <p className="inventory-detail__label">STATUS</p>
+              <p className={`inventory-detail__text inventory-detail__text-status 
               ${quantity === 0 ? 'red-text' : 'green-text'}`}>
-              {status}
-            </p>
+                {status}
+              </p>
+            </div>
+            <div className="inventory-detail__quantity">
+              <p className="inventory-detail__label">QUANTITY</p>
+              <p className="inventory-detail__text">{quantity}</p>
+            </div>
           </div>
-          <div className="inventory-detail__quantity">
-            <p className="inventory-detail__label">QUANTITY</p>
-            <p className="inventory-detail__text">{quantity}</p>
+          <div className="inventory-detail__warehouse">
+            <p className="inventory-detail__label">WAREHOUSE</p>
+            <p className="inventory-detail__text">{warehouse_name}</p>
           </div>
-        </div>
-        <div className="inventory-detail__warehouse">
-          <p className="inventory-detail__label">WAREHOUSE</p>
-          <p className="inventory-detail__text">{warehouse_name}</p>
         </div>
       </div>
     </article>

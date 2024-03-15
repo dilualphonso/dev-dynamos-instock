@@ -5,8 +5,11 @@
 .inventory-detail {
   display: flex;
   flex-direction: column;
-  // padding-left: 1rem;
-  // padding-right: 1rem;
+
+  @include tablet {
+    // margin: 0;
+    // padding: 0;
+  }
 
   &__header {
     display: flex;
@@ -42,6 +45,21 @@
     border-radius: 50%;
     width: 2.25rem;
     height: 2.25rem;
+
+    @include tablet {
+      color: $white;
+      font-weight: 600;
+      width: 6rem;
+      height: 2.25rem;
+      border-radius: 20px;      
+      padding: 0;
+      display: flex;
+      align-items: center;
+
+      &:hover {        
+        color: $white;
+      }
+    }
   }
 
   &__edit-icon {
@@ -52,6 +70,17 @@
     display: none;
     @include tablet {
       display: inline-block;
+      color: $white;
+      margin-left: 0.3rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
     }
   }
 
@@ -60,6 +89,9 @@
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+    @include tablet {
+      border-right: 0.0625rem solid $secondary-cloud;
+    }    
   }
 
   &__label {
