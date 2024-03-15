@@ -1,9 +1,9 @@
 import './WarehouseList.scss';
 
-import ArrowImage from "../../assets/Icons/chevron_right-24px.svg"
-import deleteIcon from "../../assets/Icons/delete_outline-24px.svg"
-import editIcon from "../../assets/Icons/edit-24px.svg"
-import sortIcon from "../../assets/Icons/sort-24px.svg"
+import arrowImage from "../../assets/icons/chevron_right-24px.svg"
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
+import editIcon from "../../assets/icons/delete_outline-24px.svg"
+import sortIcon from "../../assets/icons/edit-24px.svg"
 function WarehouseList({ warehouses }) {
   // console.log(warehouses);
 
@@ -48,7 +48,7 @@ function WarehouseList({ warehouses }) {
                     <h4 className="warehouse__name-label">Warehouse</h4>
                     <div className="warehouse__arrow-wrapper">
                       <div className="warehouse__name">{warehouse.warehouse_name}</div>
-                      <img className="warehouse__arrowImg" src={ArrowImage} alt="arrowImage" />
+                      <img className="warehouse__arrowImg" src={arrowImage} alt="arrowImage" />
                     </div>
 
 
