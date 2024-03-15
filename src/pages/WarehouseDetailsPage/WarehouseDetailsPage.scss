@@ -4,8 +4,13 @@
 @use "../../styles/colors" as *;
 @use "../../styles/global" as *;
 
+.divider {
+  border-top: solid 1px $secondary-cloud;
+  margin: 1rem 0;
+}
 .single-warehouse-container {
   padding: 1rem;
+
   .nav-link {
     display: flex;
     justify-content: space-between;
@@ -27,21 +32,43 @@
       padding: 0.15625rem;
       background-color: $primary-indigo;
       border-radius: 50%;
+      &--tablet {
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
     }
   }
-}
 
-.information-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  p {
-    font-family: "Titillium-Regular";
-    font-size: 0.8125rem;
-  }
-  h4 {
-    font-family: "Titillium-SemiBold";
-    font-size: 0.6875rem;
-    color: $secondary-slate;
+  .information-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    p {
+      font-family: "Titillium-Regular";
+      font-size: 0.8125rem;
+      margin: 0;
+    }
+    h4 {
+      font-family: "Titillium-SemiBold";
+      font-size: 0.6875rem;
+      color: $secondary-slate;
+      margin: 0;
+    }
+    .warehouse-address {
+      display: flex;
+      flex-direction: column;
+      &__location {
+        display: flex;
+      }
+    }
+    .contact {
+      display: flex;
+      margin-top: 1rem;
+      .contact-details {
+        margin-left: 5rem;
+      }
+    }
   }
 }

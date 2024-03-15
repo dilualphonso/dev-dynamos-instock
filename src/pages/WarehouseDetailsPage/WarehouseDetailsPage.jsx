@@ -47,6 +47,7 @@ const WarehouseDetailsPage = (props) => {
             />
             <h1>{warehouse.city}</h1>
           </Link>
+
           <Link
             className="nav-link__edit-container"
             to={`/warehouses/${warehouse.id}/edit`}
@@ -56,24 +57,30 @@ const WarehouseDetailsPage = (props) => {
               src={Edit}
               alt="Edit button which navigate to edit page"
             />
+            <div className="nav-link__edit--tablet">Edit</div>
           </Link>
         </div>
+        <div className="divider"></div>
         <div className="information-container">
           <div className="warehouse-address">
             <h4>WAREHOUSE ADDRESS</h4>
-            <p>{warehouse.address}</p>
-            <p>{warehouse.city}</p>
-            <p>{warehouse.country}</p>
+            <div className="warehouse-address__location">
+              <p>{warehouse.address}</p>
+              <p>{warehouse.city}</p>
+              <p>{warehouse.country}</p>
+            </div>
           </div>
-          <div className="contact-name">
-            <h4>CONTACT NAME</h4>
-            <p>{warehouse.contact_name}</p>
-            <p>{warehouse.contact_position}</p>
-          </div>
-          <div className="contact-information">
-            <h4>CONTACT INFORMATION</h4>
-            <p>{warehouse.contact_phone}</p>
-            <p>{warehouse.contact_email}</p>
+          <div className="contact">
+            <div className="contact__name">
+              <h4>CONTACT NAME</h4>
+              <p>{warehouse.contact_name}</p>
+              <p>{warehouse.contact_position}</p>
+            </div>
+            <div className="contact-details">
+              <h4>CONTACT INFORMATION</h4>
+              <p>{warehouse.contact_phone}</p>
+              <p>{warehouse.contact_email}</p>
+            </div>
           </div>
         </div>
       </div>
