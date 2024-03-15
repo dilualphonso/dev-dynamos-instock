@@ -2,7 +2,7 @@ import "./WarehouseForm.scss";
 import { BASE_URL } from "../../constant-variables.js";
 import errorFlag from "../../assets/icons/error-24px.svg";
 import { validateWarehouseForm } from "../../utils/validation.js";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -21,22 +21,61 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     const [phoneError, setPhoneError] = useState("");
     const [emailError, setEmailError] = useState("");
 
-    // Reference for field elements
-    const formRef = useRef();
+    // Button text state
+    const [submitBtnText, setSubmitButtonText] = useState("");
+
+    // Make inputs state for form fields
+    const initialState = {
+        warehouseName: "",
+        streetAddress: "",
+        city: "",
+        country: "",
+        contactName: "",
+        position: "",
+        phoneNumber: "",
+        email: ""
+    }
+    const [formInputs, setFormInputs] = useState(initialState);
+
+    function updateForm(field, input){
+        const updatedInput = {...formInputs, [field]: input}
+        setFormInputs(updatedInput);
+    }
+
+    function inputChangeHandler(event){
+        const {target} = event;
+        updateForm(target.name, target.value);
+    }
+
+    // // Reference for field elements
+    // const formRef = useRef();
 
     // Create a navigate for when the user creates a warehouse or decides to cancel the process
     const navigate = useNavigate();
 
     // Check to see if this is an add or edit form
-    let submitBtnText = "";
-    if(!warehouseToEdit){
-        // The form is in ADD mode
-        submitBtnText = "+ Add Warehouse";
-    }else{
-        // The form is in EDIT mode
-        submitBtnText = "Save";
-        console.log(warehouseToEdit);
-    }
+    useEffect(()=>{
+        if(!warehouseToEdit){
+            // The form is in ADD mode
+            setSubmitButtonText("+ Add Warehouse");
+        }else{
+            // The form is in EDIT mode
+            const filledFields = {
+                warehouseName: warehouseToEdit.warehouse_name,
+                streetAddress: warehouseToEdit.address,
+                city: warehouseToEdit.city,
+                country: warehouseToEdit.country,
+                contactName: warehouseToEdit.contact_name,
+                position: warehouseToEdit.contact_position,
+                phoneNumber: warehouseToEdit.contact_phone,
+                email: warehouseToEdit.contact_email
+            }
+            setSubmitButtonText("Save");
+            setFormInputs(filledFields);
+        }
+    }, [warehouseToEdit])
+    
+    
 
 
     /**
@@ -45,33 +84,44 @@ function WarehouseDetailsForm({warehouseToEdit}) {
      * @returns {Object}
      */
     function getInputtedWarehouse(){
-        // Get all of the form reference to get its input fields
-        const formEl = formRef.current;
+        // // Get all of the form reference to get its input fields
+        // const formEl = formRef.current;
 
-        // Get all of the input fields
-        // Warehouse details fields
-        const warehouseNameEl = formEl.warehouseName;
-        const streetAddressEl = formEl.streetAddress;
-        const cityEl = formEl.city;
-        const countryEl = formEl.country;
-        // Contact details fields
-        const contactNameEl = formEl.contactName;
-        const positionEl = formEl.position;
-        const phoneNumberEl = formEl.phoneNumber;
-        const emailEl = formEl.email;
+        // // Get all of the input fields
+        // // Warehouse details fields
+        // const warehouseNameEl = formEl.warehouseName;
+        // const streetAddressEl = formEl.streetAddress;
+        // const cityEl = formEl.city;
+        // const countryEl = formEl.country;
+        // // Contact details fields
+        // const contactNameEl = formEl.contactName;
+        // const positionEl = formEl.position;
+        // const phoneNumberEl = formEl.phoneNumber;
+        // const emailEl = formEl.email;
 
+        // // Create warehouse object using the values in the form inputs
+        // const warehouseObject = {
+        //     warehouse_name: warehouseNameEl.value, 
+        //     address: streetAddressEl.value, 
+        //     city: cityEl.value, 
+        //     country: countryEl.value, 
+        //     contact_name: contactNameEl.value, 
+        //     contact_position: positionEl.value, 
+        //     contact_phone: phoneNumberEl.value, 
+        //     contact_email: emailEl.value
+        // }
         // Create warehouse object using the values in the form inputs
         const warehouseObject = {
-            warehouse_name: warehouseNameEl.value, 
-            address: streetAddressEl.value, 
-            city: cityEl.value, 
-            country: countryEl.value, 
-            contact_name: contactNameEl.value, 
-            contact_position: positionEl.value, 
-            contact_phone: phoneNumberEl.value, 
-            contact_email: emailEl.value
+            warehouse_name: formInputs.warehouseName, 
+            address: formInputs.streetAddress, 
+            city: formInputs.city, 
+            country: formInputs.country, 
+            contact_name: formInputs.contactName, 
+            contact_position: formInputs.position, 
+            contact_phone: formInputs.phoneNumber, 
+            contact_email: formInputs.email
         }
-
+        console.log(warehouseObject);
         // Return the warehouse objecct
         return warehouseObject
     }
@@ -81,30 +131,31 @@ function WarehouseDetailsForm({warehouseToEdit}) {
      * 
      */
     function resetInputs(){
-        // Get all of the form reference to get its input fields
-        const formEl = formRef.current;
+        setFormInputs(initialState);
+        // // Get all of the form reference to get its input fields
+        // const formEl = formRef.current;
 
-        // Get all of the input fields
-        // Warehouse details fields
-        const warehouseNameEl = formEl.warehouseName;
-        const streetAddressEl = formEl.streetAddress;
-        const cityEl = formEl.city;
-        const countryEl = formEl.country;
-        // Contact details fields
-        const contactNameEl = formEl.contactName;
-        const positionEl = formEl.position;
-        const phoneNumberEl = formEl.phoneNumber;
-        const emailEl = formEl.email;
+        // // Get all of the input fields
+        // // Warehouse details fields
+        // const warehouseNameEl = formEl.warehouseName;
+        // const streetAddressEl = formEl.streetAddress;
+        // const cityEl = formEl.city;
+        // const countryEl = formEl.country;
+        // // Contact details fields
+        // const contactNameEl = formEl.contactName;
+        // const positionEl = formEl.position;
+        // const phoneNumberEl = formEl.phoneNumber;
+        // const emailEl = formEl.email;
 
-        // Empty the form fields
-        warehouseNameEl.value = ""; 
-        streetAddressEl.value = ""; 
-        cityEl.value = "";
-        countryEl.value = ""; 
-        contactNameEl.value = ""; 
-        positionEl.value = ""; 
-        phoneNumberEl.value = ""; 
-        emailEl.value = "";
+        // // Empty the form fields
+        // warehouseNameEl.value = ""; 
+        // streetAddressEl.value = ""; 
+        // cityEl.value = "";
+        // countryEl.value = ""; 
+        // contactNameEl.value = ""; 
+        // positionEl.value = ""; 
+        // phoneNumberEl.value = ""; 
+        // emailEl.value = "";
 
     }
 
@@ -151,7 +202,6 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     const addWarehouse = async(warehouse) =>{
         try{
             const response = await axios.post(`${BASE_URL}/warehouses`, warehouse);
-            // console.log(response.data);
             if(!!response.data){
                 // TODO success message?
             }
@@ -171,8 +221,9 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     const editWarehouse = async(warehouse, id) =>{
         try{
             const response = await axios.put(`${BASE_URL}/warehouses/${id}`, warehouse);
-            console.log(response.data);
-            // TODO success message?
+            if(!!response.data){
+                // TODO success message?
+            }
 
         }catch(error){
             console.log(error);
@@ -218,8 +269,13 @@ function WarehouseDetailsForm({warehouseToEdit}) {
             // Empty the form fields
             resetInputs();
 
-            // Leave this page and go to the warehouse list page
-            navigate("/warehouses");
+            // Leave this page and go to the warehouse list page if ADD or warehouse details page if EDIT
+            if(!warehouseToEdit){
+                navigate("/warehouses");
+            }else{
+                navigate(`/warehouses/${warehouseToEdit.id}`);
+            }
+
         } 
     }
 
@@ -230,17 +286,17 @@ function WarehouseDetailsForm({warehouseToEdit}) {
         // Return to the warehouses list page 
         navigate("/warehouses");
     }
-    
+    // ref={formRef}
     return (
         <section className="warehouse-form">
-            <form className="warehouse-form__form" name="addWarehouseForm" id="addWarehouseForm" onSubmit={submitHandler} ref={formRef}>
+            <form className="warehouse-form__form" name="addWarehouseForm" id="addWarehouseForm" onSubmit={submitHandler} >
                 <fieldset className="warehouse-form__details-container" form="addWarehouseForm" name="warehouseDetailsFields" >
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
                     <legend className="warehouse-form__sub-heading warehouse-form__sub-heading--in-border">Warehouse Details</legend>
                     <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Warehouse Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="warehouseName">Warehouse Name</label>
-                    <input className={isWarehouseNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="warehouseName" id="warehouseName" placeholder="Warehouse Name"/>
+                    <input className={isWarehouseNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="warehouseName" id="warehouseName" placeholder="Warehouse Name" onChange={inputChangeHandler} value={formInputs.warehouseName}/>
                     {isWarehouseNameError &&
                     <label className="warehouse-form__error" htmlFor="warehouseName">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -248,7 +304,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="streetAddress">Street Address</label>
-                    <input className={isStreetError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="streetAddress" id="streetAddress" placeholder="Street Address"/>
+                    <input className={isStreetError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" onChange={inputChangeHandler} value={formInputs.streetAddress} />
                     {isStreetError &&
                     <label className="warehouse-form__error" htmlFor="streetAddress">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -256,15 +312,15 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="city">City</label>
-                    <input className={isCityError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="city" id="city" placeholder="City"/>
+                    <input className={isCityError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="city" id="city" placeholder="City" onChange={inputChangeHandler} value={formInputs.city} />
                     {isCityError &&
                     <label className="warehouse-form__error" htmlFor="city">
-                        <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
+                        <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form." />
                         This field is required
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="country">Country</label>
-                    <input className={isCountryError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="country" id="country" placeholder="Country"/>
+                    <input className={isCountryError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="country" id="country" placeholder="Country" onChange={inputChangeHandler} value={formInputs.country} />
                     {isCountryError &&
                     <label className="warehouse-form__error" htmlFor="country">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -278,7 +334,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Contact Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="contactName">Contact Name</label>
-                    <input className={isContactNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="contactName" id="contactName" placeholder="Contact Name"/>
+                    <input className={isContactNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="contactName" id="contactName" placeholder="Contact Name" onChange={inputChangeHandler} value={formInputs.contactName} />
                     {isContactNameError &&
                     <label className="warehouse-form__error" htmlFor="contactName">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -286,7 +342,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="position">Position</label>
-                    <input className={isPositionError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="position" id="position" placeholder="Position"/>
+                    <input className={isPositionError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="position" id="position" placeholder="Position" onChange={inputChangeHandler} value={formInputs.position} />
                     {isPositionError &&
                     <label className="warehouse-form__error" htmlFor="position">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -294,7 +350,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="phoneNumber">Phone Number</label>
-                    <input className={phoneError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"/>
+                    <input className={phoneError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" onChange={inputChangeHandler} value={formInputs.phoneNumber} />
                     {phoneError &&
                     <label className="warehouse-form__error" htmlFor="phoneNumber">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
@@ -302,7 +358,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                     </label>}
 
                     <label className="warehouse-form__label" htmlFor="email">Email</label>
-                    <input className={emailError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="email" id="email" placeholder="Email"/>
+                    <input className={emailError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="email" id="email" placeholder="Email" onChange={inputChangeHandler} value={formInputs.email} />
                     {emailError &&
                     <label className="warehouse-form__error" htmlFor="email">
                         <img src={errorFlag} className="warehouse-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
