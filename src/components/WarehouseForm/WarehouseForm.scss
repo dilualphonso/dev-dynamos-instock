@@ -76,36 +76,9 @@
         padding-top: $mobileVerticalSpaceBetweenComponents;
         padding-bottom: 0.5rem;
 
-        &--in-border{
-            display: flex;
-        }
-
-        &--under-border{
-            display: none;
-        }
-
         @include tablet(){
             padding-top: 0;
 
-            &--in-border{
-                display: none;
-            }
-    
-            &--under-border{
-                display: flex;
-            }
-        }
-
-        @include desktop(){
-            padding-top: 0;
-
-            &--in-border{
-                display: flex;
-            }
-    
-            &--under-border{
-                display: none;
-            }
         }
     }
 

@@ -2,7 +2,7 @@ import "./WarehouseForm.scss";
 import { BASE_URL } from "../../constant-variables.js";
 import errorFlag from "../../assets/icons/error-24px.svg";
 import { validateWarehouseForm } from "../../utils/validation.js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +24,9 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     // Button text state
     const [submitBtnText, setSubmitButtonText] = useState("");
 
+    // Create a navigate for when the user creates a warehouse or decides to cancel the process
+    const navigate = useNavigate();
+
     // Make inputs state for form fields
     const initialState = {
         warehouseName: "",
@@ -37,21 +40,19 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     }
     const [formInputs, setFormInputs] = useState(initialState);
 
+
+
+    /**
+     * updateForm is a wrapper function that helps to set the updated formInputs state variable based on the change of only 1 of its key-value pairs. The field parameter is the key to be updated and the input parameter is the new value.
+     * 
+     * @param {string}      field
+     * @param {string}      input
+     * 
+     */
     function updateForm(field, input){
         const updatedInput = {...formInputs, [field]: input}
         setFormInputs(updatedInput);
     }
-
-    function inputChangeHandler(event){
-        const {target} = event;
-        updateForm(target.name, target.value);
-    }
-
-    // // Reference for field elements
-    // const formRef = useRef();
-
-    // Create a navigate for when the user creates a warehouse or decides to cancel the process
-    const navigate = useNavigate();
 
     // Check to see if this is an add or edit form
     useEffect(()=>{
@@ -73,43 +74,25 @@ function WarehouseDetailsForm({warehouseToEdit}) {
             setSubmitButtonText("Save");
             setFormInputs(filledFields);
         }
-    }, [warehouseToEdit])
-    
-    
-
+    }, [warehouseToEdit]);
 
     /**
-     * getInputtedWarehouse is a helper function that will get all of the input field references, get all the values in the inputs, and stores those values inside one warehouse object that (if verified) is ready to be sent to the server.
+     * inputChangeHandler is a function that executes the actions that needs to happen when any input field in the form is edited. It stores the updated input field value in its corresponding field key in the formInputs state varialbe.
+     * 
+     * @param {Object}      event 
+     * 
+     */
+    function inputChangeHandler(event){
+        const {target} = event;
+        updateForm(target.name, target.value);
+    }
+    
+    /**
+     * getInputtedWarehouse is a helper function that will get all of the input field values and stores those values inside one warehouse object that (if verified) is ready to be sent to the server.
      * 
      * @returns {Object}
      */
     function getInputtedWarehouse(){
-        // // Get all of the form reference to get its input fields
-        // const formEl = formRef.current;
-
-        // // Get all of the input fields
-        // // Warehouse details fields
-        // const warehouseNameEl = formEl.warehouseName;
-        // const streetAddressEl = formEl.streetAddress;
-        // const cityEl = formEl.city;
-        // const countryEl = formEl.country;
-        // // Contact details fields
-        // const contactNameEl = formEl.contactName;
-        // const positionEl = formEl.position;
-        // const phoneNumberEl = formEl.phoneNumber;
-        // const emailEl = formEl.email;
-
-        // // Create warehouse object using the values in the form inputs
-        // const warehouseObject = {
-        //     warehouse_name: warehouseNameEl.value, 
-        //     address: streetAddressEl.value, 
-        //     city: cityEl.value, 
-        //     country: countryEl.value, 
-        //     contact_name: contactNameEl.value, 
-        //     contact_position: positionEl.value, 
-        //     contact_phone: phoneNumberEl.value, 
-        //     contact_email: emailEl.value
-        // }
         // Create warehouse object using the values in the form inputs
         const warehouseObject = {
             warehouse_name: formInputs.warehouseName, 
@@ -121,7 +104,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
             contact_phone: formInputs.phoneNumber, 
             contact_email: formInputs.email
         }
-        console.log(warehouseObject);
+
         // Return the warehouse objecct
         return warehouseObject
     }
@@ -132,30 +115,6 @@ function WarehouseDetailsForm({warehouseToEdit}) {
      */
     function resetInputs(){
         setFormInputs(initialState);
-        // // Get all of the form reference to get its input fields
-        // const formEl = formRef.current;
-
-        // // Get all of the input fields
-        // // Warehouse details fields
-        // const warehouseNameEl = formEl.warehouseName;
-        // const streetAddressEl = formEl.streetAddress;
-        // const cityEl = formEl.city;
-        // const countryEl = formEl.country;
-        // // Contact details fields
-        // const contactNameEl = formEl.contactName;
-        // const positionEl = formEl.position;
-        // const phoneNumberEl = formEl.phoneNumber;
-        // const emailEl = formEl.email;
-
-        // // Empty the form fields
-        // warehouseNameEl.value = ""; 
-        // streetAddressEl.value = ""; 
-        // cityEl.value = "";
-        // countryEl.value = ""; 
-        // contactNameEl.value = ""; 
-        // positionEl.value = ""; 
-        // phoneNumberEl.value = ""; 
-        // emailEl.value = "";
 
     }
 
@@ -216,6 +175,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
      * editWarehouse is an asynchronous function that takes a validated warehouse object and PUTs it to the server to update the give warehouse in the database.
      * 
      * @param {Object}      warehouse 
+     * @param {number}      id 
      * 
      */
     const editWarehouse = async(warehouse, id) =>{
@@ -279,21 +239,30 @@ function WarehouseDetailsForm({warehouseToEdit}) {
         } 
     }
 
+    /**
+     * submitHandler is a function that will direct the user to their previous page if they are choosing to cancel the add/edit process. The path is different depending on the task.
+     * 
+     * @param {Object}      event 
+     * 
+     */
     function cancelClickHandler(event){
         // Stop page from reloading
         event.preventDefault();
 
-        // Return to the warehouses list page 
-        navigate("/warehouses");
+        // Return to the warehouses list page if this is ADD or return to the warehouse details page if EDIT
+        if(!warehouseToEdit){
+            navigate("/warehouses");
+        }else{
+            navigate(`/warehouses/${warehouseToEdit.id}`);
+        }
     }
-    // ref={formRef}
+
     return (
         <section className="warehouse-form">
             <form className="warehouse-form__form" name="addWarehouseForm" id="addWarehouseForm" onSubmit={submitHandler} >
                 <fieldset className="warehouse-form__details-container" form="addWarehouseForm" name="warehouseDetailsFields" >
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
-                    <legend className="warehouse-form__sub-heading warehouse-form__sub-heading--in-border">Warehouse Details</legend>
-                    <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Warehouse Details</h3>
+                    <h3 className="warehouse-form__sub-heading">Warehouse Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="warehouseName">Warehouse Name</label>
                     <input className={isWarehouseNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="warehouseName" id="warehouseName" placeholder="Warehouse Name" onChange={inputChangeHandler} value={formInputs.warehouseName}/>
@@ -330,8 +299,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
                 </fieldset>
                 <fieldset className="warehouse-form__contact-container" form="addWarehouseForm" name="contactDetailsFields">
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
-                    <legend className="warehouse-form__sub-heading warehouse-form__sub-heading--in-border">Contact Details</legend>
-                    <h3 className="warehouse-form__sub-heading warehouse-form__sub-heading--under-border">Contact Details</h3>
+                    <h3 className="warehouse-form__sub-heading">Contact Details</h3>
 
                     <label className="warehouse-form__label" htmlFor="contactName">Contact Name</label>
                     <input className={isContactNameError ? "warehouse-form__input warehouse-form__input--error" : "warehouse-form__input"} type="text" name="contactName" id="contactName" placeholder="Contact Name" onChange={inputChangeHandler} value={formInputs.contactName} />
