@@ -9,6 +9,9 @@ import {
 import { BASE_URL } from "../../constant-variables";
 import axios from "axios";
 import { InventoriesList } from "../../components/InventoriesList/InventoriesList";
+import "./WarehouseDetailsPage.scss";
+import BackArrow from "../../assets/icons/arrow_back-24px.svg";
+import Edit from "../../assets/icons/edit-white-24px.svg";
 
 const WarehouseDetailsPage = (props) => {
   const { id } = useParams();
@@ -35,22 +38,42 @@ const WarehouseDetailsPage = (props) => {
   }
   return (
     <div>
-      <Link className="wh-details" to={"/warehouse/edit" + warehouse.id}>
-        <button className="wh-details__edit">
-          <svg width="24" height="24" viewBox="0 0 24 24"></svg>
-        </button>
-      </Link>
-      <div>
-        <p>WAREHOUSE ADDRESS</p>
-        <p>{warehouse.address}</p>
-        <p>{warehouse.city}</p>
-        <p>{warehouse.country}</p>
-        <p>CONTACT NAME</p>
-        <p>{warehouse.contact_name}</p>
-        <p>{warehouse.contact_position}</p>
-        <p>CONTACT INFORMATION</p>
-        <p>{warehouse.contact_phone}</p>
-        <p>{warehouse.contact_email}</p>
+      <div className="nav-link">
+        <Link className="nav-link__city" to={"/warehouses"}>
+          <img
+            src={BackArrow}
+            alt="Back arrow icon which navigates back to warehouse page"
+          />
+          <h1>{warehouse.city}</h1>
+        </Link>
+        <Link
+          className="nav-link__edit-container"
+          to={`/warehouses/${warehouse.id}/edit`}
+        >
+          <img
+            className="nav-link__edit"
+            src={Edit}
+            alt="Edit button which navigate to edit page"
+          />
+        </Link>
+      </div>
+      <div className="information-container">
+        <div className="warehouse-address">
+          <h4>WAREHOUSE ADDRESS</h4>
+          <p>{warehouse.address}</p>
+          <p>{warehouse.city}</p>
+          <p>{warehouse.country}</p>
+        </div>
+        <div className="contact-name">
+          <h4>CONTACT NAME</h4>
+          <p>{warehouse.contact_name}</p>
+          <p>{warehouse.contact_position}</p>
+        </div>
+        <div className="contact-information">
+          <h4>CONTACT INFORMATION</h4>
+          <p>{warehouse.contact_phone}</p>
+          <p>{warehouse.contact_email}</p>
+        </div>
       </div>
       <InventoriesList id={id} />
     </div>
