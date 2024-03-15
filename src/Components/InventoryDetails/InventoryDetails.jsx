@@ -1,4 +1,4 @@
-import './InventoryDetail.scss'
+import './InventoryDetails.scss'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -6,7 +6,7 @@ import axios from 'axios';
 import { ReactComponent as ArrowBackIcon } from '../../assets/icons/arrow_back-24px.svg';
 import { ReactComponent as EditWhiteIcon } from '../../assets/icons/edit-white-24px.svg';
 
-export const InventoryDetail = () => {
+export const InventoryDetails = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const { id } = useParams();
   console.log(id);
@@ -60,12 +60,14 @@ export const InventoryDetail = () => {
           <ArrowBackIcon className="inventory-detail__icon" />
           <span className="inventory-detail__name">{item_name}</span>
         </Link>
-        <button className="inventory-detail__edit-button">
-          <Link to={`/inventory/${id}/edit`}>
-            <EditWhiteIcon className="inventory-detail__edit-icon" />
-            <span className='inventory-detail__edit-text'>Edit</span>
-          </Link>
-        </button>
+        <div className="inventory-detail__edit-button-container">
+          <button className="inventory-detail__edit-button">
+            <Link to={`/inventory/${id}/edit`}>
+              <EditWhiteIcon className="inventory-detail__edit-icon" />
+              <span className='inventory-detail__edit-text'>Edit</span>
+            </Link>
+          </button>
+        </div>
       </div>
       <div className="inventory-detail__details">
         <div className="inventory-detail__description">

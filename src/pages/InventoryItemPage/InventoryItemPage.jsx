@@ -1,9 +1,10 @@
-import { InventoryDetail } from "../../components/InventoryDetail/InventoryDetail";
+import { InventoryDetails } from "../../components/InventoryDetails/InventoryDetails";
+import "./InventoryItemPage.scss";
 
 const InventoryItemPage = () => {
   return (
-    <section>
-      <InventoryDetail />
+    <section className="inventory-section">
+      <InventoryDetails />
     </section>
   )
 }

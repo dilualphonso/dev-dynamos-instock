@@ -2,28 +2,11 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/typography" as *;
 
-.inventory-detail__edit-button {
-  background-color: $primary-indigo;
-  border-radius: 50%;
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
-.inventory-detail__edit-icon {
-  display: inline-block;
-}
-.inventory-detail__edit-text {
-  display: none;
-  @include tablet {
-    display: inline-block;
-  }
-}
-
 .inventory-detail {
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
 
   &__header {
     display: flex;
@@ -31,7 +14,7 @@
     justify-content: space-between;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 0.063rem solid $secondary-cloud;
+    border-bottom: 0.0625rem solid $secondary-cloud;
     @include pageHeading;
   }
 
@@ -47,13 +30,35 @@
     display: flex;
     justify-content: baseline;
     color: $primary-black;
+    padding-left: 1rem;
+  }
+
+  &__edit-button-container {
+    padding-right: 1rem;
+  }
+
+  &__edit-button {
+    background-color: $primary-indigo;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  &__edit-icon {
+    display: inline-block;
+  }
+
+  &__edit-text {
+    display: none;
+    @include tablet {
+      display: inline-block;
+    }
   }
 
   &__details {
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     gap: 1rem;
   }
 
@@ -68,8 +73,7 @@
   &__status-quantity {
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     gap: 1rem;
   }
 
