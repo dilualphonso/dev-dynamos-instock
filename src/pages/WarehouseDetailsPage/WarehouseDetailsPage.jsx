@@ -38,41 +38,43 @@ const WarehouseDetailsPage = (props) => {
   }
   return (
     <div>
-      <div className="nav-link">
-        <Link className="nav-link__city" to={"/warehouses"}>
-          <img
-            src={BackArrow}
-            alt="Back arrow icon which navigates back to warehouse page"
-          />
-          <h1>{warehouse.city}</h1>
-        </Link>
-        <Link
-          className="nav-link__edit-container"
-          to={`/warehouses/${warehouse.id}/edit`}
-        >
-          <img
-            className="nav-link__edit"
-            src={Edit}
-            alt="Edit button which navigate to edit page"
-          />
-        </Link>
-      </div>
-      <div className="information-container">
-        <div className="warehouse-address">
-          <h4>WAREHOUSE ADDRESS</h4>
-          <p>{warehouse.address}</p>
-          <p>{warehouse.city}</p>
-          <p>{warehouse.country}</p>
+      <div className="single-warehouse-container">
+        <div className="nav-link">
+          <Link className="nav-link__city" to={"/warehouses"}>
+            <img
+              src={BackArrow}
+              alt="Back arrow icon which navigates back to warehouse page"
+            />
+            <h1>{warehouse.city}</h1>
+          </Link>
+          <Link
+            className="nav-link__edit-container"
+            to={`/warehouses/${warehouse.id}/edit`}
+          >
+            <img
+              className="nav-link__edit"
+              src={Edit}
+              alt="Edit button which navigate to edit page"
+            />
+          </Link>
         </div>
-        <div className="contact-name">
-          <h4>CONTACT NAME</h4>
-          <p>{warehouse.contact_name}</p>
-          <p>{warehouse.contact_position}</p>
-        </div>
-        <div className="contact-information">
-          <h4>CONTACT INFORMATION</h4>
-          <p>{warehouse.contact_phone}</p>
-          <p>{warehouse.contact_email}</p>
+        <div className="information-container">
+          <div className="warehouse-address">
+            <h4>WAREHOUSE ADDRESS</h4>
+            <p>{warehouse.address}</p>
+            <p>{warehouse.city}</p>
+            <p>{warehouse.country}</p>
+          </div>
+          <div className="contact-name">
+            <h4>CONTACT NAME</h4>
+            <p>{warehouse.contact_name}</p>
+            <p>{warehouse.contact_position}</p>
+          </div>
+          <div className="contact-information">
+            <h4>CONTACT INFORMATION</h4>
+            <p>{warehouse.contact_phone}</p>
+            <p>{warehouse.contact_email}</p>
+          </div>
         </div>
       </div>
       <InventoriesList id={id} />

@@ -4,31 +4,37 @@
 @use "../../styles/colors" as *;
 @use "../../styles/global" as *;
 
-.nav-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  &__city {
+.single-warehouse-container {
+  padding: 1rem;
+  .nav-link {
     display: flex;
-    h1 {
-      @include mobile-font-h1;
-      margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    &__city {
+      display: flex;
+      h1 {
+        @include mobile-font-h1;
+        margin: 0;
+      }
+    }
+    &__edit-container {
+      display: flex;
+      align-items: center;
+      width: auto;
+      height: 0.9375rem;
+    }
+    &__edit {
+      padding: 0.15625rem;
+      background-color: $primary-indigo;
+      border-radius: 50%;
     }
   }
-  &__edit-container {
-    display: flex;
-    align-items: center;
-    width: 0.9375rem;
-    height: 0.9375rem;
-  }
-  &__edit {
-    padding: 0.15625rem;
-    background-color: $primary-indigo;
-    border-radius: 50%;
-  }
 }
+
 .information-container {
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   p {
     font-family: "Titillium-Regular";
     font-size: 0.8125rem;
