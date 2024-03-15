@@ -7,12 +7,10 @@ import axios from 'axios';
 export const InventoriesList = ({ id }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   let endpoint = 'api/inventories';
-  console.log(id);
   if (id) {
     endpoint = `api/warehouses/${id}/inventories`;
   }
   const inventoriesUrl = `${baseUrl}/${endpoint}`;
-  console.log(inventoriesUrl);
 
   const [inventories, setInventories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -172,3 +172,43 @@
   }
   
 }
+
+@mixin stockStatus() {
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 20px;
+  background-color: $bg-light;
+  @include tablet {
+    padding-top: 0.3rem;
+  }
+}
+
+@mixin itemLabel() {
+  font-family: Titillium-Regular;
+  color: $secondary-slate;
+  font-size: 0.688rem;
+  line-height: 1rem;    
+  font-weight: 500;
+  margin: 0;
+
+  @include tablet() {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+}
+
+@mixin itemText() {
+  font-family: Titillium-SemiBold;
+  color: $primary-black;
+  font-size: 0.813rem;
+  line-height: 1.25rem;    
+  font-weight: 400;
+  margin: 0;
+
+  @include tablet() {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}

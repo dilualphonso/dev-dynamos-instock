@@ -1,0 +1,7 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.inventory-section{
+    @include pageCard();
+}
