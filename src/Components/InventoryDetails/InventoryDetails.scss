@@ -6,11 +6,6 @@
   display: flex;
   flex-direction: column;
 
-  @include tablet {
-    // margin: 0;
-    // padding: 0;
-  }
-
   &__header {
     display: flex;
     flex-direction: row;
@@ -51,15 +46,20 @@
       font-weight: 600;
       width: 6rem;
       height: 2.25rem;
-      border-radius: 20px;      
+      border-radius: 20px;
       padding: 0;
       display: flex;
       align-items: center;
 
-      &:hover {        
+      &:hover {
         color: $white;
       }
     }
+  }
+
+  &__edit-link {
+    display: flex;
+    align-items: center;
   }
 
   &__edit-icon {
@@ -91,7 +91,8 @@
     gap: 1rem;
     @include tablet {
       border-right: 0.0625rem solid $secondary-cloud;
-    }    
+      padding-left: 1.25rem;
+    }
   }
 
   &__label {
@@ -107,12 +108,16 @@
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+    padding-right: 6rem;
+    @include desktop {
+      padding-right: 9rem;
+    }
   }
 
   &__status-quantity-details {
     display: flex;
     flex-direction: row;
-    gap: 8rem;
+    gap: 6rem;
   }
 
   &__text-status {
