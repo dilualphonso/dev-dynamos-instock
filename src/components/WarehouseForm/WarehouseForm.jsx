@@ -7,7 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
-function WarehouseDetailsForm() {
+function WarehouseDetailsForm({warehouseToEdit}) {
 
     // Warehouse details error states
     const [isWarehouseNameError, setIsWarehouseNameError] = useState(false);
@@ -26,6 +26,17 @@ function WarehouseDetailsForm() {
 
     // Create a navigate for when the user creates a warehouse or decides to cancel the process
     const navigate = useNavigate();
+
+    // Check to see if this is an add or edit form
+    let submitBtnText = "";
+    if(!warehouseToEdit){
+        // The form is in ADD mode
+        submitBtnText = "+ Add Warehouse";
+    }else{
+        // The form is in EDIT mode
+        submitBtnText = "Save";
+        console.log(warehouseToEdit);
+    }
 
 
     /**
@@ -157,17 +168,17 @@ function WarehouseDetailsForm() {
      * @param {Object}      warehouse 
      * 
      */
-    // const editWarehouse = async(warehouse, id) =>{
-    //     try{
-    //         const response = await axios.put(`${BASE_URL}/warehouses/${id}`, warehouse);
-    //         console.log(response.data);
-    //         // TODO success message?
+    const editWarehouse = async(warehouse, id) =>{
+        try{
+            const response = await axios.put(`${BASE_URL}/warehouses/${id}`, warehouse);
+            console.log(response.data);
+            // TODO success message?
 
-    //     }catch(error){
-    //         console.log(error);
-    //         // TODO error notification for user?
-    //     }
-    // };
+        }catch(error){
+            console.log(error);
+            // TODO error notification for user?
+        }
+    };
 
     /**
      * submitHandler is a function that executes the actions that needs to happen when a warehouse creation form is submitted. 
@@ -193,7 +204,13 @@ function WarehouseDetailsForm() {
         }else{
             // If validation succeeded
             // Make the request to the server to create the warehouse
-            addWarehouse(warehouse);
+            if(!warehouseToEdit){
+                // If no warehouse to edit, the call is POST to ADD a new warehouse
+                addWarehouse(warehouse);
+            }else{
+                // Otherwise the call is PUT to EDIT an existing warehouse
+                editWarehouse(warehouse, warehouseToEdit.id);
+            }
 
             // Reset the error states
             resetErrorStates();
@@ -295,7 +312,7 @@ function WarehouseDetailsForm() {
                 </fieldset>
                 <div className="warehouse-form__button-container">
                     <button className="warehouse-form__button warehouse-form__button--cancel" onClick={cancelClickHandler}>Cancel</button>
-                    <button className="warehouse-form__button warehouse-form__button--add">+ Add Warehouse</button>
+                    <button className="warehouse-form__button warehouse-form__button--submit">{submitBtnText}</button>
                 </div>
             </form>
         </section>

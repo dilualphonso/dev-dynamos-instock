@@ -62,7 +62,7 @@ function WarehousesEditPage() {
             <Link className="edit-warehouse__back-link" to="/warehouses"></Link>
             <h1 className="edit-warehouse__heading">Edit Warehouse</h1>
         </article>
-        <WarehouseForm />
+        <WarehouseForm warehouseToEdit={warehouseData} />
     </section>
   );
 }
