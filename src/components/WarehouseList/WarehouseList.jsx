@@ -4,8 +4,17 @@ import arrowImage from "../../assets/icons/chevron_right-24px.svg"
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
 import editIcon from "../../assets/icons/edit-24px.svg"
 import sortIcon from "../../assets/icons/sort-24px.svg"
+import {Link} from 'react-router-dom';
+
+
 function WarehouseList({ warehouses }) {
-  // console.log(warehouses);
+
+
+
+
+
+
+
 
   return (
     <section className="warehouse">
@@ -78,7 +87,7 @@ function WarehouseList({ warehouses }) {
 
               </div>
               <div className='warehouse__icons'>
-                <img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" />
+             <Link to ="/warhouses/delete" >   <button className= "warehouse__delete-btn"><img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" /></button></Link>
                 <img className="warehouse__edit-icon" src={editIcon} alt="edit-icon" />
               </div>
 
