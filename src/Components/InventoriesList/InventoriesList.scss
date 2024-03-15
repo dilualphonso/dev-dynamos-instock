@@ -5,20 +5,19 @@
 .inventories-list {
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0;
   @include mobile-font-body-medium;
 
-  @include tablet {
+  &__header {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
 
-  &__header {
     @include tablet {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
     }
   }
 
@@ -39,9 +38,9 @@
 
   &__search {
     width: 100%;
-    height: 2rem;
-    border-radius: 20px;
-    border: 1px solid $secondary-cloud;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    border: 0.0625rem solid $secondary-cloud;
     background-color: none;
     background-image: url("../../assets/icons/search-24px.svg");
     background-position: calc(100% - 1rem) center;
@@ -61,10 +60,10 @@
 
   &__button {
     width: 100%;
-    height: 2rem;
+    height: 2.25rem;
     margin-top: 1rem;
     background-color: $primary-indigo;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     @include mobile-font-h3;
     color: $white;
     padding-top: 1rem;
@@ -85,14 +84,15 @@
 
     @include tablet {
       display: flex;
-      //justify-content: space-around;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
     }
   }
 
   &__items {
     list-style: none;
     padding: 0;
-    border-top: 0.063rem solid $secondary-cloud;
+    border-top: 0.0625rem solid $secondary-cloud;
     @include tablet {
       border-top: none;
     }
@@ -104,71 +104,73 @@
     display: flex;
     width: 100%;
     margin: 0;
-    padding: 0;
 
     &--item {
       display: flex;
-      flex-basis: 21%;
+      flex-basis: 20.95%;
     }
 
     &--category {
       display: flex;
-      flex-basis: 21%;
+      flex-basis: 24.3%;
     }
 
     &--status {
       display: flex;
-      flex-basis: 17%;
+      flex-basis: 19.95%;
     }
 
     &--qty {
       display: flex;
-      flex-basis: 25%;
+      flex-basis: 11.3%;
+    }
+
+    &--warehouse {
+      display: flex;
+      flex-basis: 13.5%;
     }
 
     &--actions {
       display: flex;
       justify-content: center;
-      flex-basis: 12%;
+      flex-basis: 10%;
     }
   }
 
   @include desktop() {
     display: flex;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0;    
 
     &--item {
       display: flex;
-      flex-basis: 21.5%;
+      flex-basis: 20.95%;
     }
 
     &--category {
       display: flex;
-      flex-basis: 19.5%;
+      flex-basis: 21.3%;
     }
 
     &--status {
       display: flex;
-      flex-basis: 17%;
+      flex-basis: 20.95%;
     }
 
     &--qty {
       display: flex;
-      flex-basis: 26%;
+      flex-basis: 12.3%;
+    }
+
+    &--warehouse {
+      display: flex;
+      flex-basis: 16.5%;
     }
 
     &--actions {
       display: flex;
       justify-content: center;
-      flex-basis: 20%;
+      flex-basis: 8%;
     }
-  }
-}
-
-.inventories-list__labels--warehouse {
-  @include tablet {
-    display: none;
   }
 }

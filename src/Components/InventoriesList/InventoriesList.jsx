@@ -62,7 +62,11 @@ export const InventoriesList = ({ id }) => {
         <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
         <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
         <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
-        <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
+        {!id && (
+          <p className="inventories-list__label inventories-list__labels--warehouse">
+            WAREHOUSE
+          </p>
+        )}
         <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
       </div>
 
