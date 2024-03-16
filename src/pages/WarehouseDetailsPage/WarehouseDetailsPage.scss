@@ -4,27 +4,22 @@
 @use "../../styles/colors" as *;
 @use "../../styles/global" as *;
 
-.divider {
-  border-top: solid 1px $secondary-cloud;
-  margin: 1rem 0;
-}
 .single-warehouse-container {
-  padding: 1rem;
-  @include tablet {
-    padding: 2rem;
-  }
-  @include desktop {
-    padding: 2rem;
-  }
+  padding: 1rem 0;
   .information-container {
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     @include tablet {
+      padding: 0 2rem;
       flex-direction: row;
-      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      // max-width: 48rem;
     }
     @include desktop {
+      // padding: 0 1rem; // //
       display: flex;
       justify-content: space-between;
     }
@@ -66,13 +61,12 @@
     @include tablet {
       margin: 0;
       border-left: solid 1px $secondary-cloud;
-      margin-left: 13rem;
+      padding-right: 2.5rem;
       padding-left: 1rem;
+      // max-width: 24rem; // //
     }
     @include desktop {
-      display: flex;
       margin-left: 0;
-      padding-right: 22rem;
     }
     .contact-details {
       margin-left: 5rem;
@@ -83,6 +77,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2rem;
+  }
   &__city {
     display: flex;
     h1 {
@@ -93,30 +91,50 @@
       }
     }
   }
+
   &__edit-container {
     display: flex;
     align-items: center;
-
     background-color: $primary-indigo;
     border-radius: 50%;
     padding: 0.5rem;
     @include tablet {
-      border-radius: 30%;
+      border-radius: 20px;
+      align-items: center;
     }
   }
-  &__edit {
+  &__edit-tablet {
+    display: none;
+    @include tablet {
+      display: block;
+      color: $white;
+      font-family: "Titillium-Regular";
+      width: 3rem;
+      height: 0;
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+  }
+  &__button-content {
+    display: flex;
+    align-items: center;
+  }
+  &__edit-icon {
     width: auto;
     height: 1.125rem;
-    &--tablet {
-      display: none;
-      @include tablet {
-        display: block;
-        color: $white;
-      }
-    }
+    display: flex;
+    align-items: center;
+
     @include tablet {
-      display: flex;
-      flex-direction: row;
+      height: 0.9375rem;
+      width: 0.9375rem;
     }
   }
+}
+.divider {
+  border-top: solid 1px $secondary-cloud;
+  margin: 1rem 0;
 }

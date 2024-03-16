@@ -46,12 +46,14 @@ const WarehouseDetailsPage = (props) => {
             className="nav-link__edit-container"
             to={`/warehouses/${warehouse.id}/edit`}
           >
-            <img
-              className="nav-link__edit"
-              src={Edit}
-              alt="Edit button which navigate to edit page"
-            />
-            <div className="nav-link__edit--tablet">Edit</div>
+            <div className="nav-link__button-content" nav-link__>
+              <img
+                className="nav-link__edit-icon"
+                src={Edit}
+                alt="Edit button which navigate to edit page"
+              />
+              <div className="nav-link__edit-tablet">Edit</div>
+            </div>
           </Link>
         </div>
         <div className="divider"></div>
