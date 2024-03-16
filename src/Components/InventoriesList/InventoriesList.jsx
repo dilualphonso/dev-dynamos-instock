@@ -64,7 +64,7 @@ export const InventoriesList = ({ id }) => {
             <button className="inventories-list__button">
               <Link to="/inventory/add" className="link-white">
                 {" "}
-                Add New Item
+                + Add New Item
               </Link>
             </button>
           </div>

@@ -2,8 +2,8 @@ import "./InventoryAddPage.scss";
 import { Link } from "react-router-dom";
 import InventoryItemForm from "../../components/InventoryItemForm/InventoryItemForm";
 
-function WarehousesAddPage() {
-  
+function InventoryAddPage() {
+
     return (
         <section className="add-inventory">
             <article className="add-inventory__heading-container">
@@ -14,4 +14,4 @@ function WarehousesAddPage() {
         </section>
     );
 }
-export default WarehousesAddPage;
+export default InventoryAddPage;
