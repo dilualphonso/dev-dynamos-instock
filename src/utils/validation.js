@@ -90,3 +90,15 @@ function isEmailFormatValid(email){
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
     return emailRegex.test(email);
 }
+
+
+
+/**
+ * validateItemForm is a helper function that checks if the provided inventory item object meets all validation requirements to be posted to be created in the backend of the website.
+ * 
+ * @param {Object}      item 
+ * 
+ * @returns {Object}
+ */
+export function validateItemForm(item){
+}

@@ -240,7 +240,7 @@ function WarehouseDetailsForm({warehouseToEdit}) {
     }
 
     /**
-     * submitHandler is a function that will direct the user to their previous page if they are choosing to cancel the add/edit process. The path is different depending on the task.
+     * cancelClickHandler is a function that will direct the user to their previous page if they are choosing to cancel the add/edit process. The path is different depending on the task.
      * 
      * @param {Object}      event 
      * 
