@@ -10,7 +10,9 @@
 }
 .single-warehouse-container {
   padding: 1rem;
-
+  @include desktop {
+    padding: 2rem;
+  }
   .information-container {
     display: flex;
     justify-content: space-between;
@@ -19,16 +21,27 @@
       flex-direction: row;
       justify-content: flex-start;
     }
+    @include desktop {
+      display: flex;
+      justify-content: flex-end;
+    }
+
     p {
       font-family: "Titillium-Regular";
       font-size: 0.8125rem;
       margin: 0;
+      @include tablet {
+        font-size: 0.875rem;
+      }
     }
     h4 {
       font-family: "Titillium-SemiBold";
       font-size: 0.6875rem;
       color: $secondary-slate;
       margin: 0;
+      @include tablet {
+        font-size: 0.75rem;
+      }
     }
     .warehouse-address {
       display: flex;
@@ -49,7 +62,12 @@
     margin-top: 1rem;
     @include tablet {
       margin: 0;
-      padding-left: 2rem;
+      border-left: solid 1px $secondary-cloud;
+      // margin-left: 13rem;
+      padding-left: 1rem;
+    }
+    @include desktop {
+      display: flex;
     }
     .contact-details {
       margin-left: 5rem;
@@ -69,6 +87,9 @@
     h1 {
       @include mobile-font-h1;
       margin: 0;
+      @include tablet {
+        font-size: 2rem;
+      }
     }
   }
   &__edit-container {
