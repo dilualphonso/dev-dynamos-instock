@@ -10,6 +10,9 @@
 }
 .single-warehouse-container {
   padding: 1rem;
+  @include tablet {
+    padding: 2rem;
+  }
   @include desktop {
     padding: 2rem;
   }
@@ -23,7 +26,7 @@
     }
     @include desktop {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
     }
 
     p {
@@ -63,20 +66,18 @@
     @include tablet {
       margin: 0;
       border-left: solid 1px $secondary-cloud;
-      // margin-left: 13rem;
+      margin-left: 13rem;
       padding-left: 1rem;
     }
     @include desktop {
       display: flex;
+      margin-left: 0;
+      padding-right: 22rem;
     }
     .contact-details {
       margin-left: 5rem;
     }
   }
-  // @include tablet {
-  //   display: flex;
-  //   flex-direction: row;
-  // }
 }
 .nav-link {
   display: flex;
