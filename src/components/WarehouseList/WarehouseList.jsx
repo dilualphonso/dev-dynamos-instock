@@ -4,8 +4,26 @@ import arrowImage from "../../assets/icons/chevron_right-24px.svg"
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg"
 import editIcon from "../../assets/icons/edit-24px.svg"
 import sortIcon from "../../assets/icons/sort-24px.svg"
-function WarehouseList({ warehouses }) {
-  // console.log(warehouses);
+import WarehouseDeletePage from "../../pages/WarehouseDeletePage/WarehouseDeletePage"
+import { useState } from 'react';
+import { Link} from 'react-router-dom';
+
+
+
+function WarehouseList({ warehouses , setWarehouses}) {
+
+  const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
+  const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleDeleteClick = (warehouseId,warehouseName) => {
+    setSelectedWarehouseId(warehouseId);
+    setSelectedWarehouseName(warehouseName);
+    setModalOpen(true);
+  };
+
+
+
 
   return (
     <section className="warehouse">
@@ -78,8 +96,9 @@ function WarehouseList({ warehouses }) {
 
               </div>
               <div className='warehouse__icons'>
-                <img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" />
-                <img className="warehouse__edit-icon" src={editIcon} alt="edit-icon" />
+          <button className= "warehouse__delete-btn" onClick={() => handleDeleteClick(warehouse.id,warehouse.warehouse_name)}><img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" /></button>
+
+             <Link to={`/warehouses/${warehouse.id}/edit`} >  <button className="warehouse__edit-icon"><img src={editIcon} alt="edit-icon" /></button> </Link>
               </div>
 
             </div>
@@ -89,7 +108,7 @@ function WarehouseList({ warehouses }) {
         ))}
 
       </div>
-
+      {modalOpen && <WarehouseDeletePage setOpenModal={setModalOpen} warehouseId={selectedWarehouseId} warehouseName={selectedWarehouseName} setWarehouses={setWarehouses}/>}
     </section>
   );
 }
