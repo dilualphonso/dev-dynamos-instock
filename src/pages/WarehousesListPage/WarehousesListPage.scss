@@ -10,6 +10,10 @@
         font-size:1.25rem ;
         line-height:1.75rem ;
 
+        @include tablet {
+           @include desktop-tablet-font-h1;
+        }
+
 
     }
     &__button{
@@ -27,6 +31,7 @@
         margin-bottom: 1.5rem;
         @include tablet {
             height: 2.375rem;
+            @include desktop-tablet-font-h3;
 
         }
 

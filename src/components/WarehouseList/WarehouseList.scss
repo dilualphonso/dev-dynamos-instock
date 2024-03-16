@@ -85,6 +85,7 @@
             width: 100%;
             margin: 0;
             padding: 0;
+            @include desktop-tablet-font-body-medium;
         }
     }
 
@@ -96,6 +97,9 @@
             margin: 0;
             padding: 0;
             margin-left: 1rem;
+            @include desktop-tablet-font-body-medium;
+
+
         }
     }
 
@@ -123,7 +127,7 @@
 
         @include tablet {
             flex-basis: 50%;
-            padding-top: 0.5rem;
+            padding-top: 1rem;
         }
     }
 
@@ -136,6 +140,7 @@
         @include tablet {
             width: 100%;
             flex-basis: 30%;
+            padding-top: 1rem
         }
     }
 
@@ -156,6 +161,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         width: 100%;
+        padding-top: 0.25rem;
 
         @include tablet {
             width: 100%;
@@ -188,15 +194,22 @@
 
         @include tablet {
             width: 100%;
+            @include desktop-tablet-font-body-medium;
         }
     }
 
     &__contact-email {
         @include mobile-font-body-medium;
+        @include tablet {
+            @include desktop-tablet-font-body-medium;
+        }
     }
 
     &__contact-phone {
         @include mobile-font-body-medium;
+        @include tablet {
+            @include desktop-tablet-font-body-medium;
+        }
     }
 
     &__arrowImg {
@@ -211,6 +224,8 @@
         margin-right: 1rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        padding: 0;
+        background-color: $white;
 
         @include tablet {
             // width: 1.5rem;
@@ -223,7 +238,7 @@
 
         @include tablet {
             height: 1.5rem;
-            margin-top: 1rem;
+           // margin-top: 1rem;
             margin-left: 0rem;
         }
     }
@@ -232,9 +247,13 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: baseline;
 
         @include tablet {
             flex-basis: 11%;
+            padding-top: 0;
+            margin-top: 0;
+            padding-bottom: 0.5rem;
         }
 
         @include desktop {
@@ -251,9 +270,9 @@
             justify-content: center;
             width: 100%;
             height: 5rem;
-            padding-top: 1rem;
+            padding-top: 3rem;
             align-items: center;
-            padding-bottom: 1rem;
+            padding-bottom: 3rem;
         }
     }
 
@@ -298,12 +317,12 @@
             margin-right: 1rem;
             padding: 0;
             margin: 0;
-            flex-basis: 16%;
+            flex-basis: 19%;
             width: 100%;
         }
 
         @include desktop {
-            flex-basis: 20%;
+            flex-basis: 25%;
         }
     }
 
@@ -355,12 +374,12 @@
             flex-direction: row;
             padding: 0;
             margin: 0;
-            flex-basis: 22%;
+            flex-basis: 23%;
             width: 100%;
         }
 
         @include desktop {
-            flex-basis: 18%;
+            flex-basis: 21%;
         }
     }
 
@@ -382,12 +401,12 @@
             flex-direction: row;
             padding: 0;
             margin: 0;
-            flex-basis: 25%;
+            flex-basis: 30%;
             width: 100%;
         }
 
         @include desktop {
-            flex-basis: 25%;
+            flex-basis: 27%;
         }
     }
 
@@ -456,7 +475,14 @@
         @include tablet {
             width: 25%;
             display: flex;
-            flex-basis: 35%;
+            flex-basis: 40%;
         }
+    }
+
+    &__delete-btn{
+        background: none;
+        border: none;
+       // padding: 0;
+        justify-content: flex-start;
     }
 }
