@@ -15,7 +15,7 @@ function InventoryItemForm({itemToEdit}) {
     const [isCategoryError, setIsCategoryError] = useState(false);
 
     // Item Availability error states
-    const [quantityError, setIsQuantityError] = useState("");
+    const [quantityError, setQuantityError] = useState("");
     const [isWarehouseError, setIsWarehouseError] = useState(false);
 
     // Button text state
@@ -104,7 +104,7 @@ function InventoryItemForm({itemToEdit}) {
         setIsItemNameError(validationReport.itemName);
         setIsDescriptionError(validationReport.description);
         setIsCategoryError(validationReport.category);
-        setIsQuantityError(validationReport.quantity);
+        setQuantityError(validationReport.quantity);
         setIsWarehouseError(validationReport.warehouse);
     }
 
@@ -117,7 +117,7 @@ function InventoryItemForm({itemToEdit}) {
         setIsItemNameError(false);
         setIsDescriptionError(false);
         setIsCategoryError(false);
-        setIsQuantityError(false);
+        setQuantityError("");
         setIsWarehouseError(false);
 
     }
@@ -242,13 +242,13 @@ function InventoryItemForm({itemToEdit}) {
                     </label>}
 
                     <label className="item-form__label" htmlFor="category">Category</label>
-                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} >
-                        <option disabled selected value className="item-form__dropdown-option">Please select</option>
-                        <option className="item-form__dropdown-option" value="Accessories">Accessories</option>
-                        <option className="item-form__dropdown-option" value="Apparel">Apparel</option>
-                        <option className="item-form__dropdown-option" value="Electronics">Electronics</option>
-                        <option className="item-form__dropdown-option" value="Gear">Gear</option>
-                        <option className="item-form__dropdown-option" value="Health">Health</option>
+                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} selected={formInputs.category}>
+                        <option className="item-form__dropdown-option" value="" >Please select</option>
+                        <option className="item-form__dropdown-option" value="Accessories" >Accessories</option>
+                        <option className="item-form__dropdown-option" value="Apparel" >Apparel</option>
+                        <option className="item-form__dropdown-option" value="Electronics" >Electronics</option>
+                        <option className="item-form__dropdown-option" value="Gear" >Gear</option>
+                        <option className="item-form__dropdown-option" value="Health" >Health</option>
                     </select>
                     {isCategoryError &&
                     <label className="item-form__error" htmlFor="category">
@@ -257,25 +257,27 @@ function InventoryItemForm({itemToEdit}) {
                     </label>}
 
                 </fieldset>
-                <fieldset className="item-form__contact-container" form="submitItemForm" name="itemAvailabilityFields">
+                <fieldset className="item-form__availability-container" form="submitItemForm" name="itemAvailabilityFields">
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
                     <h3 className="item-form__sub-heading">Item Availability</h3>
 
                     {/* Chose to let the Out of Stock radio be set by default */}
-                    <p className="item-form__label">Status</p>
+                    <p className="item-form__label item-form__radio-label--heading">Status</p>
                     <input className="item-form__radioBtn" type="radio" name="status" id="in_stock" onChange={inputChangeHandler} value="In Stock" checked={formInputs.status === "In Stock"}/>
                     <label className="item-form__radio-label" htmlFor="in_stock">In stock</label>
                     <input className="item-form__radioBtn" type="radio" name="status" id="out_of_stock" onChange={inputChangeHandler} value="Out of Stock" checked={formInputs.status === "Out of Stock"}/>
                     <label className="item-form__radio-label" htmlFor="out_of_stock">Out of stock</label>
 
                     {/* TODO hide on out of stock */}
-                    <label className="item-form__label" htmlFor="quantity">Quantity</label>
-                    <input className={quantityError ? "item-form__input item-form__input--error" : "item-form__input"} type="text" name="quantity" id="quantity" placeholder="0" onChange={inputChangeHandler} value={formInputs.quantity} />
-                    {quantityError &&
-                    <label className="item-form__error" htmlFor="quantity">
-                        <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
-                        This field is required
-                    </label>}
+                    <div className={formInputs.status === "In Stock" ? "item-form__conditional-field item-form__conditional-field--show" : "item-form__conditional-field"}>
+                        <label className="item-form__label" htmlFor="quantity">Quantity</label>
+                        <input className={quantityError ? "item-form__input item-form__input--error" : "item-form__input"} type="text" name="quantity" id="quantity" placeholder="0" onChange={inputChangeHandler} value={formInputs.quantity} />
+                        {quantityError &&
+                        <label className="item-form__error" htmlFor="quantity">
+                            <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
+                            This field is required
+                        </label>}
+                    </div>
                     
                     {/* TODO populate dropdown */}
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
