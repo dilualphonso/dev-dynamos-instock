@@ -70,27 +70,38 @@ export const InventoriesList = ({ id }) => {
           </div>
         </div>
       )}
-      <div className="inventories-list__labels">
-        <p className="inventories-list__label inventories-list__labels--item">
-          INVENTORY ITEM
-        </p>
-        <p className="inventories-list__label inventories-list__labels--category">
-          CATEGORY
-        </p>
-        <p className="inventories-list__label inventories-list__labels--status">
-          STATUS
-        </p>
-        <p className="inventories-list__label inventories-list__labels--qty">
-          QTY
-        </p>
-        {!id && (
-          <p className="inventories-list__label inventories-list__labels--warehouse">
-            WAREHOUSE
-          </p>
-        )}
-        <p className="inventories-list__label inventories-list__labels--actions">
-          ACTIONS
-        </p>
+      
+      <div className='inventories-list__labels'>
+        <div className='inventories-list__labels__container'>
+          <div className='inventories-list__labels__wrapper'>
+            <div className='inventories-list__labels-left'>
+              <div className="inventories-list__labels__item">
+                <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
+              </div>
+              <div className="inventories-list__labels__category">
+                <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
+              </div>
+            </div>
+            <div className="inventories-list__labels-right">
+              <div className="inventories-list__labels__status">
+                <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
+              </div>
+              <div className="inventories-list__lables__quantity">
+                <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
+              </div>
+            </div>
+          </div>
+          <div className={`inventories-list__labels__warehouse ${id ? 'inventories-list__labels__warehouse--has-warehouse' : ''}`}>
+            {!id && (
+              <p className="inventories-list__label inventories-list__labels--warehouse">
+                WAREHOUSE
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="inventories-list__labels__actions">
+          <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
+        </div>
       </div>
 
       <ul className="inventories-list__items">
