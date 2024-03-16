@@ -41,7 +41,6 @@ const WarehouseDetailsPage = (props) => {
             />
             <h1>{warehouse.city}</h1>
           </Link>
-
           <Link
             className="nav-link__edit-container"
             to={`/warehouses/${warehouse.id}/edit`}
@@ -61,11 +60,7 @@ const WarehouseDetailsPage = (props) => {
           <div className="warehouse-address">
             <h4>WAREHOUSE ADDRESS</h4>
             <div className="warehouse-address__location">
-              <p>{`${warehouse.address}, `}</p>
-              <div>
-                <p>{`${warehouse.city}, `}</p>
-                <p>{`${warehouse.country}, `}</p>
-              </div>
+              <p>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
             </div>
           </div>
           <div className="contact">

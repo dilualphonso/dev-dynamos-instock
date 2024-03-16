@@ -84,8 +84,10 @@
   &__city {
     display: flex;
     h1 {
-      @include mobile-font-h1;
+      font-family: "Titillium-SemiBold";
+      color: $primary-black;
       margin: 0;
+      padding-left: 0.5rem;
       @include tablet {
         font-size: 2rem;
       }
