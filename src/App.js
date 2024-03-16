@@ -10,6 +10,7 @@ import InventoryItemPage from "./pages/InventoryItemPage/InventoryItemPage";
 import InventoryAddPage from "./pages/InventoryItemPage/InventoryItemPage";
 import InventoryEditPage from "./pages/InventoryEditPage/InventoryEditPage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+
 import "./App.css";
 
 function App() {
