@@ -41,7 +41,8 @@ function WarehousesListPage (){
 
     </div>
     <section>
-     <WarehouseList warehouses={warehouses}/>
+     <WarehouseList warehouses={warehouses}   setWarehouses={setWarehouse}/>
+
 
         </section>
 

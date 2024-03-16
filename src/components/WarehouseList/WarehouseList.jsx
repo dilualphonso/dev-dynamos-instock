@@ -6,11 +6,11 @@ import editIcon from "../../assets/icons/edit-24px.svg"
 import sortIcon from "../../assets/icons/sort-24px.svg"
 import WarehouseDeletePage from "../../pages/WarehouseDeletePage/WarehouseDeletePage"
 import { useState } from 'react';
-import { navigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 
-function WarehouseList({ warehouses }) {
+function WarehouseList({ warehouses , setWarehouses}) {
 
   // const [showSuccess, setShowSuccess] = useState(false);
   // const [popupMessage, setPopupMessage] = useState("")
@@ -100,7 +100,7 @@ function WarehouseList({ warehouses }) {
               <div className='warehouse__icons'>
           <button className= "warehouse__delete-btn" onClick={() => handleDeleteClick(warehouse.id,warehouse.warehouse_name)}><img className="warehouse__delete-icon" src={deleteIcon} alt="delete-trash" /></button>
 
-                <img className="warehouse__edit-icon" src={editIcon} alt="edit-icon" />
+             <Link to={`/warehouses/${warehouse.id}/edit`} >  <button className="warehouse__edit-icon"><img src={editIcon} alt="edit-icon" /></button> </Link>
               </div>
 
             </div>
@@ -110,7 +110,7 @@ function WarehouseList({ warehouses }) {
         ))}
 
       </div>
-      {modalOpen && <WarehouseDeletePage setOpenModal={setModalOpen} warehouseId={selectedWarehouseId} warehouseName={selectedWarehouseName} warehouses={warehouses}/>}
+      {modalOpen && <WarehouseDeletePage setOpenModal={setModalOpen} warehouseId={selectedWarehouseId} warehouseName={selectedWarehouseName} setWarehouses={setWarehouses}/>}
     </section>
   );
 }

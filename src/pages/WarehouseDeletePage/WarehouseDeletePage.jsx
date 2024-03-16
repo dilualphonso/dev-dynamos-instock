@@ -1,39 +1,33 @@
-import { useState } from "react";
+//import { useEffect, useState } from "react";
 import "./WarehouseDeletePage.scss"
 import axios from "axios";
-import { Link } from 'react-router-dom';
+// import { Navigate } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 
-function WarehouseDeletePage({ setOpenModal,warehouseId, warehouseName,warehouses  }) {
 
-    const [warehousesList, setWarehousesList] = useState([...warehouses]);
-console.log(warehouseId);
+function WarehouseDeletePage({setOpenModal,warehouseId, warehouseName,setWarehouses}) {
+
+
+
 console.log(warehouseName);
 
-
-
 const deleteWarehouse = async (warehouseId)=> {
+    try {
+        await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}`);
 
-    try{
-        await axios.delete(
-            `http://localhost:8080/api/warehouses/${warehouseId}`
-          )
+        // Fetch updated list after deletion
+        const deleteResponse = await axios.get('http://localhost:8080/api/warehouses');
+        console.log(`Warehouse ${warehouseId} was deleted`);
+        setWarehouses(deleteResponse.data);
 
-            setOpenModal(false);
-
-         const updatedWarehouseList = warehousesList.filter(
-            (warehouse) => warehouse.id !== warehouseId
-          );
-          setWarehousesList(updatedWarehouseList);
-
-
-    }
-    catch (error){
+        setOpenModal(false); // Close the modal after successful deletion
+      } catch (error) {
         console.error(error);
-    }
+      }
+
 
 }
-
 
 
     return (
@@ -63,7 +57,7 @@ const deleteWarehouse = async (warehouseId)=> {
                     >
                         Cancel
                     </button>
-                 <button onClick={() => deleteWarehouse(warehouseId)} className="popup__delete">Delete</button>
+               <button onClick={() => deleteWarehouse(warehouseId)} className="popup__delete">Delete</button>
                 </div>
             </div>
         </div>
