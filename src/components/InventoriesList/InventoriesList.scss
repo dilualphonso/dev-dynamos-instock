@@ -113,19 +113,17 @@
 
     .inventories-list__labels__container {
       display: flex;
-      flex-basis: 95%;
+      flex-basis: 90%;
       width: 100%;
       padding-left: 2.25rem;
 
       .inventories-list__labels__wrapper {
         display: flex;
         flex-basis: 100%;
-        gap: 6rem;
 
         .inventories-list__labels-left {
           display: flex;
           flex-basis: 50%;
-          gap: 2.25rem;
 
           .inventories-list__labels__item {
             display: flex;
@@ -141,6 +139,10 @@
           display: flex;
           flex-basis: 50%;
           gap: 2.25rem;
+          justify-content: flex-start;
+          @include tablet {
+            gap: 0;
+          }
 
           .inventories-list__labels__status {
             display: flex;
@@ -161,7 +163,7 @@
     }
 
     .inventories-list__labels__actions {
-      flex: 5%;
+      flex: 10%;
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
