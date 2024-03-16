@@ -60,7 +60,7 @@ export const InventoryDetails = () => {
         </Link>
         <div className="inventory-detail__edit-button-container">
           <button className="inventory-detail__edit-button">
-            <Link to={`/inventory/${id}/edit`}>
+            <Link to={`/inventory/${id}/edit`} className='inventory-detail__edit-link'>
               <EditWhiteIcon className="inventory-detail__edit-icon" />
               <span className='inventory-detail__edit-text'>Edit</span>
             </Link>
