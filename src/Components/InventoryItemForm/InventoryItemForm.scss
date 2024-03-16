@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.inventory-form{
+    @include columnFlex();
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    &__form{
+        @include columnFlex();
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+        @include tablet(){
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: row wrap;
+        }
+    }
+
+}
