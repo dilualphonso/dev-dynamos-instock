@@ -4,6 +4,7 @@ import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Link } from 'react-router-dom';
 
+
 function WarehousesListPage (){
 
     const [warehouses, setWarehouse] = useState([]);
@@ -40,8 +41,11 @@ function WarehousesListPage (){
 
     </div>
     <section>
-     <WarehouseList warehouses={warehouses}/>
+     <WarehouseList warehouses={warehouses}   setWarehouses={setWarehouse}/>
+
+
         </section>
+
 
     </section>
     );
