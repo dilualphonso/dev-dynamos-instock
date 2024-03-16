@@ -64,10 +64,10 @@ function WarehouseList({ warehouses , setWarehouses}) {
                   <div className="warehouse__name-container">
 
                     <h4 className="warehouse__name-label">Warehouse</h4>
-                    <div className="warehouse__arrow-wrapper">
+               <Link to ={`/warehouses/${warehouse.id}`}> <div className="warehouse__arrow-wrapper">
                       <div className="warehouse__name">{warehouse.warehouse_name}</div>
                       <img className="warehouse__arrowImg" src={arrowImage} alt="arrowImage" />
-                    </div>
+                    </div></Link>
 
 
                   </div>
