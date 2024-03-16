@@ -99,78 +99,72 @@
   }
 }
 
+.inventories-list__labels__warehouse--has-warehouse {
+  display: none;
+}
+
 .inventories-list__labels {
-  @include tablet() {
+  @include tablet {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     margin: 0;
+    padding: 0;
 
-    &--item {
+    .inventories-list__labels__container {
       display: flex;
-      flex-basis: 20.95%;
+      flex-basis: 85%;
+      width: 100%;
+      padding-left: 2.25rem;
+
+      .inventories-list__labels__wrapper {
+        display: flex;
+        flex-basis: 100%;
+        gap: 6rem;
+
+        .inventories-list__labels-left {
+          display: flex;
+          flex-basis: 50%;
+          gap: 2.25rem;
+
+          .inventories-list__labels__item {
+            display: flex;
+            flex-basis: 60%;
+          }
+          .inventories-list__labels__category {
+            display: flex;
+            flex-basis: 40%;
+          }
+        }
+
+        .inventories-list__labels-right {
+          display: flex;
+          flex-basis: 50%;
+          gap: 2.25rem;
+
+          .inventories-list__labels__status {
+            display: flex;
+            flex-basis: 60%;
+          }
+
+          .inventories-list__lables__quantity {
+            display: flex;
+            flex-basis: 40%;
+          }
+        }
+      }
+
+      .inventories-list__labels__warehouse {
+        display: flex;
+        flex-basis: 15%;
+      }
     }
 
-    &--category {
+    .inventories-list__labels__actions {
+      flex: 10%;
       display: flex;
-      flex-basis: 24.3%;
-    }
-
-    &--status {
-      display: flex;
-      flex-basis: 19.95%;
-    }
-
-    &--qty {
-      display: flex;
-      flex-basis: 11.3%;
-    }
-
-    &--warehouse {
-      display: flex;
-      flex-basis: 13.5%;
-    }
-
-    &--actions {
-      display: flex;
+      flex-direction: row;
       justify-content: center;
-      flex-basis: 10%;
-    }
-  }
-
-  @include desktop() {
-    display: flex;
-    width: 100%;
-    margin: 0;    
-
-    &--item {
-      display: flex;
-      flex-basis: 20.95%;
-    }
-
-    &--category {
-      display: flex;
-      flex-basis: 21.3%;
-    }
-
-    &--status {
-      display: flex;
-      flex-basis: 20.95%;
-    }
-
-    &--qty {
-      display: flex;
-      flex-basis: 12.3%;
-    }
-
-    &--warehouse {
-      display: flex;
-      flex-basis: 16.5%;
-    }
-
-    &--actions {
-      display: flex;
-      justify-content: center;
-      flex-basis: 8%;
     }
   }
 }
