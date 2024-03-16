@@ -29,8 +29,6 @@
     @include tablet {
       flex-direction: row;
       margin: 0;
-      padding-left: 2.25rem;
-      padding-right: 2.25rem;
     }
   }
 
@@ -108,7 +106,6 @@
       align-items: baseline;
       gap: 1rem;
       margin: 0;
-      padding-right: 2.25rem;
     }
   }
 }
@@ -186,7 +183,9 @@
 
     .inventory__actions {
       flex: 10%;
-      justify-content: flex-end;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
     }
   }
 }
