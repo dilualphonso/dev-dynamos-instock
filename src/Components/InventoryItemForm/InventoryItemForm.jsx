@@ -29,7 +29,7 @@ function InventoryItemForm({itemToEdit}) {
         itemName: "",
         description: "",
         category: "",
-        status: "",
+        status: "Out of Stock",
         quantity: 0,
         warehouse: ""
     }
@@ -241,10 +241,14 @@ function InventoryItemForm({itemToEdit}) {
                         This field is required
                     </label>}
 
-                    {/* TODO: Populate dropdown */}
                     <label className="item-form__label" htmlFor="category">Category</label>
-                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.category}>
-                        <option>TODO</option>
+                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} >
+                        <option disabled selected value className="item-form__dropdown-option">Please select</option>
+                        <option className="item-form__dropdown-option" value="Accessories">Accessories</option>
+                        <option className="item-form__dropdown-option" value="Apparel">Apparel</option>
+                        <option className="item-form__dropdown-option" value="Electronics">Electronics</option>
+                        <option className="item-form__dropdown-option" value="Gear">Gear</option>
+                        <option className="item-form__dropdown-option" value="Health">Health</option>
                     </select>
                     {isCategoryError &&
                     <label className="item-form__error" htmlFor="category">
@@ -257,11 +261,12 @@ function InventoryItemForm({itemToEdit}) {
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
                     <h3 className="item-form__sub-heading">Item Availability</h3>
 
+                    {/* Chose to let the Out of Stock radio be set by default */}
                     <p className="item-form__label">Status</p>
-                    <input className="item-form__radioBtn" type="radio" name="status" id="in_stock" onChange={inputChangeHandler} />
-                    <label className="item-form__radio-label" htmlFor="in_stock">In Stock</label>
-                    <input className="item-form__radioBtn" type="radio" name="status" id="out_of_stock" onChange={inputChangeHandler} />
-                    <label className="item-form__radio-label" htmlFor="out_of_stock">Out of Stock</label>
+                    <input className="item-form__radioBtn" type="radio" name="status" id="in_stock" onChange={inputChangeHandler} value="In Stock" checked={formInputs.status === "In Stock"}/>
+                    <label className="item-form__radio-label" htmlFor="in_stock">In stock</label>
+                    <input className="item-form__radioBtn" type="radio" name="status" id="out_of_stock" onChange={inputChangeHandler} value="Out of Stock" checked={formInputs.status === "Out of Stock"}/>
+                    <label className="item-form__radio-label" htmlFor="out_of_stock">Out of stock</label>
 
                     {/* TODO hide on out of stock */}
                     <label className="item-form__label" htmlFor="quantity">Quantity</label>
