@@ -15,7 +15,7 @@ function InventoryItemForm({itemToEdit}) {
     const [isCategoryError, setIsCategoryError] = useState(false);
 
     // Item Availability error states
-    const [isQuantityError, setIsQuantityError] = useState(false);
+    const [quantityError, setIsQuantityError] = useState("");
     const [isWarehouseError, setIsWarehouseError] = useState(false);
 
     // Button text state
@@ -265,8 +265,8 @@ function InventoryItemForm({itemToEdit}) {
 
                     {/* TODO hide on out of stock */}
                     <label className="item-form__label" htmlFor="quantity">Quantity</label>
-                    <input className={isQuantityError ? "item-form__input item-form__input--error" : "item-form__input"} type="text" name="quantity" id="quantity" placeholder="0" onChange={inputChangeHandler} value={formInputs.quantity} />
-                    {isQuantityError &&
+                    <input className={quantityError ? "item-form__input item-form__input--error" : "item-form__input"} type="text" name="quantity" id="quantity" placeholder="0" onChange={inputChangeHandler} value={formInputs.quantity} />
+                    {quantityError &&
                     <label className="item-form__error" htmlFor="quantity">
                         <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
                         This field is required
