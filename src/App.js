@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
@@ -24,7 +23,7 @@ function App() {
         <Route path="/warehouses/:id" element={<WarehouseDetailsPage />} />
         <Route path="/warehouses/add" element={<WarehousesAddPage />} />
         <Route path="/warehouses/:id/edit" element={<WarehousesEditPage />} />
-        <Route path='/inventory' element={<InventoryListPage />} />
+        <Route path="/inventory" element={<InventoryListPage />} />
         <Route path="/inventory/:id" element={<InventoryItemPage />} />
         <Route path="/inventory/add" element={<InventoryAddPage />} />
         <Route path="/inventory/:id/edit" element={<InventoryEditPage />} />
