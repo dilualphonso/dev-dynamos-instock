@@ -12,8 +12,6 @@ import { Link} from 'react-router-dom';
 
 function WarehouseList({ warehouses , setWarehouses}) {
 
-  // const [showSuccess, setShowSuccess] = useState(false);
-  // const [popupMessage, setPopupMessage] = useState("")
   const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
   const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
