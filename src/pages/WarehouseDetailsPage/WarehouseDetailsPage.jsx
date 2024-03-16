@@ -58,19 +58,19 @@ const WarehouseDetailsPage = (props) => {
         <div className="divider"></div>
         <div className="information-container">
           <div className="warehouse-address">
-            <h4>WAREHOUSE ADDRESS</h4>
+            <h4>WAREHOUSE ADDRESS:</h4>
             <div className="warehouse-address__location">
               <p>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
             </div>
           </div>
           <div className="contact">
             <div className="contact__name">
-              <h4>CONTACT NAME</h4>
+              <h4>CONTACT NAME:</h4>
               <p>{warehouse.contact_name}</p>
               <p>{warehouse.contact_position}</p>
             </div>
             <div className="contact-details">
-              <h4>CONTACT INFORMATION</h4>
+              <h4>CONTACT INFORMATION:</h4>
               <p>{warehouse.contact_phone}</p>
               <p>{warehouse.contact_email}</p>
             </div>
