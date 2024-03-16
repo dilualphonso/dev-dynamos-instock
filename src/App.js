@@ -28,8 +28,6 @@ function App() {
         <Route path="/inventory/add" element={<InventoryAddPage />} />
         <Route path="/inventory/:id/edit" element={<InventoryEditPage />} />
         <Route path="*" element={<PageNotFound />} />
-
-
       </Routes>
     </BrowserRouter>
   );
