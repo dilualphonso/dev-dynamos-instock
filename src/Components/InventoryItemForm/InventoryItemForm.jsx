@@ -181,7 +181,7 @@ function InventoryItemForm({itemToEdit}) {
 
             // Leave this page and go to the inventory item list page if ADD or inventory item details page if EDIT
             if(!itemToEdit){
-                navigate("/inventories");
+                navigate("/inventory");
             }else{
                 // TODO Iliaria 
             }
@@ -212,7 +212,7 @@ function InventoryItemForm({itemToEdit}) {
 
         // Return to the inventory list page if this is ADD or return to the item details page if EDIT
         if(!itemToEdit){
-            navigate("/inventories");
+            navigate("/inventory");
         }else{
             // TODO Ilaria
         }
