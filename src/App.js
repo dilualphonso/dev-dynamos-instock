@@ -11,7 +11,7 @@ import InventoryItemPage from "./pages/InventoryItemPage/InventoryItemPage";
 import InventoryAddPage from "./pages/InventoryItemPage/InventoryItemPage";
 import InventoryEditPage from "./pages/InventoryEditPage/InventoryEditPage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
-import WarehouseDeletePage from "./pages/WarehouseDeletePage/WarehouseDeletePage"
+
 import "./App.css";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path="/inventory/:id/edit" element={<InventoryEditPage />} />
         <Route path="*" element={<PageNotFound />} />
 
-        <Route path="/warehouses/delete" element={<WarehouseDeletePage/>} />
+
       </Routes>
     </BrowserRouter>
   );

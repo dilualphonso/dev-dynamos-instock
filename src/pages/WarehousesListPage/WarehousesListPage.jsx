@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Link } from 'react-router-dom';
-import WarehouseDeletePage from "../WarehouseDeletePage/WarehouseDeletePage"
+
 
 function WarehousesListPage (){
 

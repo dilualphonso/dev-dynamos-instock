@@ -1,0 +1,155 @@
+@use '../../styles/colors'as *;
+@use '../../styles/mixins'as *;
+@use '../../styles/typography'as *;
+
+
+.popup {
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+height: 100%;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0);
+display:flex;
+
+    //box-shadow: 0px 0.25rem 0.25rem rgba(32, 32, 32, 0.5);
+
+    @include tablet{
+      z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(35,41	,64,0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //top:10%
+
+
+    }
+
+
+
+    //padding: $formPadding;
+
+    &__container {
+      width: 100%;
+     // max-width: 320px;
+      //height: 100vh;
+      height: 100%; // Limit max-height to avoid overflow
+    //  border-radius: 12px;
+      background-color:$white;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: flex;
+      flex-direction: column;
+     // padding: 25px;
+      //padding-top:40px;
+
+      @include tablet{
+        width: 42.5rem;
+        height: 15rem;
+        position: relative;
+top:10%
+
+      }
+    }
+
+      &__title {
+        text-align: center;
+        margin-top: 0px;
+        @include mobile-font-h1;
+        text-align:left;
+        margin-left: 1rem;
+        margin-bottom: 0;
+        margin-top: 2rem;
+
+        @include tablet{
+          margin-top: 0;
+          margin-left: 3rem;
+          @include desktop-tablet-font-h1;
+        }
+
+      }
+
+      &__body {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        text-align: center;
+        @include mobile-font-body-large;
+        margin-left: 1rem;
+        //margin-right: 2rem;
+        text-align: left;
+
+        @include tablet{
+          margin-top: 1rem;
+          margin-left: 3rem;
+          margin-right: 6rem;
+          @include desktop-tablet-font-body-large;
+        }
+      }
+
+      &__closeBtn{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      // width: 2rem;
+      //font-weight: 600;
+        background: none;
+        @include desktop-tablet-font-h3;
+      font-size: 1.5rem;
+
+      @include tablet{
+        position: relative;
+        // justify-content: flex-start;
+        // align-items: flex-start;
+     left:92%;
+      }
+      }
+
+      &__footer{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right:1rem;
+        //margin-bottom: 2rem;
+position:relative;
+top:40%;
+
+@include tablet{
+ top:0;
+}
+
+      }
+
+      &__delete{
+        color:$white;
+        background-color: $sup-red;
+        width: 50%;
+        @include mobile-font-h3;
+        padding: 1rem;
+
+        @include tablet{
+          width:7rem;
+          margin-right: 3rem;
+        }
+      }
+      &__cancel{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 50%;
+        @include mobile-font-h3;
+        padding: 1rem;
+
+
+        @include tablet{
+          width:7rem;
+          //margin-right: 3rem;
+        }
+
+      }
+
+  }
