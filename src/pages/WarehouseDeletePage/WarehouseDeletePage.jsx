@@ -41,7 +41,7 @@ function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWare
                         <h1 className="popup__title">Delete {warehouseName} warehouse?</h1>
                     </div>
                     <div className="popup__body-container">
-                        <p className="popup__body">Please confirm that you'd like to delete the {warehouseName} from the list of warehouses.You won't be able to undo this action. </p>
+                        <p className="popup__body">Please confirm that you'd like to delete the {warehouseName} from the list of warehouses. You won't be able to undo this action. </p>
                     </div>
                 </div>
                 <div className="popup__footer">

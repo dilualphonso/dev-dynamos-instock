@@ -33,10 +33,10 @@ function InventoryDeletePage({ setDeleteConfirm, inventoryId, inventoryName, set
                 <div className="popup__wrapper">
                 <div className="popup__text-container">
                     <div className="popup__title1">
-                        <h1 className="popup__title">Delete {inventoryName} warehouse?</h1>
+                        <h1 className="popup__title">Delete {inventoryName} item?</h1>
                     </div>
                     <div className="popup__body-container">
-                        <p className="popup__body">Please confirm that you'd like to delete the {inventoryName} from the list of warehouses.You won't be able to undo this action. </p>
+                        <p className="popup__body">Please confirm that you'd like to delete the {inventoryName} from the inventory list. You won't be able to undo this action. </p>
                     </div>
                 </div>
                 <div className="popup__footer">
