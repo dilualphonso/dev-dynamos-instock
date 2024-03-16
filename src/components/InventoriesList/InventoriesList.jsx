@@ -87,7 +87,7 @@ export const InventoriesList = ({ id }) => {
                 <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
               </div>
               <div className="inventories-list__lables__quantity">
-                <p className="inventories-list__label inventories-list__labels--qty">QTY</p>
+                <p className="inventories-list__label inventories-list__labels--qty">{id && window.innerWidth >=  768 ? 'QUANTITY' : 'QTY' }</p>
               </div>
             </div>
           </div>
