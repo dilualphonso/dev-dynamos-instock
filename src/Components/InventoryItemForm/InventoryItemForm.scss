@@ -106,7 +106,16 @@
         @include errorIconStyle();
     }
 
+    &__dropdown{
+        &--error{
+            @include inputErrorStyle();
+        }
+    } 
+
     &__radio-label{
+        font-family: Titillium-Regular, sans-serif;
+        font-weight: 400;
+        padding: 0;
 
         &--heading{
             font-family: Titillium-Bold, sans-serif;
@@ -122,12 +131,35 @@
         }
     }
 
-    &__radioBtn{
+    &__radio-field-container{
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+    }
 
+    &__radio-option-container{
+        display: flex;
+        flex-flow: row nowrap;
+        flex-basis: 50%;
+        justify-content: flex-start;
+        align-items: center;
+        border: 0.0625rem solid $secondary-cloud;
+        color: $primary-indigo;
+        outline: none;
+
+        &:active, &:focus, &:focus-within, &:checked{
+            border-color: $primary-indigo;
+        }
+    }
+
+    &__radioBtn{
+        margin: 0;
+        height: 1rem;
+        width: 1rem;
     }
 
     &__textarea{
-        height: 8rem;
+        height: 7rem;
 
         &--error{
             @include inputErrorStyle();
@@ -141,7 +173,7 @@
         &--show{
             display: flex;
             flex-flow: column nowrap;
-            
+
         }
     }
     &__button-container{

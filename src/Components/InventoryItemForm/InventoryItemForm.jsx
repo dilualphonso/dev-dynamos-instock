@@ -30,7 +30,7 @@ function InventoryItemForm({itemToEdit}) {
         description: "",
         category: "",
         status: "Out of Stock",
-        quantity: 0,
+        quantity: "",
         warehouse: ""
     }
     const [formInputs, setFormInputs] = useState(initialState);
@@ -101,11 +101,12 @@ function InventoryItemForm({itemToEdit}) {
      */
     function setErrorStates(validationReport){
         // Set the error states with the validation results
-        setIsItemNameError(validationReport.itemName);
-        setIsDescriptionError(validationReport.description);
-        setIsCategoryError(validationReport.category);
-        setQuantityError(validationReport.quantity);
-        setIsWarehouseError(validationReport.warehouse);
+        console.log(validationReport);
+        setIsItemNameError(validationReport.isItemNameError);
+        setIsDescriptionError(validationReport.isDescriptionError);
+        setIsCategoryError(validationReport.isCategoryError);
+        setQuantityError(validationReport.quantityError);
+        setIsWarehouseError(validationReport.isWarehouseError);
     }
 
     /**
@@ -154,6 +155,7 @@ function InventoryItemForm({itemToEdit}) {
 
         // Get the input values in a compact "inventory item" object
         const inventoryItem = getInputtedItem();
+        console.log(inventoryItem);
 
         // Check to see that all of the inputs are valid by running it through validation
         const formErrors = validateItemForm(inventoryItem);
@@ -162,28 +164,33 @@ function InventoryItemForm({itemToEdit}) {
         if(formErrors.errorsExist){
             // Set the error states with the validation results
             setErrorStates(formErrors);
+            console.log(formErrors);
         }else{
             // If validation succeeded
             // Make the request to the server to create the inventory item
             if(!itemToEdit){
                 // If no inventory item to edit, the call is POST to ADD a new inventory item
                 addInventoryItem(inventoryItem);
+                console.log("E");
             }else{
                 // Otherwise the call is PUT to EDIT an existing inventory item
                 // TODO: Ilaria
+                console.log("F");
             }
 
             // Reset the error states
             resetErrorStates();
-
+            console.log("G");
             // Empty the form fields
             resetInputs();
-
+            console.log("H");
             // Leave this page and go to the inventory item list page if ADD or inventory item details page if EDIT
             if(!itemToEdit){
                 navigate("/inventory");
+                console.log("I");
             }else{
-                // TODO Iliaria 
+                // TODO Iliaria
+                console.log("J");
             }
 
         } 
@@ -261,14 +268,19 @@ function InventoryItemForm({itemToEdit}) {
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
                     <h3 className="item-form__sub-heading">Item Availability</h3>
 
-                    {/* Chose to let the Out of Stock radio be set by default */}
+                    {/* Chose to let the Out of Stock radio be set by default */}      
                     <p className="item-form__label item-form__radio-label--heading">Status</p>
-                    <input className="item-form__radioBtn" type="radio" name="status" id="in_stock" onChange={inputChangeHandler} value="In Stock" checked={formInputs.status === "In Stock"}/>
-                    <label className="item-form__radio-label" htmlFor="in_stock">In stock</label>
-                    <input className="item-form__radioBtn" type="radio" name="status" id="out_of_stock" onChange={inputChangeHandler} value="Out of Stock" checked={formInputs.status === "Out of Stock"}/>
-                    <label className="item-form__radio-label" htmlFor="out_of_stock">Out of stock</label>
+                    <div className="item-form__radio-field-container">
+                        <div className="item-form__radio-option-container">
+                            <input className="item-form__radioBtn" type="radio" name="status" id="in_stock" onChange={inputChangeHandler} value="In Stock" checked={formInputs.status === "In Stock"}/>
+                            <label className="item-form__radio-label" htmlFor="in_stock">In stock</label>
+                        </div>
+                        <div className="item-form__radio-option-container">
+                            <input className="item-form__radioBtn" type="radio" name="status" id="out_of_stock" onChange={inputChangeHandler} value="Out of Stock" checked={formInputs.status === "Out of Stock"}/>
+                            <label className="item-form__radio-label" htmlFor="out_of_stock">Out of stock</label>
+                        </div>
+                    </div>
 
-                    {/* TODO hide on out of stock */}
                     <div className={formInputs.status === "In Stock" ? "item-form__conditional-field item-form__conditional-field--show" : "item-form__conditional-field"}>
                         <label className="item-form__label" htmlFor="quantity">Quantity</label>
                         <input className={quantityError ? "item-form__input item-form__input--error" : "item-form__input"} type="text" name="quantity" id="quantity" placeholder="0" onChange={inputChangeHandler} value={formInputs.quantity} />
