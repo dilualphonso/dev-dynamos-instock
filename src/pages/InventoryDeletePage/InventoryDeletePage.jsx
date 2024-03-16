@@ -1,24 +1,19 @@
 
-import "./WarehouseDeletePage.scss"
 import axios from "axios";
 
-
-function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWarehouses }) {
-
+function InventoryDeletePage({ setDeleteConfirm, inventoryId, inventoryName, setInventories }){
 
 
-    console.log(warehouseName);
-
-    const deleteWarehouse = async (warehouseId) => {
+    const deleteInventory = async (inventoryId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}`);
+            await axios.delete(`http://localhost:8080/api/inventories/${inventoryId}`);
 
             // Fetch updated list after deletion
-            const deleteResponse = await axios.get('http://localhost:8080/api/warehouses');
-            console.log(`Warehouse ${warehouseId} was deleted`);
-            setWarehouses(deleteResponse.data);
+             const deleteResponse = await axios.get('http://localhost:8080/api/inventories');
+             console.log(`Warehouse ${inventoryId} was deleted`);
+            setInventories(deleteResponse.data);
 
-            setOpenModal(false); // Close the modal after successful deletion
+            setDeleteConfirm(false); // Close the modal after successful deletion
         } catch (error) {
             console.error(error);
         }
@@ -30,7 +25,7 @@ function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWare
 
                 <button className="popup__closeBtn"
                     onClick={() => {
-                        setOpenModal(false);
+                        setDeleteConfirm(false);
                     }}
                 >
                     x
@@ -38,27 +33,27 @@ function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWare
                 <div className="popup__wrapper">
                 <div className="popup__text-container">
                     <div className="popup__title1">
-                        <h1 className="popup__title">Delete {warehouseName} warehouse?</h1>
+                        <h1 className="popup__title">Delete {inventoryName} inventory item?</h1>
                     </div>
                     <div className="popup__body-container">
-                        <p className="popup__body">Please confirm that you'd like to delete the {warehouseName} from the list of warehouses. You won't be able to undo this action. </p>
+                        <p className="popup__body">Please confirm that you'd like to delete the {inventoryName} from the inventory list. You won't be able to undo this action. </p>
                     </div>
                 </div>
                 <div className="popup__footer">
                     <button className="popup__cancel"
                         onClick={() => {
-                            setOpenModal(false);
+                            setDeleteConfirm(false);
                         }}
                         id="cancelBtn"
                     >
                         Cancel
                     </button>
-                    <button onClick={() => deleteWarehouse(warehouseId)} className="popup__delete">Delete</button>
+                    <button onClick={() => deleteInventory(inventoryId)} className="popup__delete">Delete</button>
                 </div>
                 </div>
             </div>
         </div>
+
     );
 }
-
-export default WarehouseDeletePage;
+export default InventoryDeletePage;
