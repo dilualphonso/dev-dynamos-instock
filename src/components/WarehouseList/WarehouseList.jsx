@@ -52,7 +52,9 @@ function WarehouseList({ warehouses , setWarehouses}) {
           {/* <img className="warehouse__sort" src={sortIcon} alt="sorting icon" /> */}
         </div>
 
-        {warehouses.map((warehouse) => (
+
+        {warehouses.length >0 && warehouses
+.map((warehouse) => (
 
           <div className="warehouse__test" key={warehouse.id}>
 
@@ -105,10 +107,13 @@ function WarehouseList({ warehouses , setWarehouses}) {
 
           </div>
 
-        ))}
+        ))
+      }
+
 
       </div>
       {modalOpen && <WarehouseDeletePage setOpenModal={setModalOpen} warehouseId={selectedWarehouseId} warehouseName={selectedWarehouseName} setWarehouses={setWarehouses}/>}
+
     </section>
   );
 }

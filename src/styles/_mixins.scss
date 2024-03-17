@@ -14,7 +14,8 @@
   }
 }
 
-@mixin mobile-font-h1 {
+@mixin mobile-font-h2 {
+  font-size: 1.25;
   color: $primary-black;
   font-family: "Titillium-Bold";
   font-size: 1.75rem;
