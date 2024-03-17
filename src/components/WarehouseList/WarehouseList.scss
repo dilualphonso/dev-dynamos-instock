@@ -471,6 +471,10 @@
     }
 
     &__test {
+      &:hover {
+        background-color: #f0f4fd;
+      }
+
         @include tablet {
             display: flex;
             justify-content: space-between;
