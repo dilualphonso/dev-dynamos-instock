@@ -5,6 +5,7 @@ import { validateItemForm } from "../../utils/validation.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import WarehouseDropdown from "../WarehouseDropdown/WarehouseDropdown.jsx";
 
 
 function InventoryItemForm({itemToEdit}) {
@@ -165,8 +166,7 @@ function InventoryItemForm({itemToEdit}) {
 
         // If validation succeeded
         }else{            
-            // Change the warehouse_id and quantity fields to integer types
-            inventoryItem.warehouse_id = parseInt(inventoryItem.warehouse_id, 10);
+            // Change the quantity field to integer type
             if(inventoryItem.status === "In Stock"){
                 inventoryItem.quantity = parseInt(inventoryItem.quantity, 10);
             }else{
@@ -294,8 +294,10 @@ function InventoryItemForm({itemToEdit}) {
                     </div>
                     
                     {/* TODO populate dropdown */}
+                    {/* <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
+                    <input className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="warehouse" id="warehouse" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.warehouse} /> */}
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    <input className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="warehouse" id="warehouse" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.warehouse} />
+                    <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} />
                     {isWarehouseError &&
                     <label className="item-form__error" htmlFor="warehouse">
                         <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
