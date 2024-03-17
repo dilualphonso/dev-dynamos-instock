@@ -293,11 +293,8 @@ function InventoryItemForm({itemToEdit}) {
                         </label>}
                     </div>
                     
-                    {/* TODO populate dropdown */}
-                    {/* <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    <input className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="warehouse" id="warehouse" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.warehouse} /> */}
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} />
+                    <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} hasError={isWarehouseError} />
                     {isWarehouseError &&
                     <label className="item-form__error" htmlFor="warehouse">
                         <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>

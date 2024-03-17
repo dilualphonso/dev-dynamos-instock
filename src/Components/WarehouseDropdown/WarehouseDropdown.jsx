@@ -4,7 +4,7 @@ import "./WarehouseDropdown.scss";
 import { BASE_URL } from "../../constant-variables";
 
 
-function WarehouseDropdown({selected, onSelect}) {
+function WarehouseDropdown({selected, onSelect, hasError}) {
 
     const [warehouses, setWarehouse] = useState([]);
 
@@ -30,7 +30,7 @@ function WarehouseDropdown({selected, onSelect}) {
 
 
     return (
-        <select className="warehouse-dropdown" name="warehouse" id="warehouse" selected={selected} onChange={changeHandler}>
+        <select className={hasError ?"warehouse-dropdown warehouse-dropdown--error" : "warehouse-dropdown"} name="warehouse" id="warehouse" selected={selected} onChange={changeHandler}>
             <option className="warehouse-dropdown__option" key={-1} value="">Please select</option>
             {warehouses.map((warehouse)=>{
                 return(

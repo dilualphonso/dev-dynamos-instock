@@ -90,3 +90,22 @@ input, textarea, select{
   }
 
 }
+
+select{
+  background-image: url("../assets/icons/arrow_drop_down-24px.svg");
+  background-position: 97% 50%;
+  background-repeat: no-repeat;
+
+  // Get rid of default arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::-ms-expand { 
+      display: none; 
+  }
+
+  &:active, &:focus, &:focus-within {
+    background-image: url("../assets/icons/arrow_drop_down-24px-active.svg");
+  }
+
+}
