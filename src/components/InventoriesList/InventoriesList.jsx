@@ -3,6 +3,7 @@ import { InventoryItem } from "../InventoryItem/InventoryItem";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ReactComponent as SortIcon } from '../../assets/icons/sort-24px.svg';
 
 export const InventoriesList = ({ id }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -77,6 +78,7 @@ export const InventoriesList = ({ id }) => {
             <div className='inventories-list__labels-left'>
               <div className="inventories-list__labels__item">
                 <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
+                <SortIcon className="inventories-list__labels__sort" />
               </div>
               <div className="inventories-list__labels__category">
                 <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
