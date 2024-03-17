@@ -3,7 +3,11 @@
 @use "../../styles/mixins" as *;
 
 footer {
+  // z-index: 1;
+  position: absolute;
+  bottom: 0;
   margin: 0;
+  width: 100%;
   p {
     margin: 0;
     font-family: "Titillium-Regular";

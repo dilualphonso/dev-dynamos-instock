@@ -81,11 +81,6 @@ function WarehousesListPage() {
             {/* </div> */}
             <section>
 
-
-
-
-
-
                 {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
             </section>
 

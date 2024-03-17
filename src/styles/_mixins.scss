@@ -199,6 +199,7 @@
   max-width: 98vw;
   width: calc(100vw - 2rem);
   margin: 0 1rem;
+  margin-bottom: 4rem;
   overflow: hidden;
   background-color: $white;
 
@@ -213,11 +214,15 @@
     margin: 0 2rem;
     width: calc(100vw - 4rem);
     top: $pageHeaderSpacing;
+    margin-bottom: 4rem;
   }
 
   @include desktop() {
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 75rem;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 
