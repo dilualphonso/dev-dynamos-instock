@@ -8,12 +8,13 @@ import { Link } from 'react-router-dom';
 function WarehousesListPage (){
 
     const [warehouses, setWarehouse] = useState([]);
+    const [completedUrl, setCompletedUrl] = useState(`http://localhost:8080/api/warehouses`);
 
     useEffect (()=>{
             const fetchWarehouses = async ()=>{
                 try {
                 const response = await axios.get(
-                    `http://localhost:8080/api/warehouses`
+                  completedUrl
                   );
 
                   setWarehouse(response.data)
@@ -23,7 +24,15 @@ function WarehousesListPage (){
               }
             };
             fetchWarehouses();
-        },[]);
+        },[completedUrl]);
+
+    const handleAscClick = (sortingType) => {
+      setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=asc`);
+    };
+  
+    const handleDescClick = (sortingType) => {
+      setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=desc`);
+    };
 
 
     return (
@@ -41,7 +50,7 @@ function WarehousesListPage (){
 
     </div>
     <section>
-     <WarehouseList warehouses={warehouses}   setWarehouses={setWarehouse}/>
+     <WarehouseList warehouses={warehouses}   setWarehouses={setWarehouse} handleAscClick={handleAscClick} handleDescClick={handleDescClick}/>
 
 
         </section>

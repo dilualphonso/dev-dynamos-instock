@@ -128,10 +128,14 @@
           .inventories-list__labels__item {
             display: flex;
             flex-basis: 60%;
+            justify-content: row;
+            align-items: center;
           }
           .inventories-list__labels__category {
             display: flex;
             flex-basis: 40%;
+            justify-content: row;
+            align-items: center;
           }
         }
 
@@ -147,11 +151,15 @@
           .inventories-list__labels__status {
             display: flex;
             flex-basis: 60%;
+            justify-content: row;
+            align-items: center;
           }
 
           .inventories-list__lables__quantity {
             display: flex;
             flex-basis: 40%;
+            justify-content: row;
+            align-items: center;
           }
         }
       }
@@ -159,6 +167,8 @@
       .inventories-list__labels__warehouse {
         display: flex;
         flex-basis: 15%;
+        justify-content: row;
+        align-items: center;
       }
     }
 
