@@ -90,3 +90,75 @@ function isEmailFormatValid(email){
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
     return emailRegex.test(email);
 }
+
+ /**
+ * isIntNumber is a helper function that checks if the given value can be cast into an unsigned integer number.
+ * 
+ * @param {string}      value 
+ * 
+ * @returns {boolean}
+ */
+function isIntNumber(value){
+    // Check if the input can be cast into a number 
+    const convertToNum = Number(value);
+    if(Number.isNaN(convertToNum)){
+        return false;
+    }
+
+    // Check that the number is an integer, not a float
+    const convertToInt = parseInt(value, 10);
+    if(convertToNum !== convertToInt){
+        
+        return false;
+    }
+
+    // Check that the number is non-negative
+    if(convertToInt < 0){
+        return false;
+    }
+    
+    // The value is an unsigned number
+    return true;
+}
+
+/**
+ * validateItemForm is a helper function that checks if the provided inventory item object meets all validation requirements to be posted to be created in the backend of the website.
+ * 
+ * @param {Object}      item 
+ * 
+ * @returns {Object}
+ */
+export function validateItemForm(item){
+
+    let hasErrors = false;
+    let quantityError = "";
+    const warehouseIdAsStr = item.warehouse_id.toString();
+
+    // Check if any if the non-formatted fields are empty
+    if(isFieldEmpty(warehouseIdAsStr) || isFieldEmpty(item.item_name) || isFieldEmpty(item.description) || isFieldEmpty(item.category)){
+        hasErrors = true;
+    }
+
+    if(item.status === "In Stock"){
+        if(isFieldEmpty(item.quantity)){
+            hasErrors = true;
+            quantityError = "This field is required"
+        }else if(!isIntNumber(item.quantity)){
+            hasErrors = true;
+            quantityError = "Input must be an unsigned integer number"
+        }
+    }
+
+    // Create an object that has all information the form will need to populate error fields (if necessary)
+    const errorsRecord = {
+        errorsExist: hasErrors, 
+        isWarehouseError: isFieldEmpty(warehouseIdAsStr),
+        isItemNameError: isFieldEmpty(item.item_name),
+        isDescriptionError: isFieldEmpty(item.description),
+        isCategoryError: isFieldEmpty(item.category),
+        quantityError: quantityError
+    };
+
+    // Return the validation results
+    return errorsRecord;
+}

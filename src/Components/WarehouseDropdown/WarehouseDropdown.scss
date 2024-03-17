@@ -1,0 +1,12 @@
+@use "../../styles/mixins.scss" as *;
+@use "../../styles/colors.scss" as *;
+
+.warehouse-dropdown{
+
+    &--error{
+        @include inputErrorStyle();
+    }
+    &__option{
+
+    }
+}
