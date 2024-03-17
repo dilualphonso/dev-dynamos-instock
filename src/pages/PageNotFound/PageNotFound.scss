@@ -4,34 +4,73 @@
 @use "../../styles/colors" as *;
 @use "../../styles/global" as *;
 
-.pageNotFound{
-    @include flexColNowrap();
+.pageNotFound {
+    @include columnFlex();
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-center;
 
-    @include desktop(){
-        flex-direction: row-reverse;
+    @include tablet() {
+        @include rowFlex();
+    }
+    @include desktop() {
         width: 80%;
         margin: 0 auto;
     }
-
-    &__img{
+    &__img {
         width: 100%;
         height: auto;
-
-        @include tablet(){
+        @include tablet() {
+            margin-right: 5rem;
             max-width: 80vw;
+            flex-basis: 100%;
         }
-
-        @include desktop(){
-            width: 50%;
+        @include desktop() {
+            width: 30vw;
             flex-basis: 50%;
         }
     }
 
-    &__heading{
-        @include desktop(){
+    &__heading {
+        @include mobile-font-h1;
+        text-align: center;
+
+        @include tablet () {
+            @include desktop-tablet-font-h1
+        }
+        @include desktop() {
             flex-basis: 50%;
+
+        }
+    }
+    &__reason {
+        @include mobile-font-body-medium;
+        text-align: center;
+        margin-right: 1rem;
+
+        @include tablet () {
+            @include desktop-tablet-font-body-large;
+        }
+    }
+    &__message {
+        @include mobile-font-h2;
+        text-align: center;
+        margin-bottom: 0;
+
+        @include tablet () {
+            @include desktop-tablet-font-h1
+        }
+    }
+    &__text-container {
+        margin-left: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            @include columnFlex();
+            margin-left: 2rem;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
