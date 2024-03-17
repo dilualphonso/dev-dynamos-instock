@@ -131,7 +131,7 @@ export const InventoriesList = ({ id }) => {
       </div>
       {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
       <ul className="inventories-list__items">
-        {inventories.map((inventory) => (
+        {inventories.length >0 && inventories.map((inventory) => (
           <InventoryItem
             key={inventory.id}
             inventory={inventory}
