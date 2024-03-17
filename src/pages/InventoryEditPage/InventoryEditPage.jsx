@@ -1,5 +1,5 @@
-import { Link, Navigate } from "react-router-dom";
-import { useParams, useEffect, useState } from "react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 import "./InventoryEditPage.scss";
 import { BASE_URL } from "../../constant-variables";
