@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 function WarehousesListPage (){
 
     const [warehouses, setWarehouse] = useState([]);
+    const[search,setSearch]=useState('');
 
     useEffect (()=>{
             const fetchWarehouses = async ()=>{
