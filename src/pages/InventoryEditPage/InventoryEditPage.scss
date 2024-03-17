@@ -3,6 +3,7 @@
 @use "../../styles/variables" as *;
 
 .edit-inventory {
+  @include pageCard();
   &__heading-container {
     display: flex;
     flex-flow: row nowrap;
