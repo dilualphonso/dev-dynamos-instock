@@ -32,7 +32,7 @@ const WarehouseDetailsPage = (props) => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <section className="single-warehouse-page">
       <div className="single-warehouse-container">
         <div className="nav-link">
           <HeadingWithBackArrow
@@ -78,7 +78,7 @@ const WarehouseDetailsPage = (props) => {
         </div>
       </div>
       <InventoriesList id={id} />
-    </div>
+    </section>
   );
 };
 export default WarehouseDetailsPage;

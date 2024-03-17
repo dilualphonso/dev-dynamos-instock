@@ -199,6 +199,7 @@
   max-width: 98vw;
   width: calc(100vw - 2rem);
   margin: 0 1rem;
+  margin-bottom: 4rem;
   overflow: hidden;
   background-color: $white;
 
@@ -206,15 +207,23 @@
   box-shadow: 0 0.125rem 0.3125rem 0 #13182c1a;
 
   z-index: 1;
+  position: absolute;
+  top: $pageHeaderSpacingMobile;
+  flex-grow: 1;
 
   @include tablet() {
     margin: 0 2rem;
     width: calc(100vw - 4rem);
+    top: $pageHeaderSpacing;
+    margin-bottom: 4rem;
   }
 
   @include desktop() {
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 75rem;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 

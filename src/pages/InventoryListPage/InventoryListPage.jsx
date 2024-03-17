@@ -4,8 +4,8 @@ import './InventoryListPage.scss'
 const InventoryListPage = () => {
 
   return (    
-    <section>
-      <InventoriesList className="inventory-list-section"/>
+    <section className="inventory-list">
+      <InventoriesList />
     </section>
   )
 }

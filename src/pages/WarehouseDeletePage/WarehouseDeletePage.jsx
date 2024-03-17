@@ -1,6 +1,8 @@
 
 import "./WarehouseDeletePage.scss"
 import axios from "axios";
+import closeX from "../../assets/icons/close-24px.svg";
+import { BASE_URL } from "../../constant-variables.js";
 
 
 function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWarehouses }) {
@@ -27,34 +29,35 @@ function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWare
     return (
         <div className="popup">
             <div className="popup__container">
-
-                <button className="popup__closeBtn"
-                    onClick={() => {
-                        setOpenModal(false);
-                    }}
-                >
-                    x
-                </button>
-                <div className="popup__wrapper">
-                <div className="popup__text-container">
-                    <div className="popup__title1">
-                        <h1 className="popup__title">Delete {warehouseName} warehouse?</h1>
-                    </div>
-                    <div className="popup__body-container">
-                        <p className="popup__body">Please confirm that you'd like to delete the {warehouseName} from the list of warehouses. You won't be able to undo this action. </p>
-                    </div>
-                </div>
-                <div className="popup__footer">
-                    <button className="popup__cancel"
+                <div className="popup__top-btn-container">
+                    <button className="popup__closeBtn"
                         onClick={() => {
                             setOpenModal(false);
                         }}
-                        id="cancelBtn"
                     >
-                        Cancel
+                        <img className="popup__closeIcon" src={closeX} alt="X for close"/>
                     </button>
-                    <button onClick={() => deleteWarehouse(warehouseId)} className="popup__delete">Delete</button>
                 </div>
+                <div className="popup__wrapper">
+                    <div className="popup__text-container">
+                        <div className="popup__title1">
+                            <h1 className="popup__title">Delete {warehouseName} warehouse?</h1>
+                        </div>
+                        <div className="popup__body-container">
+                            <p className="popup__body">Please confirm that you'd like to delete the {warehouseName} from the list of warehouses. You won't be able to undo this action. </p>
+                        </div>
+                    </div>
+                    <div className="popup__footer">
+                        <button className="popup__cancel"
+                            onClick={() => {
+                                setOpenModal(false);
+                            }}
+                            id="cancelBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button onClick={() => deleteWarehouse(warehouseId)} className="popup__delete">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
