@@ -52,7 +52,7 @@ label{
   }
 }
 
-input{
+input, textarea, select{
   border-radius: 1.25rem;
   background-color: $white;
   margin: 0;
@@ -87,6 +87,25 @@ input{
       font-size: 0.875rem;
       line-height: 1.375rem;
     }
+  }
+
+}
+
+select{
+  background-image: url("../assets/icons/arrow_drop_down-24px.svg");
+  background-position: 97% 50%;
+  background-repeat: no-repeat;
+
+  // Get rid of default arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::-ms-expand { 
+      display: none; 
+  }
+
+  &:active, &:focus, &:focus-within {
+    background-image: url("../assets/icons/arrow_drop_down-24px-active.svg");
   }
 
 }
