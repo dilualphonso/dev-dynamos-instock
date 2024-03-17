@@ -97,28 +97,28 @@ export const InventoriesList = ({ id }) => {
           <div className='inventories-list__labels__wrapper'>
             <div className='inventories-list__labels-left'>
               <div className="inventories-list__labels__item">
-                <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
+                <h4 className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</h4>
                 <Sorting onAscClick={() => handleAscClick('item_name')} onDescClick={() => handleDescClick('item_name')} />
               </div>
               <div className="inventories-list__labels__category">
-                <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
+                <h4 className="inventories-list__label inventories-list__labels--category">CATEGORY</h4>
                 <Sorting onAscClick={() => handleAscClick('category')} onDescClick={() => handleDescClick('category')} />
               </div>
             </div>
             <div className="inventories-list__labels-right">
               <div className="inventories-list__labels__status">
-                <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
+                <h4 className="inventories-list__label inventories-list__labels--status">STATUS</h4>
                 <Sorting onAscClick={() => handleAscClick('status')} onDescClick={() => handleDescClick('status')} />
               </div>
               <div className="inventories-list__lables__quantity">
-                <p className="inventories-list__label inventories-list__labels--qty">{id && window.innerWidth >= 768 ? 'QUANTITY' : 'QTY'}</p>
+                <h4 className="inventories-list__label inventories-list__labels--qty">{id && window.innerWidth >= 768 ? 'QUANTITY' : 'QTY'}</h4>
                 <Sorting onAscClick={() => handleAscClick('quantity')} onDescClick={() => handleDescClick('quantity')} />
               </div>
             </div>
           </div>
           <div className={`inventories-list__labels__warehouse ${id ? 'inventories-list__labels__warehouse--has-warehouse' : ''}`}>
             {!id && (
-              <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
+              <h4 className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</h4>
             )}
             {!id && (
               <Sorting onAscClick={() => handleAscClick('warehouse_name')} onDescClick={() => handleDescClick('warehouse_name')} />
@@ -126,7 +126,7 @@ export const InventoriesList = ({ id }) => {
           </div>
         </div>
         <div className="inventories-list__labels__actions">
-          <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
+          <h4 className="inventories-list__label inventories-list__labels--actions">ACTIONS</h4>
         </div>
       </div>
       {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
