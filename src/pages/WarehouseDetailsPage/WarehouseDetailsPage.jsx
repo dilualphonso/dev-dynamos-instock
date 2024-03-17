@@ -35,13 +35,6 @@ const WarehouseDetailsPage = (props) => {
     <div>
       <div className="single-warehouse-container">
         <div className="nav-link">
-          {/* <Link className="nav-link__city" to={"/warehouses"}>
-            <img
-              src={BackArrow}
-              alt="Back arrow icon which navigates back to warehouse page"
-            />
-            <h1>{warehouse.city}</h1>
-          </Link> */}
           <HeadingWithBackArrow
             className="nav-link__city"
             link={"/warehouses"}

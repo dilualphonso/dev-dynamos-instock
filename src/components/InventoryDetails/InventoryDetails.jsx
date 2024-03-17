@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ReactComponent as ArrowBackIcon } from "../../assets/icons/arrow_back-24px.svg";
 import { ReactComponent as EditWhiteIcon } from "../../assets/icons/edit-white-24px.svg";
-import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
+import HeadingWithBackArrow from "../HeadingWithBackArrow/HeadingWithBackArrow";
+
 export const InventoryDetails = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const { id } = useParams();
@@ -52,10 +53,6 @@ export const InventoryDetails = () => {
   return (
     <article className="inventory-detail">
       <div className="inventory-detail__header">
-        {/* <Link to='/inventory' className="inventory-detail__link">
-          <ArrowBackIcon className="inventory-detail__icon" />
-          <span className="inventory-detail__name">{item_name}</span>
-        </Link> */}
         <div className="inventory-detail__name">
           <HeadingWithBackArrow
             link={"/inventory"}

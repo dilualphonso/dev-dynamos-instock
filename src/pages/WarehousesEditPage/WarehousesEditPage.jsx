@@ -55,10 +55,6 @@ function WarehousesEditPage() {
 
   return (
     <section className="edit-warehouse">
-      {/* <article className="edit-warehouse__heading-container">
-        <Link className="edit-warehouse__back-link" to="/warehouses"></Link>
-        <h1 className="edit-warehouse__heading">Edit Warehouse</h1>
-      </article> */}
       <div className="edit-warehouse__heading-container">
         <HeadingWithBackArrow link={`/warehouses`} heading={"Edit Warehouse"} />
       </div>
