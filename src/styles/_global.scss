@@ -9,6 +9,15 @@
 }
 body {
   margin: 0;
+  background-color: $bg-light;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+footer {
+  margin-top: auto;
 }
 
 a {

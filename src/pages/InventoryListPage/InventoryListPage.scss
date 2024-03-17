@@ -2,6 +2,6 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
-.inventory-list-section{
+.inventory-list{
     @include pageCard();
 }

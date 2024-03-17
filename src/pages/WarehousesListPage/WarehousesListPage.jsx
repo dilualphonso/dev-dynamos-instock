@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { Link } from 'react-router-dom';
+import { BASE_URL } from "../../constant-variables.js";
 import SearchMessage from '../../components/SearchMessege/SearchMessege';
 
 
@@ -14,7 +15,7 @@ function WarehousesListPage() {
 
 
     const [noResultMessage, setnoResultMessage] = useState("")
-    const [completedUrl, setCompletedUrl] = useState(`http://localhost:8080/api/warehouses`);
+    const [completedUrl, setCompletedUrl] = useState(`${BASE_URL}/warehouses`);
 
     console.log(search);
     //display data
@@ -43,17 +44,17 @@ function WarehousesListPage() {
 
 
     const handleAscClick = (sortingType) => {
-        setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=asc`);
+        setCompletedUrl(`${BASE_URL}/warehouses?sort_by=${sortingType}&order_by=asc`);
     };
 
     const handleDescClick = (sortingType) => {
-        setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=desc`);
+        setCompletedUrl(`${BASE_URL}/warehouses?sort_by=${sortingType}&order_by=desc`);
     };
     const handleChange = e => {
 
         const inputValue = e.target.value;
         setSearch(inputValue); // Update 'searchValue' with input value
-        setCompletedUrl(`http://localhost:8080/api/warehouses?s=${inputValue}`);
+        setCompletedUrl(`${BASE_URL}/warehouses?s=${inputValue}`);
 
 
     }
@@ -79,11 +80,6 @@ function WarehousesListPage() {
                 <WarehouseList warehouses={warehouses} setWarehouses={setWarehouse} handleAscClick={handleAscClick} handleDescClick={handleDescClick}setSearch={setSearch} search={search} noResultMessage={noResultMessage}  />
             {/* </div> */}
             <section>
-
-
-
-
-
 
                 {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
             </section>
