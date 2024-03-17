@@ -212,10 +212,13 @@
   box-shadow: 0 0.125rem 0.3125rem 0 #13182C1A;
 
   z-index: 1;
+  position: absolute;
+  top: $pageHeaderSpacingMobile;
 
   @include tablet(){
     margin: 0 2rem;
     width: calc(100vw - 4rem);
+    top: $pageHeaderSpacing;
   }
 
   @include desktop(){

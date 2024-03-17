@@ -7,6 +7,7 @@
 .header {
   background-color: $bg-dark;
   padding: 2rem 0 4rem 0;
+  height: $headerHeightMobile;
 
   &__nav {
     display: flex;
@@ -58,6 +59,7 @@
   }
   @include tablet {
     padding: 0 2rem 4rem 2rem;
+    height: $headerHeight;
     &__nav {
       display: flex;
       flex-direction: row;
