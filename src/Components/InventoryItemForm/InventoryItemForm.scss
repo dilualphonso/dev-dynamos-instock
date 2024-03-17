@@ -90,6 +90,7 @@
     }
 
     &__input{
+
         &--error{
             @include inputErrorStyle();
         }
@@ -143,6 +144,15 @@
         flex-basis: 50%;
         justify-content: flex-start;
         align-items: center;
+
+    }
+
+    &__radioBtn{
+        margin: 0;
+        margin-right: 0.5rem;
+        height: 1rem;
+        width: 1rem;
+
         border: 0.0625rem solid $secondary-cloud;
         color: $primary-indigo;
         outline: none;
@@ -150,12 +160,6 @@
         &:active, &:focus, &:focus-within, &:checked{
             border-color: $primary-indigo;
         }
-    }
-
-    &__radioBtn{
-        margin: 0;
-        height: 1rem;
-        width: 1rem;
     }
 
     &__textarea{

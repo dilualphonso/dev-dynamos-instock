@@ -101,13 +101,14 @@ function isEmailFormatValid(email){
 function isIntNumber(value){
     // Check if the input can be cast into a number 
     const convertToNum = Number(value);
-    if(typeof convertToNum !== "number"){
+    if(Number.isNaN(convertToNum)){
         return false;
     }
 
     // Check that the number is an integer, not a float
     const convertToInt = parseInt(value, 10);
-    if(convertToNum === convertToInt){
+    if(convertToNum !== convertToInt){
+        
         return false;
     }
 
@@ -115,7 +116,7 @@ function isIntNumber(value){
     if(convertToInt < 0){
         return false;
     }
-
+    
     // The value is an unsigned number
     return true;
 }

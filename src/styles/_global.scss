@@ -52,7 +52,7 @@ label{
   }
 }
 
-input:not([type="radio"]), textarea, select{
+input, textarea, select{
   border-radius: 1.25rem;
   background-color: $white;
   margin: 0;

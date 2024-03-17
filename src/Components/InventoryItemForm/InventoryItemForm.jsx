@@ -21,7 +21,7 @@ function InventoryItemForm({itemToEdit}) {
     // Button text state
     const [submitBtnText, setSubmitButtonText] = useState("");
 
-    // Create a navigate for when the user creates a warehouse or decides to cancel the process
+    // Create a navigate for when the user creates an inventory item or decides to cancel the process
     const navigate = useNavigate();
 
     // Make inputs state for form fields
@@ -65,7 +65,7 @@ function InventoryItemForm({itemToEdit}) {
     }, [itemToEdit]);
 
     /**
-     * getInputtedItem is a helper function that will get all of the input field values and stores those values inside one inventory item object that (if verified) is ready to be sent to the server.
+     * getInputtedItem is a helper function that will get all of the input field values and stores those values inside one inventory item object that (if verified) is ready can be sent to the server after number fields cast from strings to int.
      * 
      * @returns {Object}
      */
@@ -101,7 +101,6 @@ function InventoryItemForm({itemToEdit}) {
      */
     function setErrorStates(validationReport){
         // Set the error states with the validation results
-        console.log(validationReport);
         setIsItemNameError(validationReport.isItemNameError);
         setIsDescriptionError(validationReport.isDescriptionError);
         setIsCategoryError(validationReport.isCategoryError);
@@ -155,7 +154,6 @@ function InventoryItemForm({itemToEdit}) {
 
         // Get the input values in a compact "inventory item" object
         const inventoryItem = getInputtedItem();
-        console.log(inventoryItem);
 
         // Check to see that all of the inputs are valid by running it through validation
         const formErrors = validateItemForm(inventoryItem);
@@ -164,33 +162,38 @@ function InventoryItemForm({itemToEdit}) {
         if(formErrors.errorsExist){
             // Set the error states with the validation results
             setErrorStates(formErrors);
-            console.log(formErrors);
-        }else{
-            // If validation succeeded
+
+        // If validation succeeded
+        }else{            
+            // Change the warehouse_id and quantity fields to integer types
+            inventoryItem.warehouse_id = parseInt(inventoryItem.warehouse_id, 10);
+            if(inventoryItem.status === "In Stock"){
+                inventoryItem.quantity = parseInt(inventoryItem.quantity, 10);
+            }else{
+                inventoryItem.quantity = 0;
+            }
+
             // Make the request to the server to create the inventory item
             if(!itemToEdit){
                 // If no inventory item to edit, the call is POST to ADD a new inventory item
                 addInventoryItem(inventoryItem);
-                console.log("E");
             }else{
                 // Otherwise the call is PUT to EDIT an existing inventory item
                 // TODO: Ilaria
-                console.log("F");
             }
 
             // Reset the error states
             resetErrorStates();
-            console.log("G");
+
             // Empty the form fields
             resetInputs();
-            console.log("H");
+
             // Leave this page and go to the inventory item list page if ADD or inventory item details page if EDIT
             if(!itemToEdit){
                 navigate("/inventory");
-                console.log("I");
+
             }else{
                 // TODO Iliaria
-                console.log("J");
             }
 
         } 
@@ -267,8 +270,7 @@ function InventoryItemForm({itemToEdit}) {
                 <fieldset className="item-form__availability-container" form="submitItemForm" name="itemAvailabilityFields">
                     {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
                     <h3 className="item-form__sub-heading">Item Availability</h3>
-
-                    {/* Chose to let the Out of Stock radio be set by default */}      
+     
                     <p className="item-form__label item-form__radio-label--heading">Status</p>
                     <div className="item-form__radio-field-container">
                         <div className="item-form__radio-option-container">
@@ -287,13 +289,13 @@ function InventoryItemForm({itemToEdit}) {
                         {quantityError &&
                         <label className="item-form__error" htmlFor="quantity">
                             <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
-                            This field is required
+                            {quantityError}
                         </label>}
                     </div>
                     
                     {/* TODO populate dropdown */}
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    <input className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="warehouse" id="warehouser" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.warehouse} />
+                    <input className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="warehouse" id="warehouse" placeholder="Please select" onChange={inputChangeHandler} value={formInputs.warehouse} />
                     {isWarehouseError &&
                     <label className="item-form__error" htmlFor="warehouse">
                         <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
