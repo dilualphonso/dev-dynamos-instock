@@ -3,7 +3,7 @@ import { InventoryItem } from "../InventoryItem/InventoryItem";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { ReactComponent as SortIcon } from '../../assets/icons/sort-24px.svg';
+import Sorting from "../Sorting/Sorting";
 
 export const InventoriesList = ({ id }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -16,11 +16,12 @@ export const InventoriesList = ({ id }) => {
   const [inventories, setInventories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [completedUrl, setCompletedUrl] = useState(inventoriesUrl);
 
   useEffect(() => {
     const fetchInventories = async () => {
       try {
-        const response = await axios.get(inventoriesUrl);
+        const response = await axios.get(completedUrl);
         setInventories(response.data);
         setIsLoading(false);
       } catch (err) {
@@ -29,7 +30,7 @@ export const InventoriesList = ({ id }) => {
     };
 
     fetchInventories();
-  }, [inventoriesUrl]);
+  }, [completedUrl]);
 
   if (hasError) {
     return (
@@ -44,6 +45,14 @@ export const InventoriesList = ({ id }) => {
   if (inventories.length === 0) {
     return;
   }
+
+  const handleAscClick = (sortingType) => {
+    setCompletedUrl(`${inventoriesUrl}?sort_by=${sortingType}&order_by=asc`);
+  };
+
+  const handleDescClick = (sortingType) => {
+    setCompletedUrl(`${inventoriesUrl}?sort_by=${sortingType}&order_by=desc`);
+  };
 
   return (
     <article className="inventories-list">
@@ -71,33 +80,37 @@ export const InventoriesList = ({ id }) => {
           </div>
         </div>
       )}
-      
+
       <div className='inventories-list__labels'>
         <div className='inventories-list__labels__container'>
           <div className='inventories-list__labels__wrapper'>
             <div className='inventories-list__labels-left'>
               <div className="inventories-list__labels__item">
                 <p className="inventories-list__label inventories-list__labels--item">INVENTORY ITEM</p>
-                <SortIcon className="inventories-list__labels__sort" />
+                <Sorting onAscClick={() => handleAscClick('item_name')} onDescClick={() => handleDescClick('item_name')} />
               </div>
               <div className="inventories-list__labels__category">
                 <p className="inventories-list__label inventories-list__labels--category">CATEGORY</p>
+                <Sorting onAscClick={() => handleAscClick('category')} onDescClick={() => handleDescClick('category')} />
               </div>
             </div>
             <div className="inventories-list__labels-right">
               <div className="inventories-list__labels__status">
                 <p className="inventories-list__label inventories-list__labels--status">STATUS</p>
+                <Sorting onAscClick={() => handleAscClick('status')} onDescClick={() => handleDescClick('status')} />
               </div>
               <div className="inventories-list__lables__quantity">
-                <p className="inventories-list__label inventories-list__labels--qty">{id && window.innerWidth >=  768 ? 'QUANTITY' : 'QTY' }</p>
+                <p className="inventories-list__label inventories-list__labels--qty">{id && window.innerWidth >= 768 ? 'QUANTITY' : 'QTY'}</p>
+                <Sorting onAscClick={() => handleAscClick('quantity')} onDescClick={() => handleDescClick('quantity')} />
               </div>
             </div>
           </div>
           <div className={`inventories-list__labels__warehouse ${id ? 'inventories-list__labels__warehouse--has-warehouse' : ''}`}>
             {!id && (
-              <p className="inventories-list__label inventories-list__labels--warehouse">
-                WAREHOUSE
-              </p>
+              <p className="inventories-list__label inventories-list__labels--warehouse">WAREHOUSE</p>
+            )}
+            {!id && (
+              <Sorting onAscClick={() => handleAscClick('warehouse_name')} onDescClick={() => handleDescClick('warehouse_name')} />
             )}
           </div>
         </div>
