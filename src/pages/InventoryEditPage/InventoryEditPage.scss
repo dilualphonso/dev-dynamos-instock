@@ -3,8 +3,6 @@
 @use "../../styles/variables" as *;
 
 .edit-inventory {
-  @include pageCard();
-
   &__heading-container {
     display: flex;
     flex-flow: row nowrap;
@@ -15,6 +13,7 @@
     padding-bottom: 1.75rem;
     border-bottom: 0.0625rem solid $secondary-cloud;
     background-color: inherit;
+    padding-left: 1rem;
 
     @include tablet() {
       justify-content: flex-start;

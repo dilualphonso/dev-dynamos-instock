@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../constant-variables";
+import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 
 function WarehousesEditPage() {
   // Get the warehouse id from the browser path
@@ -54,10 +55,13 @@ function WarehousesEditPage() {
 
   return (
     <section className="edit-warehouse">
-      <article className="edit-warehouse__heading-container">
+      {/* <article className="edit-warehouse__heading-container">
         <Link className="edit-warehouse__back-link" to="/warehouses"></Link>
         <h1 className="edit-warehouse__heading">Edit Warehouse</h1>
-      </article>
+      </article> */}
+      <div className="edit-warehouse__heading-container">
+        <HeadingWithBackArrow link={`/warehouses`} heading={"Edit Warehouse"} />
+      </div>
       <WarehouseForm warehouseToEdit={warehouseData} />
     </section>
   );
