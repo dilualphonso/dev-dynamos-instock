@@ -46,7 +46,7 @@ function InventoryEditPage() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  console.log("what", inventoryData);
   // Return to the homepage if the is no warehouse object returned from the server request
   if (!inventoryData) {
     return <Navigate to="/inventory" />;

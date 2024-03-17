@@ -29,7 +29,7 @@ function InventoryItemForm({ itemToEdit }) {
     description: "",
     category: "",
     status: "Out of Stock",
-    quantity: "",
+    quantity: 0,
     warehouse: "",
   };
   const [formInputs, setFormInputs] = useState(initialState);
@@ -59,7 +59,7 @@ function InventoryItemForm({ itemToEdit }) {
         category: itemToEdit.category,
         status: itemToEdit.status,
         quantity: itemToEdit.quantity,
-        warehouse: itemToEdit.warehouse_id,
+        warehouse: itemToEdit.warehouse_name,
       };
       setSubmitButtonText("Save");
       setFormInputs(filledFields);
@@ -151,7 +151,7 @@ function InventoryItemForm({ itemToEdit }) {
   const editInventoryItem = async (inventoryItem) => {
     try {
       const response = await axios.put(
-        `${BASE_URL}/inventories/${inventoryItem.id}`,
+        `${BASE_URL}/inventories/${itemToEdit.id}`,
         inventoryItem
       );
       if (!!response.data) {
@@ -176,7 +176,7 @@ function InventoryItemForm({ itemToEdit }) {
 
     // Get the input values in a compact "inventory item" object
     const inventoryItem = getInputtedItem();
-    console.log(inventoryItem);
+    console.log("item", inventoryItem);
     // Check to see that all of the inputs are valid by running it through validation
     const formErrors = validateItemForm(inventoryItem);
 
@@ -193,6 +193,8 @@ function InventoryItemForm({ itemToEdit }) {
       } else {
         inventoryItem.quantity = 0;
       }
+      // Make sure warehouse_id is a number
+      inventoryItem.warehouse_id = parseInt(inventoryItem.warehouse_id, 10);
 
       // Make the request to the server to create the inventory item
       if (!itemToEdit) {
@@ -331,7 +333,9 @@ function InventoryItemForm({ itemToEdit }) {
             id="category"
             onChange={inputChangeHandler}
             selected={formInputs.category}
+            value={formInputs.category}
           >
+            {console.log("input", formInputs)}
             <option className="item-form__dropdown-option" value="">
               Please select
             </option>
