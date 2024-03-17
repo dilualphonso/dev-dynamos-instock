@@ -1,0 +1,37 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/global" as *;
+
+.pageNotFound{
+    @include flexColNowrap();
+    align-items: center;
+    justify-content: flex-start;
+
+    @include desktop(){
+        flex-direction: row-reverse;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__img{
+        width: 100%;
+        height: auto;
+
+        @include tablet(){
+            max-width: 80vw;
+        }
+
+        @include desktop(){
+            width: 50%;
+            flex-basis: 50%;
+        }
+    }
+
+    &__heading{
+        @include desktop(){
+            flex-basis: 50%;
+        }
+    }
+}
