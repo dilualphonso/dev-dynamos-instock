@@ -1,17 +1,18 @@
 import "./InventoryAddPage.scss";
 import { Link } from "react-router-dom";
 import InventoryItemForm from "../../components/InventoryItemForm/InventoryItemForm";
-
+import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 function InventoryAddPage() {
-
-    return (
-        <section className="add-inventory">
-            <article className="add-inventory__heading-container">
-                <Link className="add-inventory__back-link" to="/inventory"></Link>
-                <h1 className="add-inventory__heading">Add New Inventory Item</h1>
-            </article>
-            <InventoryItemForm itemToEdit={null} />
-        </section>
-    );
+  return (
+    <section className="add-inventory">
+      <div className="add-inventory__heading-container">
+        <HeadingWithBackArrow
+          link={"/inventory"}
+          heading={"Add New Inventory Item"}
+        />
+      </div>
+      <InventoryItemForm itemToEdit={null} />
+    </section>
+  );
 }
 export default InventoryAddPage;

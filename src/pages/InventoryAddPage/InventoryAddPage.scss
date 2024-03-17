@@ -2,41 +2,41 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
-.add-inventory{
-    @include pageCard();
+.add-inventory {
+  @include pageCard();
 
-    &__heading-container{
-        display: flex;
-        flex-flow: row nowrap;
-        width: 100%;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 2.125rem;
-        padding-bottom: 1.75rem;
-        border-bottom: 0.0625rem solid $secondary-cloud;
-        background-color: inherit;
+  &__heading-container {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2.125rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 0.0625rem solid $secondary-cloud;
+    background-color: inherit;
 
-        @include tablet(){
-            justify-content: flex-start;
-            align-items: center;
-            padding-left: 2rem;
-            padding-bottom: 1.5rem;
-            margin-bottom: $verticalSpaceBetweenComponents;
-        }
+    @include tablet() {
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 2rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: $verticalSpaceBetweenComponents;
     }
+  }
 
-    &__back-link{
-        @include backArrowStyle();
-        margin-left: 1.5rem;
-        margin-top: 0.5rem;
+  &__back-link {
+    @include backArrowStyle();
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
 
-        @include tablet(){
-            margin-top: 0;
-        }
+    @include tablet() {
+      margin-top: 0;
     }
+  }
 
-    &__heading{
-        @include pageHeading();
-        margin-right: 1.5rem;
-    }
+  &__heading {
+    @include pageHeading();
+    margin-right: 1.5rem;
+  }
 }
