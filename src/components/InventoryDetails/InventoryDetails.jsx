@@ -54,10 +54,7 @@ export const InventoryDetails = () => {
     <article className="inventory-detail">
       <div className="inventory-detail__header">
         <div className="inventory-detail__name">
-          <HeadingWithBackArrow
-            link={"/inventory"}
-            heading={"Edit Inventory Item"}
-          />
+          <HeadingWithBackArrow link={"/inventory"} heading={item_name} />
         </div>
         <div className="inventory-detail__edit-button-container">
           <button className="inventory-detail__edit-button">

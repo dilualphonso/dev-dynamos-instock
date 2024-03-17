@@ -5,10 +5,6 @@ import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingW
 function WarehousesAddPage() {
   return (
     <section className="add-warehouse">
-      {/* <article className="add-warehouse__heading-container">
-                <Link className="add-warehouse__back-link" to="/warehouses"></Link>
-                <h1 className="add-warehouse__heading">Add New Warehouse</h1>
-            </article> */}
       <div className="add-warehouse__heading-container">
         <HeadingWithBackArrow
           link={"/warehouses"}

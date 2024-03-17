@@ -38,7 +38,7 @@ const WarehouseDetailsPage = (props) => {
           <HeadingWithBackArrow
             className="nav-link__city"
             link={"/warehouses"}
-            heading={warehouse.city}
+            heading={warehouse.warehouse_name}
           />
 
           <Link
