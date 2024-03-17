@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 import "./InventoryEditPage.scss";
 
 function InventoryEditPage() {
@@ -15,6 +16,10 @@ function InventoryEditPage() {
         ></Link>
         <h1 className="edit-inventory__heading">Edit Inventory</h1>
       </article>
+      <HeadingWithBackArrow
+        link={`/inventory/${id}`}
+        heading={"Edit Inventory"}
+      />
     </section>
   );
 }

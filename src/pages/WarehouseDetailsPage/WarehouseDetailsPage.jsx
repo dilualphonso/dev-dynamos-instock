@@ -6,6 +6,7 @@ import { InventoriesList } from "../../components/InventoriesList/InventoriesLis
 import "./WarehouseDetailsPage.scss";
 import BackArrow from "../../assets/icons/arrow_back-24px.svg";
 import Edit from "../../assets/icons/edit-white-24px.svg";
+import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 
 const WarehouseDetailsPage = (props) => {
   const { id } = useParams();
@@ -34,13 +35,19 @@ const WarehouseDetailsPage = (props) => {
     <div>
       <div className="single-warehouse-container">
         <div className="nav-link">
-          <Link className="nav-link__city" to={"/warehouses"}>
+          {/* <Link className="nav-link__city" to={"/warehouses"}>
             <img
               src={BackArrow}
               alt="Back arrow icon which navigates back to warehouse page"
             />
             <h1>{warehouse.city}</h1>
-          </Link>
+          </Link> */}
+          <HeadingWithBackArrow
+            className="nav-link__city"
+            link={"/warehouses"}
+            heading={warehouse.city}
+          />
+
           <Link
             className="nav-link__edit-container"
             to={`/warehouses/${warehouse.id}/edit`}
