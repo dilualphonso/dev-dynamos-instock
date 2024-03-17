@@ -12,11 +12,9 @@ function WarehousesListPage() {
 
     const [search, setSearch] = useState('');
 
-    const [error, setError] = useState(null);
+
     const [noResultMessage, setnoResultMessage] = useState("")
     const [completedUrl, setCompletedUrl] = useState(`http://localhost:8080/api/warehouses`);
-
-
 
     console.log(search);
     //display data
@@ -26,6 +24,13 @@ function WarehousesListPage() {
                 const response = await axios.get(
                     completedUrl
                 );
+               // console.log(response.data);
+
+                if (response.data.message=== "No result") {
+                    setnoResultMessage(`No search result`);
+                  } else {
+                    setnoResultMessage(""); // Clear the message if there are results
+                  }
 
                 setWarehouse(response.data)
 
@@ -35,45 +40,8 @@ function WarehousesListPage() {
             }
         };
         fetchWarehouses();
-    }, []);
+    }, [completedUrl]);
 
-
-
-
-    //  const searchWarehouses = async (searchWord) => {
-    //     try {
-    //         if (search !== "") {
-    //             const searchResponse = await axios.get(
-    //                 `http://localhost:8080/api/warehouses/search/${searchWord}`
-
-    //             );
-    //             console.log(searchResponse);
-    //             setWarehouse(searchResponse.data);
-
-    //             if (searchResponse.data.message=== "No result") {
-    //                 setnoResultMessage(`No search result`);
-    //               } else {
-    //                 setnoResultMessage(""); // Clear the message if there are results
-    //               }
-
-
-    //         }
-
-
-    //         else {
-    //             // Clear warehouses if search term is empty
-    //             setWarehouse(warehouses);
-    //             setnoResultMessage("");
-    //         }
-
-
-    //     }
-    //     catch (err) {
-    //         if (err.response && err.response.status === 404) {
-    //             setError('Data not found');
-    //         }
-    //     }
-    // };
 
     const handleAscClick = (sortingType) => {
         setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=asc`);
@@ -85,7 +53,7 @@ function WarehousesListPage() {
     const handleChange = e => {
 
         const inputValue = e.target.value;
-       // setSearch(completedUrl); // Update 'searchValue' with input value
+        setSearch(inputValue); // Update 'searchValue' with input value
         setCompletedUrl(`http://localhost:8080/api/warehouses?s=${inputValue}`);
       //  searchWarehouses(e.target.value);
 
