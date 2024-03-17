@@ -5,7 +5,10 @@
 @use "../../styles/global" as *;
 
 .single-warehouse-container {
-  padding: 1rem 0;
+  // padding-bottom: 1rem;
+  @include tablet {
+    padding-top: 1rem;
+  }
   .information-container {
     padding: 0 1rem;
     display: flex;
@@ -16,10 +19,8 @@
       flex-direction: row;
       align-items: center;
       width: 100%;
-      // max-width: 48rem;
     }
     @include desktop {
-      // padding: 0 1rem; // //
       display: flex;
       justify-content: space-between;
     }
@@ -63,7 +64,6 @@
       border-left: solid 1px $secondary-cloud;
       padding-right: 2.5rem;
       padding-left: 1rem;
-      // max-width: 24rem; // //
     }
     @include desktop {
       margin-left: 0;
@@ -77,9 +77,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 2rem 1rem 0.5rem 1rem;
   @include tablet {
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
   &__city {
     display: flex;
