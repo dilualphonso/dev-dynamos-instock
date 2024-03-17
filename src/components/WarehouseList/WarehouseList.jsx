@@ -7,10 +7,10 @@ import sortIcon from "../../assets/icons/sort-24px.svg"
 import WarehouseDeletePage from "../../pages/WarehouseDeletePage/WarehouseDeletePage"
 import { useState } from 'react';
 import { Link} from 'react-router-dom';
+import Sorting from "../Sorting/Sorting";
 
 
-
-function WarehouseList({ warehouses , setWarehouses}) {
+function WarehouseList({ warehouses , setWarehouses, handleAscClick, handleDescClick}) {
 
   const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
   const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
@@ -32,19 +32,19 @@ function WarehouseList({ warehouses , setWarehouses}) {
         <div className="warehouse__tab-headings">
           <div className="warehouse__headings-name">
             <h4 className="warehouse__name-heading">Warehouse</h4>
-            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
+            <Sorting onAscClick={() => handleAscClick('warehouse_name')} onDescClick={() => handleDescClick('warehouse_name')} />
           </div>
           <div className="warehouse__headings-address">
             <h4 className="warehouse__address-heading">Address</h4>
-            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
+            <Sorting onAscClick={() => handleAscClick('address,city,country')} onDescClick={() => handleDescClick('address,city,country')} />
           </div>
           <div className="warehouse__headings-contact-name">
             <h4 className="warehouse__contact-name-heading">Contact Name</h4>
-            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
+            <Sorting onAscClick={() => handleAscClick('contact_name')} onDescClick={() => handleDescClick('contact_name')} />
           </div>
           <div className="warehouse__headings-contact-info">
             <h4 className="warehouse__contact-info-heading">Contact Information</h4>
-            <img className="warehouse__sort" src={sortIcon} alt="sorting icon" />
+            <Sorting onAscClick={() => handleAscClick('contact_phone,contact_email')} onDescClick={() => handleDescClick('contact_phone,contact_email')} />
           </div>
 
           <h4 className="warehouse__actions">Actions</h4>

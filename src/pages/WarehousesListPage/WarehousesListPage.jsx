@@ -9,10 +9,14 @@ import SearchMessage from '../../components/SearchMessege/SearchMessege';
 function WarehousesListPage() {
 
     const [warehouses, setWarehouse] = useState([]);
+
     const [search, setSearch] = useState('');
 
     const [error, setError] = useState(null);
     const [noResultMessage, setnoResultMessage] = useState("")
+    const [completedUrl, setCompletedUrl] = useState(`http://localhost:8080/api/warehouses`);
+
+
 
     console.log(search);
     //display data
@@ -20,7 +24,7 @@ function WarehousesListPage() {
         const fetchWarehouses = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/api/warehouses`
+                    completedUrl
                 );
 
                 setWarehouse(response.data)
@@ -33,59 +37,65 @@ function WarehousesListPage() {
         fetchWarehouses();
     }, []);
 
-         const searchWarehouses = async (searchWord) => {
-            try {
-                if (search !== "") {
-                    const searchResponse = await axios.get(
-                        `http://localhost:8080/api/warehouses/search/${searchWord}`
-
-                    );
-                    console.log(searchResponse);
-                    setWarehouse(searchResponse.data);
-
-                    if (searchResponse.data.message=== "No result") {
-                        setnoResultMessage(`No search result`);
-                      } else {
-                        setnoResultMessage(""); // Clear the message if there are results
-                      }
-
-
-                }
-
-
-                else {
-                    // Clear warehouses if search term is empty
-                    setWarehouse(warehouses);
-                    setnoResultMessage("");
-                }
-
-
-            }
-            catch (err) {
-                if (err.response && err.response.status === 404) {
-                    setError('Data not found');
-                }
-            }
-        };
 
 
 
+    //  const searchWarehouses = async (searchWord) => {
+    //     try {
+    //         if (search !== "") {
+    //             const searchResponse = await axios.get(
+    //                 `http://localhost:8080/api/warehouses/search/${searchWord}`
+
+    //             );
+    //             console.log(searchResponse);
+    //             setWarehouse(searchResponse.data);
+
+    //             if (searchResponse.data.message=== "No result") {
+    //                 setnoResultMessage(`No search result`);
+    //               } else {
+    //                 setnoResultMessage(""); // Clear the message if there are results
+    //               }
+
+
+    //         }
+
+
+    //         else {
+    //             // Clear warehouses if search term is empty
+    //             setWarehouse(warehouses);
+    //             setnoResultMessage("");
+    //         }
+
+
+    //     }
+    //     catch (err) {
+    //         if (err.response && err.response.status === 404) {
+    //             setError('Data not found');
+    //         }
+    //     }
+    // };
+
+    const handleAscClick = (sortingType) => {
+        setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=asc`);
+    };
+
+    const handleDescClick = (sortingType) => {
+        setCompletedUrl(`http://localhost:8080/api/warehouses?sort_by=${sortingType}&order_by=desc`);
+    };
     const handleChange = e => {
 
-
-
         const inputValue = e.target.value;
-        setSearch(inputValue); // Update 'searchValue' with input value
-
-        searchWarehouses(e.target.value);
-
-
+       // setSearch(completedUrl); // Update 'searchValue' with input value
+        setCompletedUrl(`http://localhost:8080/api/warehouses?s=${inputValue}`);
+      //  searchWarehouses(e.target.value);
 
     }
     return (
         <section className="warehouses">
+
             <div className="warehouses__top-container">
                 <h1 className="warehouses__title">Warehouses</h1>
+
                 <div className="warehouses__left-wrapper">
                     <div>
                         <input onChange={handleChange} name='searching' value={search} className='warehouses__search' type="text" placeholder="Search..." />
@@ -98,14 +108,17 @@ function WarehousesListPage() {
                 </div>
 
             </div>
+            {/* <section> */}
+                <WarehouseList warehouses={warehouses} setWarehouses={setWarehouse} handleAscClick={handleAscClick} handleDescClick={handleDescClick}setSearch={setSearch} search={search} noResultMessage={noResultMessage}  />
+            {/* </div> */}
             <section>
 
 
 
 
-                <WarehouseList warehouses={warehouses} setWarehouses={setWarehouse} setSearch={setSearch} search={search} noResultMessage={noResultMessage} />
 
-                { noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage}/>}
+
+                {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
             </section>
 
 
