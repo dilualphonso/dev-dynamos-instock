@@ -10,6 +10,7 @@ import InventoryItemPage from "./pages/InventoryItemPage/InventoryItemPage";
 import InventoryAddPage from "./pages/InventoryAddPage/InventoryAddPage";
 import InventoryEditPage from "./pages/InventoryEditPage/InventoryEditPage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import Footer from "./components/Footer/Footer";
 
 import "./App.css";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/inventory/:id/edit" element={<InventoryEditPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

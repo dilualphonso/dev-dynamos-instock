@@ -70,7 +70,7 @@ export const InventoriesList = ({ id }) => {
           </div>
         </div>
       )}
-      
+
       <div className='inventories-list__labels'>
         <div className='inventories-list__labels__container'>
           <div className='inventories-list__labels__wrapper'>
@@ -110,9 +110,11 @@ export const InventoriesList = ({ id }) => {
             key={inventory.id}
             inventory={inventory}
             warehouseId={id}
+            setInventories={setInventories}
           />
         ))}
       </ul>
+
     </article>
   );
 };
