@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Sorting from "../Sorting/Sorting";
+import SearchMessage from "../SearchMessege/SearchMessege";
 
 export const InventoriesList = ({ id }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -17,11 +18,18 @@ export const InventoriesList = ({ id }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [completedUrl, setCompletedUrl] = useState(inventoriesUrl);
+  const [search, setSearch] = useState('');
+  const [noResultMessage, setnoResultMessage] = useState("")
 
   useEffect(() => {
     const fetchInventories = async () => {
       try {
         const response = await axios.get(completedUrl);
+        if (response.data.message=== "No result") {
+          setnoResultMessage(`No search result`);
+        } else {
+          setnoResultMessage(""); // Clear the message if there are results
+        }
         setInventories(response.data);
         setIsLoading(false);
       } catch (err) {
@@ -54,23 +62,27 @@ export const InventoriesList = ({ id }) => {
     setCompletedUrl(`${inventoriesUrl}?sort_by=${sortingType}&order_by=desc`);
   };
 
+  const handleChange = e => {
+    const inputValue = e.target.value;
+    setSearch(inputValue); // Update 'searchValue' with input value
+    console.log(inputValue)
+    setCompletedUrl(`${inventoriesUrl}?s=${inputValue}`);
+
+}
+
   return (
     <article className="inventories-list">
       {!id && (
         <div className="inventories-list__header">
           <h1 className="inventories-list__title">Inventory</h1>
           <div className="inventories-list__actions">
-            <form
-              action="/search"
-              method="get"
-              className="inventories-list__search-container"
-            >
               <input
                 type="search"
                 className="inventories-list__search"
                 placeholder="Search..."
+                onChange={handleChange}
+                value={search}
               ></input>
-            </form>
             <button className="inventories-list__button">
               <Link to="/inventory/add" className="link-white">
                 {" "}
@@ -80,7 +92,6 @@ export const InventoriesList = ({ id }) => {
           </div>
         </div>
       )}
-
       <div className='inventories-list__labels'>
         <div className='inventories-list__labels__container'>
           <div className='inventories-list__labels__wrapper'>
@@ -118,7 +129,7 @@ export const InventoriesList = ({ id }) => {
           <p className="inventories-list__label inventories-list__labels--actions">ACTIONS</p>
         </div>
       </div>
-
+      {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
       <ul className="inventories-list__items">
         {inventories.map((inventory) => (
           <InventoryItem
@@ -129,7 +140,6 @@ export const InventoriesList = ({ id }) => {
           />
         ))}
       </ul>
-
     </article>
   );
 };

@@ -24,7 +24,6 @@ function WarehousesListPage() {
                 const response = await axios.get(
                     completedUrl
                 );
-               // console.log(response.data);
 
                 if (response.data.message=== "No result") {
                     setnoResultMessage(`No search result`);
@@ -55,7 +54,7 @@ function WarehousesListPage() {
         const inputValue = e.target.value;
         setSearch(inputValue); // Update 'searchValue' with input value
         setCompletedUrl(`http://localhost:8080/api/warehouses?s=${inputValue}`);
-      //  searchWarehouses(e.target.value);
+
 
     }
     return (
