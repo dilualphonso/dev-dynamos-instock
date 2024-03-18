@@ -1,6 +1,6 @@
 import  './SearchMessege.scss'
 
-function SearchMessage({setNoResultMessege, noResultMessage}){
+function SearchMessage({noResultMessage}){
     return(
         <div className="search">
 <p className="search__message">{noResultMessage}</p>
