@@ -9,15 +9,12 @@ function WarehouseDeletePage({ setOpenModal, warehouseId, warehouseName, setWare
 
 
 
-    console.log(warehouseName);
-
     const deleteWarehouse = async (warehouseId) => {
         try {
             await axios.delete(`http://localhost:8080/api/warehouses/${warehouseId}`);
 
             // Fetch updated list after deletion
             const deleteResponse = await axios.get('http://localhost:8080/api/warehouses');
-            console.log(`Warehouse ${warehouseId} was deleted`);
             setWarehouses(deleteResponse.data);
 
             setOpenModal(false); // Close the modal after successful deletion

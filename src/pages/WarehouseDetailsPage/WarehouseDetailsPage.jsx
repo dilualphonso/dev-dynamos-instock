@@ -12,12 +12,11 @@ const WarehouseDetailsPage = (props) => {
   const { id } = useParams();
   const [warehouse, setWarehouse] = useState(null);
   const [error, setError] = useState(null);
-  console.log(BASE_URL);
+
   useEffect(() => {
     const getWarehouse = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/warehouses/${id}`);
-        console.log(response.data);
         setWarehouse(response.data);
       } catch (error) {
         setError(error.message);

@@ -12,7 +12,6 @@ function InventoryDeletePage({ setDeleteConfirm, inventoryId, inventoryName, set
 
             // Fetch updated list after deletion
             const deleteResponse = await axios.get(`${BASE_URL}/inventories`);
-            console.log(`Warehouse ${inventoryId} was deleted`);
             setInventories(deleteResponse.data);
 
             setDeleteConfirm(false); // Close the modal after successful deletion
