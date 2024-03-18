@@ -15,10 +15,10 @@
 }
 
 @mixin mobile-font-h2 {
-  font-size: 1.25;
+  font-size: 1.25rem;
   color: $primary-black;
   font-family: "Titillium-Bold";
-  font-size: 1.75rem;
+  line-height: 1.75rem;
 }
 
 @mixin mobile-font-h3 {
@@ -27,12 +27,7 @@
   font-family: "Titillium-SemiBold";
   line-height: 1.25rem;
 }
-// @mixin mobile-font-h1 {
-//   font-size: 0.813rem;
-//   font-weight: 600;
-//   font-family: "Titillium-SemiBold";
-//   line-height: 1.25rem;
-// }
+
 @mixin desktop-tablet-font-h3 {
   font-size: 0.873rem;
   font-weight: 600;
