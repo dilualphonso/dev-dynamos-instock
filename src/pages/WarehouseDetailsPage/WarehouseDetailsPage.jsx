@@ -44,7 +44,7 @@ const WarehouseDetailsPage = (props) => {
             className="nav-link__edit-container"
             to={`/warehouses/${warehouse.id}/edit`}
           >
-            <div className="nav-link__button-content" nav-link__>
+            <div className="nav-link__button-content">
               <img
                 className="nav-link__edit-icon"
                 src={Edit}
