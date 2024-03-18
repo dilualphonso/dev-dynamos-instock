@@ -23,7 +23,7 @@ function InventoryItemForm({itemToEdit}) {
     const [submitBtnText, setSubmitButtonText] = useState("");
 
     const [categoryChoice, setCategoryChoice] = useState("");
-    const [warehouseSelection, setwarehouseSelection] = useState("");
+    const [warehouseChoice, setWarehouseChoice] = useState("");
     const [warehouses, setWarehouses] = useState([]);
 
     // Create a navigate for when the user creates an inventory item or decides to cancel the process
@@ -53,17 +53,7 @@ function InventoryItemForm({itemToEdit}) {
         setFormInputs(updatedInput);
     }
 
-    // const findSelected = response.data.find((warehouse) => {
-    //     return warehouse.warehouse_name === selected;
-    // })
-    // console.log("match to ", selected);
-    // console.log(response.data);
-    // console.log("Found a match", findSelected);
-    // if(!findSelected){
-    //     setSelectedWarehouse("");
-    // }else{
-    //     setSelectedWarehouse(findSelected.id);
-    // }
+
 
     // Check to see if this is an add or edit form and format accordingly
     useEffect(()=>{
@@ -90,7 +80,7 @@ function InventoryItemForm({itemToEdit}) {
                 quantity: itemToEdit.quantity,
                 warehouse: itemToEdit.warehouse_name,
             }
-            setwarehouseSelection(itemToEdit.warehouse_name);
+            setWarehouseChoice(itemToEdit.warehouse_name);
             setCategoryChoice(itemToEdit.category);
             setSubmitButtonText("Save");
             setFormInputs(filledFields);
@@ -98,6 +88,22 @@ function InventoryItemForm({itemToEdit}) {
         getWarehouses();
     }, [itemToEdit]);
 
+
+    function getWarehouseId(warehouseName){
+        if(!warehouseName){
+            return ""
+        }else{
+            const findSelected = warehouses.find((warehouse) => {
+                return warehouse.warehouse_name === selected;
+            });
+            if(!findSelected){
+                return "";
+            }else{
+                return findSelected.id;
+            }
+        }
+    }
+    
     /**
      * getInputtedItem is a helper function that will get all of the input field values and stores those values inside one inventory item object that (if verified) is ready can be sent to the server after number fields cast from strings to int.
      * 
@@ -106,7 +112,7 @@ function InventoryItemForm({itemToEdit}) {
     function getInputtedItem(){
         // Create inventory item object using the values in the form inputs
         const inventoryItemObject = {
-            warehouse_id: formInputs.warehouse, 
+            warehouse_id: getWarehouseId(formInputs.warehouse), 
             item_name: formInputs.itemName, 
             description: formInputs.description, 
             category: formInputs.category, 
@@ -263,7 +269,12 @@ function InventoryItemForm({itemToEdit}) {
     function inputChangeHandler(event){
         const {target} = event;
         updateForm(target.name, target.value);
-        setCategoryChoice(target.value);
+        if(target.name === "category"){
+            setCategoryChoice(target.value);
+        }else if(target.name === "warehouse"){
+            setWarehouseChoice(target.value);
+        }
+        
     }
     
     /**
@@ -308,7 +319,7 @@ function InventoryItemForm({itemToEdit}) {
                     </label>}
 
                     <label className="item-form__label" htmlFor="category">Category</label>
-                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} selected={categoryChoice} value={categoryChoice}>
+                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} name="category" id="category" onChange={inputChangeHandler} selected={categoryChoice} value={categoryChoice}>
                         <option className="item-form__dropdown-option" value="" >Please select</option>
                         <option className="item-form__dropdown-option" value="Accessories" >Accessories</option>
                         <option className="item-form__dropdown-option" value="Apparel" >Apparel</option>
@@ -351,9 +362,9 @@ function InventoryItemForm({itemToEdit}) {
                     
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
                     {/* <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} hasError={isWarehouseError} /> */}
-                    <select selected={formInputs.warehouse} onChange={updateForm}>
+                    <select className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"}  name="warehouse" id="warehouse" onChange={inputChangeHandler} selected={warehouseChoice} value={warehouseChoice}>
                         {warehouses.map((warehouse)=>{
-                            return <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                            return <option className="item-form__dropdown-option" key={warehouse.id} value={warehouse.name}>{warehouse.name}</option>
                         })}
                     </select>
                     {isWarehouseError &&
