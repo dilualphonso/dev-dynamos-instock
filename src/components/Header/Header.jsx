@@ -1,17 +1,23 @@
 import Logo from "../../assets/logo/InStock-Logo_1x.png";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("/warehouses");
+  const location = useLocation();
+  const params = useParams();
 
   const handleNavigation = (path) => {
     navigate(path);
     setActiveLink(path);
   };
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
+  console.log(params);
   return (
     <header className="header">
       <nav className="header__nav">
@@ -27,7 +33,11 @@ const Header = () => {
         <ul className="header__button-container">
           <li
             className={`header__link-button ${
-              activeLink === "/warehouses" ? "active" : ""
+              activeLink === "/warehouses" ||
+              activeLink === "/warehouses/add" ||
+              activeLink === `/warehouses/`
+                ? "active"
+                : ""
             }`}
           >
             <Link
@@ -40,7 +50,9 @@ const Header = () => {
           </li>
           <li
             className={`header__link-button ${
-              activeLink === "/inventory" ? "active" : ""
+              activeLink === "/inventory" || activeLink === "/inventory/add"
+                ? "active"
+                : ""
             }`}
           >
             <Link
