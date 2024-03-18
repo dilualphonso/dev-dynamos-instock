@@ -4,7 +4,6 @@ import { BASE_URL } from "../../constant-variables";
 import axios from "axios";
 import { InventoriesList } from "../../components/InventoriesList/InventoriesList";
 import "./WarehouseDetailsPage.scss";
-import BackArrow from "../../assets/icons/arrow_back-24px.svg";
 import Edit from "../../assets/icons/edit-white-24px.svg";
 import HeadingWithBackArrow from "../../components/HeadingWithBackArrow/HeadingWithBackArrow";
 
