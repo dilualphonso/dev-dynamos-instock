@@ -134,7 +134,6 @@ function isIntNumber(value) {
 export function validateItemForm(item) {
   let hasErrors = false;
   let quantityError = "";
-  console.log(item.warehouse_id);
   const warehouseIdAsStr = item.warehouse_id.toString();
 
   // Check if any if the non-formatted fields are empty
