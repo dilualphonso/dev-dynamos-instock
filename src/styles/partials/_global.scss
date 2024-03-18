@@ -9,6 +9,15 @@
 }
 body {
   margin: 0;
+  background-color: $bg-light;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+footer {
+  margin-top: auto;
 }
 
 a {
@@ -92,7 +101,7 @@ input, textarea, select{
 }
 
 select{
-  background-image: url("../assets/icons/arrow_drop_down-24px.svg");
+  background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
   background-position: 97% 50%;
   background-repeat: no-repeat;
 
@@ -105,7 +114,7 @@ select{
   }
 
   &:active, &:focus, &:focus-within {
-    background-image: url("../assets/icons/arrow_drop_down-24px-active.svg");
+    background-image: url("../../assets/icons/arrow_drop_down-24px-active.svg");
   }
 
 }

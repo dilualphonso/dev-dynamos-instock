@@ -1,9 +1,10 @@
-@use '../../styles/colors'as *;
-@use '../../styles/mixins'as *;
-@use '../../styles/typography'as *;
-
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
 
 .warehouses{
+
+    @include pageCard();
 
     &__title{
         font-family: "Titillium-SemiBold";
@@ -66,18 +67,14 @@
         display: flex;
         flex-direction: column;
        justify-content: center;
-
-margin-left: 1rem;
-margin-right: 1rem;
-
-
+       width: 100%;
+       padding: 0 1rem;
 
 @include tablet{
 
     flex-direction: row;
     justify-content: space-between;
-   margin-left: 2rem;
- margin-right: 2rem;
+    padding: 0 2rem;
 
 }
 
