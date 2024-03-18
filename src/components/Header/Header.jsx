@@ -1,22 +1,31 @@
 import Logo from "../../assets/logo/InStock-Logo_1x.png";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeLink, setActiveLink] = useState("/warehouses");
 
   const handleNavigation = (path) => {
     navigate(path);
     setActiveLink(path);
   };
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
   return (
     <header className="header">
       <nav className="header__nav">
         <div className="header__logo-container">
-          <Link to="/" className="header__logo-link">
+          <Link
+            to="/"
+            className="header__logo-link"
+            onClick={() => handleNavigation("/")}
+          >
             <img
               src={Logo}
               alt="Warehouse Logo"
@@ -27,7 +36,9 @@ const Header = () => {
         <ul className="header__button-container">
           <li
             className={`header__link-button ${
-              activeLink === "/warehouses" ? "active" : ""
+              location.pathname === "/" || activeLink.includes("/warehouses")
+                ? "active"
+                : ""
             }`}
           >
             <Link
@@ -40,7 +51,7 @@ const Header = () => {
           </li>
           <li
             className={`header__link-button ${
-              activeLink === "/inventory" ? "active" : ""
+              activeLink.includes("/inventory") ? "active" : ""
             }`}
           >
             <Link
