@@ -17,7 +17,6 @@ function WarehousesListPage() {
     const [noResultMessage, setnoResultMessage] = useState("")
     const [completedUrl, setCompletedUrl] = useState(`${BASE_URL}/warehouses`);
 
-    console.log(search);
     //display data
     useEffect(() => {
         const fetchWarehouses = async () => {
