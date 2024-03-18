@@ -58,7 +58,12 @@ function InventoryItemForm({itemToEdit}) {
         }else{
             // The form is in EDIT mode
             const filledFields = {
-                // TODO: Ilaria
+                itemName: itemToEdit.item_name,
+                description: itemToEdit.description,
+                category: itemToEdit.category,
+                status: itemToEdit.status,
+                quantity: itemToEdit.quantity,
+                warehouse: itemToEdit.warehouse_name,
             }
             setSubmitButtonText("Save");
             setFormInputs(filledFields);
@@ -143,6 +148,27 @@ function InventoryItemForm({itemToEdit}) {
     };
 
     /**
+    * editInventoryItem is an asynchronous function that takes a validated inventory item object and PUTs it to the server to edit the inventories database.
+    *
+    * @param {Object}      inventoryItem
+    *
+    */
+    const editInventoryItem = async (inventoryItem) => {
+        try {
+            const response = await axios.put(
+            `${BASE_URL}/inventories/${itemToEdit.id}`,
+            inventoryItem
+            );
+            if (!!response.data) {
+            // TODO success message?
+            }
+        } catch (error) {
+            console.log(error);
+            // TODO error notification for user?
+        }
+    }
+
+    /**
      * submitHandler is a function that executes the actions that needs to happen when a inventory item creation form is submitted. 
      * It will determine the validity of the form input values and on a failure will update the fields with error states to inform the user why their submission was rejected. Otherwise it will make the axios request to create the new inventory item.
      * 
@@ -166,7 +192,8 @@ function InventoryItemForm({itemToEdit}) {
 
         // If validation succeeded
         }else{            
-            // Change the quantity field to integer type
+            // Change the quantity field and warehouse_id to integer type
+            inventoryItem.warehouse_id = parseInt(inventoryItem.warehouse_id, 10);
             if(inventoryItem.status === "In Stock"){
                 inventoryItem.quantity = parseInt(inventoryItem.quantity, 10);
             }else{
@@ -179,7 +206,7 @@ function InventoryItemForm({itemToEdit}) {
                 addInventoryItem(inventoryItem);
             }else{
                 // Otherwise the call is PUT to EDIT an existing inventory item
-                // TODO: Ilaria
+                editInventoryItem(inventoryItem);
             }
 
             // Reset the error states
@@ -193,7 +220,7 @@ function InventoryItemForm({itemToEdit}) {
                 navigate("/inventory");
 
             }else{
-                // TODO Iliaria
+                navigate(`/inventory/${itemToEdit.id}`);
             }
 
         } 
@@ -224,7 +251,7 @@ function InventoryItemForm({itemToEdit}) {
         if(!itemToEdit){
             navigate("/inventory");
         }else{
-            // TODO Ilaria
+            navigate(`/inventory/${itemToEdit.id}`);
         }
     }
 
