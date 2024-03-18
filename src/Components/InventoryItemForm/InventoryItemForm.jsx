@@ -5,7 +5,6 @@ import { validateItemForm } from "../../utils/validation.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import WarehouseDropdown from "../WarehouseDropdown/WarehouseDropdown.jsx";
 
 
 function InventoryItemForm({itemToEdit}) {
@@ -67,6 +66,7 @@ function InventoryItemForm({itemToEdit}) {
                 // Todo notify user?
             }
         }
+        getWarehouses();
         if(!itemToEdit){
             // The form is in ADD mode
             setSubmitButtonText("+ Add Item");
@@ -85,7 +85,7 @@ function InventoryItemForm({itemToEdit}) {
             setSubmitButtonText("Save");
             setFormInputs(filledFields);
         }
-        getWarehouses();
+
     }, [itemToEdit]);
 
 
@@ -94,7 +94,7 @@ function InventoryItemForm({itemToEdit}) {
             return ""
         }else{
             const findSelected = warehouses.find((warehouse) => {
-                return warehouse.warehouse_name === selected;
+                return warehouse.warehouse_name === warehouseName;
             });
             if(!findSelected){
                 return "";
@@ -103,7 +103,7 @@ function InventoryItemForm({itemToEdit}) {
             }
         }
     }
-    
+
     /**
      * getInputtedItem is a helper function that will get all of the input field values and stores those values inside one inventory item object that (if verified) is ready can be sent to the server after number fields cast from strings to int.
      * 
@@ -361,10 +361,10 @@ function InventoryItemForm({itemToEdit}) {
                     </div>
                     
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    {/* <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} hasError={isWarehouseError} /> */}
                     <select className={isWarehouseError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"}  name="warehouse" id="warehouse" onChange={inputChangeHandler} selected={warehouseChoice} value={warehouseChoice}>
+                        <option className="item-form__dropdown-option" value="" >Please select</option>
                         {warehouses.map((warehouse)=>{
-                            return <option className="item-form__dropdown-option" key={warehouse.id} value={warehouse.name}>{warehouse.name}</option>
+                            return <option className="item-form__dropdown-option" key={warehouse.id} value={warehouse.warehouse_name}>{warehouse.warehouse_name}</option>
                         })}
                     </select>
                     {isWarehouseError &&
