@@ -88,7 +88,14 @@ function InventoryItemForm({itemToEdit}) {
 
     }, [itemToEdit]);
 
-
+    /**
+     * getWarehouseId is a helper function that will find the first match of a warehouse name and return its id number.
+     * 
+     * @param {string}      warehouseName
+     * 
+     * @return {number}
+     * 
+     */
     function getWarehouseId(warehouseName){
         if(!warehouseName){
             return ""
