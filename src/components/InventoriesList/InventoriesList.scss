@@ -1,0 +1,189 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.inventories-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  @include mobile-font-body-medium;
+  width: 100%;
+
+  &__header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+    }
+  }
+
+  &__actions {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 1rem;
+    }
+  }
+
+  &__title {
+    font-family: "Titillium-SemiBold";
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+
+    @include tablet {
+      @include desktop-tablet-font-h1;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    border: 0.0625rem solid $secondary-cloud;
+    background-color: none;
+    background-image: url("../../assets/icons/search-24px.svg");
+    background-position: calc(100% - 1rem) center;
+    background-repeat: no-repeat;
+    padding-left: 1rem;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    @include mobile-font-h3;
+
+    @include tablet {
+      min-width: 10rem;
+    }
+    @include desktop {
+      min-width: 16rem;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 2.25rem;
+    margin-top: 1rem;
+    background-color: $primary-indigo;
+    border-radius: 1.25rem;
+    @include mobile-font-h3;
+    color: $white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+
+    .link-white {
+      color: $white;
+    }
+
+    @include tablet {
+      min-width: 8rem;
+    }
+  }
+
+  &__labels {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+      background-color: $bg-light;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    border-top: 0.0625rem solid $secondary-cloud;
+    @include tablet {
+      border-top: none;
+    }
+  }
+}
+
+.inventories-list__labels__warehouse--has-warehouse {
+  display: none;
+}
+
+.inventories-list__labels {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .inventories-list__labels__container {
+      display: flex;
+      flex-basis: 90%;
+      width: 100%;
+      padding-left: 2.25rem;
+
+      .inventories-list__labels__wrapper {
+        display: flex;
+        flex-basis: 100%;
+
+        .inventories-list__labels-left {
+          display: flex;
+          flex-basis: 50%;
+
+          .inventories-list__labels__item {
+            display: flex;
+            flex-basis: 60%;
+            justify-content: row;
+            align-items: center;
+          }
+          .inventories-list__labels__category {
+            display: flex;
+            flex-basis: 40%;
+            justify-content: row;
+            align-items: center;
+          }
+        }
+
+        .inventories-list__labels-right {
+          display: flex;
+          flex-basis: 50%;
+          gap: 2.25rem;
+          justify-content: flex-start;
+          @include tablet {
+            gap: 0;
+          }
+
+          .inventories-list__labels__status {
+            display: flex;
+            flex-basis: 60%;
+            justify-content: row;
+            align-items: center;
+          }
+
+          .inventories-list__lables__quantity {
+            display: flex;
+            flex-basis: 40%;
+            justify-content: row;
+            align-items: center;
+          }
+        }
+      }
+
+      .inventories-list__labels__warehouse {
+        display: flex;
+        flex-basis: 15%;
+        justify-content: row;
+        align-items: center;
+      }
+    }
+
+    .inventories-list__labels__actions {
+      flex: 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-right: 2.25rem;
+    }
+  }
+}

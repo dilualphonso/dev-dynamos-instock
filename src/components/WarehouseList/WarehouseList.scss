@@ -1,0 +1,500 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouse {
+    width: 100%;
+
+    @include tablet {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        @include tablet {
+            margin: 0;
+            padding: 0;
+            flex-basis: 90%;
+            gap: 5%;
+        }
+
+        @include desktop {
+            flex-basis: 90%;
+            gap: 12%;
+        }
+    }
+
+    &__warehouse__box {
+        width: 100%;
+        display: flex;
+    }
+
+    &__left-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+        margin-left: 1rem;
+        width: 50%;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            flex-basis: 40%;
+        }
+    }
+
+    &__right-container {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            flex-basis: 55%;
+        }
+    }
+
+    &__address-label {
+        text-align: left;
+        @include mobile-font-h3;
+        color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__address {
+        text-align: left;
+        @include mobile-font-body-medium;
+        width: 70%;
+        margin-bottom: 1rem;
+        margin-top: 0;
+
+        @include tablet {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            @include desktop-tablet-font-body-medium;
+        }
+    }
+
+    &__name {
+        color: $primary-indigo;
+        @include mobile-font-h3;
+
+        @include tablet {
+            margin: 0;
+            padding: 0;
+            margin-left: 1rem;
+            @include desktop-tablet-font-body-medium;
+
+
+        }
+    }
+
+    &__arrow-wrapper {
+        display: flex;
+        flex-direction: row;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__name-label {
+        @include mobile-font-h3;
+        color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
+    }
+
+    &__name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        @include tablet {
+            flex-basis: 50%;
+            padding-top: 1rem;
+            white-space: nowrap;
+
+        }
+    }
+
+    &__contact-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        @include tablet {
+            width: 100%;
+            flex-basis: 30%;
+            padding-top: 1rem
+        }
+    }
+
+    &__contact-name-label {
+        @include mobile-font-h3;
+        color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__contact-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 0.25rem;
+
+        @include tablet {
+            width: 100%;
+            flex-basis: 55%;
+        }
+    }
+
+    &__contact-info-label {
+        @include mobile-font-h3;
+        color: $secondary-slate;
+        margin-bottom: 0rem;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__name-label {
+        @include mobile-font-h3;
+        color: $secondary-slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__contact-name {
+        @include mobile-font-body-medium;
+
+        @include tablet {
+            width: 100%;
+            @include desktop-tablet-font-body-medium;
+        }
+    }
+
+    &__contact-email {
+        @include mobile-font-body-medium;
+        @include tablet {
+            @include desktop-tablet-font-body-medium;
+        }
+    }
+
+    &__contact-phone {
+        @include mobile-font-body-medium;
+        @include tablet {
+            @include desktop-tablet-font-body-medium;
+        }
+    }
+
+    &__arrowImg {
+        width: 1.5rem;
+        height: 1.5rem;
+        padding-right: 0.25rem;
+    }
+
+    &__edit-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0;
+        background-color: transparent;
+
+        @include tablet {
+            margin-right: 1rem;
+        }
+    }
+
+    &__delete-icon {
+        margin-left: 1rem;
+
+        @include tablet {
+            height: 1.5rem;
+           // margin-top: 1rem;
+            margin-left: 0rem;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+
+        @include tablet {
+            flex-basis: 11%;
+            padding-top: 0;
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+        }
+
+        @include desktop {
+            flex-basis: 8%;
+        }
+    }
+
+    &__wrapper {
+        border-top: 1px solid $secondary-cloud;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            height: 5rem;
+            padding-top: 3rem;
+            align-items: center;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__contact-info {
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__tab-headings {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            @include desktop-tablet-font-h3;
+            background-color: $bg-light;
+            width: 100%;
+            height: 2.5rem;
+            margin: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.25rem;
+        }
+    }
+
+    &__address-heading {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    &__headings-address {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-right: 1rem;
+            padding: 0;
+            margin: 0;
+            flex-basis: 19%;
+            width: 100%;
+        }
+
+        @include desktop {
+            flex-basis: 25%;
+        }
+    }
+
+    &__address-heading {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__sort {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            width: 1rem;
+            height: 1rem;
+            margin-left: 2px;
+            margin-top: 0.25rem;
+        }
+    }
+
+    &__headings-name {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 20%;
+            width: 100%;
+            margin-left: 2rem;
+            text-transform: uppercase;
+        }
+
+        @include desktop {
+            padding-left: 1rem;
+        }
+    }
+
+    &__headings-contact-name {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 23%;
+            width: 100%;
+        }
+
+        @include desktop {
+            flex-basis: 21%;
+        }
+    }
+
+    &__name-heading {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            margin-top: 0;
+            margin-bottom: 0;
+
+        }
+    }
+
+    &__headings-contact-info {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 30%;
+            width: 100%;
+        }
+
+        @include desktop {
+            flex-basis: 27%;
+        }
+    }
+
+    &__contact-info-heading {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    &__contact-name-heading {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    &__actions {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+            flex-basis: 11%;
+            justify-content: left;
+            text-transform: uppercase;
+        }
+
+        @include desktop {
+            flex-basis: 8%;
+        }
+    }
+
+    &__tab-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            @include desktop-tablet-font-h3;
+            background-color: $bg-light;
+            width: 100%;
+            height: 2rem;
+        }
+    }
+
+    &__test {
+      &:hover {
+        background-color: #f0f4fd;
+      }
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &__address-container {
+        @include tablet {
+            width: 25%;
+            display: flex;
+            flex-basis: 40%;
+        }
+    }
+
+    &__delete-btn{
+        background: none;
+        border: none;
+       // padding: 0;
+        justify-content: flex-start;
+    }
+}

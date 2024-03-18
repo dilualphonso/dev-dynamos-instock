@@ -1,0 +1,134 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.fieldsetStyle{
+    @include columnFlex();
+    align-items: flex-start;
+    border: none;
+    padding: 0 1.5rem;
+    margin: 0;
+
+    @include tablet(){
+        padding: 0 2rem;
+    }
+}
+
+.warehouse-form{
+    @include columnFlex();
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    &__form{
+        @include columnFlex();
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+        @include tablet(){
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: row wrap;
+        }
+    }
+
+    &__details-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: $verticalSpaceBetweenComponents;
+        border-bottom: 0.0625rem solid $secondary-cloud;
+
+        @include tablet(){
+            flex-basis: 49.425%;
+            padding-bottom: 0.5rem;
+            margin-bottom: $verticalSpaceBetweenComponents;
+            border-bottom: none;
+            border-right: 0.0625rem solid $secondary-cloud;
+        }
+
+        @include desktop(){
+            margin-bottom: 0.5rem;
+            padding-bottom: $verticalSpaceBetweenComponents;
+        }
+    }
+
+    &__contact-container{
+        @extend .fieldsetStyle;
+        background-color: $white;
+        padding-bottom: $verticalSpaceBetweenComponents;
+
+        @include tablet(){
+            flex-basis: 49.425%;
+            padding-bottom: 0.5rem;
+            margin-bottom: $verticalSpaceBetweenComponents;
+        }
+
+        @include desktop(){
+            margin-bottom: 0.5rem;
+            padding-bottom: $verticalSpaceBetweenComponents;
+        }
+    }
+
+    &__sub-heading{
+        @include formFieldHeading();
+        padding-top: $mobileVerticalSpaceBetweenComponents;
+        padding-bottom: 0.5rem;
+
+        @include tablet(){
+            padding-top: 0;
+
+        }
+    }
+
+    &__label{
+        margin-top: $mobileVerticalSpaceBetweenComponents;
+        
+        @include tablet(){
+            margin-top: $verticalSpaceBetweenComponents;
+        }
+    }
+
+    &__input{
+        &--error{
+            @include inputErrorStyle();
+        }
+
+    }
+
+    &__error{
+        @include errorLabel();
+        display: flex;
+        align-items: center;
+    }
+
+    &__errorIcon{
+        @include errorIconStyle();
+    }
+
+    &__button-container{
+        @include rowFlex();
+        padding: $mobileVerticalSpaceBetweenComponents 1.5rem;
+        justify-content: center;
+        background-color: $bg-light;
+
+        @include tablet(){
+            flex-basis: 100%;
+            padding: 1rem 2rem;
+            justify-content: flex-end;
+        }
+
+    }
+    
+    &__button{
+        &--cancel{
+            @include buttonSecondary();
+            margin-right: 0.5rem;
+        }
+
+        &--submit{
+            @include buttonPrimary();
+            margin-left: 0.5rem;
+        }
+    }
+}
