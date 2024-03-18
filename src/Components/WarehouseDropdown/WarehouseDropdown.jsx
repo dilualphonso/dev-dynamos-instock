@@ -31,7 +31,6 @@ function WarehouseDropdown({ selected, onSelect, hasError }) {
   }, [selected, selectedId]);
 
   function changeHandler(event) {
-    console.log(event.target.name, event.target.value);
     onSelect(event.target.name, event.target.value);
   }
 

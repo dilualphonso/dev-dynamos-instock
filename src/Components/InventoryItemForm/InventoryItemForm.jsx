@@ -176,7 +176,6 @@ function InventoryItemForm({ itemToEdit }) {
 
     // Get the input values in a compact "inventory item" object
     const inventoryItem = getInputtedItem();
-    console.log("item", inventoryItem);
     // Check to see that all of the inputs are valid by running it through validation
     const formErrors = validateItemForm(inventoryItem);
 
@@ -335,7 +334,6 @@ function InventoryItemForm({ itemToEdit }) {
             selected={formInputs.category}
             value={formInputs.category}
           >
-            {console.log("input", formInputs)}
             <option className="item-form__dropdown-option" value="">
               Please select
             </option>
