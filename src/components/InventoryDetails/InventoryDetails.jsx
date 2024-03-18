@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ReactComponent as ArrowBackIcon } from "../../assets/icons/arrow_back-24px.svg";
 import { ReactComponent as EditWhiteIcon } from "../../assets/icons/edit-white-24px.svg";
 import HeadingWithBackArrow from "../HeadingWithBackArrow/HeadingWithBackArrow";
 
