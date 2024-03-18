@@ -90,7 +90,7 @@
     }
 
     &__name {
-        color: #2E66E5;
+        color: $primary-indigo;
         @include mobile-font-h3;
 
         @include tablet {
@@ -230,7 +230,6 @@
         background-color: transparent;
 
         @include tablet {
-            // width: 1.5rem;
             margin-right: 1rem;
         }
     }
