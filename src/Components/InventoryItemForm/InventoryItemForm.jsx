@@ -22,6 +22,10 @@ function InventoryItemForm({itemToEdit}) {
     // Button text state
     const [submitBtnText, setSubmitButtonText] = useState("");
 
+    const [categoryChoice, setCategoryChoice] = useState("");
+    const [warehouseSelection, setwarehouseSelection] = useState("");
+    const [warehouses, setWarehouses] = useState([]);
+
     // Create a navigate for when the user creates an inventory item or decides to cancel the process
     const navigate = useNavigate();
 
@@ -49,9 +53,30 @@ function InventoryItemForm({itemToEdit}) {
         setFormInputs(updatedInput);
     }
 
+    // const findSelected = response.data.find((warehouse) => {
+    //     return warehouse.warehouse_name === selected;
+    // })
+    // console.log("match to ", selected);
+    // console.log(response.data);
+    // console.log("Found a match", findSelected);
+    // if(!findSelected){
+    //     setSelectedWarehouse("");
+    // }else{
+    //     setSelectedWarehouse(findSelected.id);
+    // }
 
     // Check to see if this is an add or edit form and format accordingly
     useEffect(()=>{
+        const getWarehouses = async () =>{
+            try{
+                const response = await axios.get(`${BASE_URL}/warehouses`);
+                setWarehouses(response.data);
+            }catch(error){
+                console.error(error);
+                // Something went wrong. cannot populate warehouses
+                // Todo notify user?
+            }
+        }
         if(!itemToEdit){
             // The form is in ADD mode
             setSubmitButtonText("+ Add Item");
@@ -65,9 +90,12 @@ function InventoryItemForm({itemToEdit}) {
                 quantity: itemToEdit.quantity,
                 warehouse: itemToEdit.warehouse_name,
             }
+            setwarehouseSelection(itemToEdit.warehouse_name);
+            setCategoryChoice(itemToEdit.category);
             setSubmitButtonText("Save");
             setFormInputs(filledFields);
         }
+        getWarehouses();
     }, [itemToEdit]);
 
     /**
@@ -235,6 +263,7 @@ function InventoryItemForm({itemToEdit}) {
     function inputChangeHandler(event){
         const {target} = event;
         updateForm(target.name, target.value);
+        setCategoryChoice(target.value);
     }
     
     /**
@@ -279,7 +308,7 @@ function InventoryItemForm({itemToEdit}) {
                     </label>}
 
                     <label className="item-form__label" htmlFor="category">Category</label>
-                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} selected={formInputs.category}>
+                    <select className={isCategoryError ? "item-form__dropdown item-form__dropdown--error" : "item-form__dropdown"} type="text" name="category" id="category" onChange={inputChangeHandler} selected={categoryChoice} value={categoryChoice}>
                         <option className="item-form__dropdown-option" value="" >Please select</option>
                         <option className="item-form__dropdown-option" value="Accessories" >Accessories</option>
                         <option className="item-form__dropdown-option" value="Apparel" >Apparel</option>
@@ -321,7 +350,12 @@ function InventoryItemForm({itemToEdit}) {
                     </div>
                     
                     <label className="item-form__label" htmlFor="warehouse">Warehouse</label>
-                    <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} hasError={isWarehouseError} />
+                    {/* <WarehouseDropdown selected={formInputs.warehouse} onSelect={updateForm} hasError={isWarehouseError} /> */}
+                    <select selected={formInputs.warehouse} onChange={updateForm}>
+                        {warehouses.map((warehouse)=>{
+                            return <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                        })}
+                    </select>
                     {isWarehouseError &&
                     <label className="item-form__error" htmlFor="warehouse">
                         <img src={errorFlag} className="item-form__errorIcon" alt="A small red-orange circle with a white exclamation mark inside it. Indicates an error in the form."/>
