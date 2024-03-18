@@ -1,15 +1,12 @@
-
 import WarehouseListPage from "../WarehousesListPage/WarehousesListPage";
-
 
 function HomePage(){
 
-
     return (
-<div>
-<WarehouseListPage/>
-
-</div>
+        <section className="homepage">
+            <WarehouseListPage/>
+        </section>
     )
 }
+
 export default HomePage;

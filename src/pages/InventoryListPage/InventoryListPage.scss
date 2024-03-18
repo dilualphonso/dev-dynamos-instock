@@ -1,7 +1,7 @@
-@use "../../styles/colors" as *;
-@use "../../styles/mixins" as *;
-@use "../../styles/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
 
-.inventory-list-section{
+.inventory-list{
     @include pageCard();
 }

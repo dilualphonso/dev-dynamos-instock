@@ -1,11 +1,18 @@
-@use "../../styles/mixins" as *;
-@use "../../styles/typography" as *;
-@use "../../styles/variables" as *;
-@use "../../styles/colors" as *;
-@use "../../styles/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/global" as *;
 
+
+.single-warehouse-page{
+  @include pageCard();
+}
 .single-warehouse-container {
   // padding-bottom: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
   @include tablet {
     padding-top: 1rem;
   }
@@ -14,15 +21,18 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    padding-bottom: 1rem;
     @include tablet {
       padding: 0 2rem;
       flex-direction: row;
       align-items: center;
       width: 100%;
+      padding-bottom: 1.5rem;
     }
     @include desktop {
       display: flex;
       justify-content: space-between;
+      width: 100%;
     }
 
     p {
@@ -62,11 +72,18 @@
     @include tablet {
       margin: 0;
       border-left: solid 1px $secondary-cloud;
-      padding-right: 2.5rem;
-      padding-left: 1rem;
+      padding: 0 2.5rem;
     }
     @include desktop {
       margin-left: 0;
+      padding-left: 2.5rem;
+      flex-basis: 64%;
+    }
+    &__name{
+      @include tablet(){
+        margin-right: 2rem;
+      }
+      
     }
     .contact-details {
       margin-left: 5rem;
