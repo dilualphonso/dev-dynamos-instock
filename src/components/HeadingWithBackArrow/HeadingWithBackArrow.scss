@@ -1,6 +1,6 @@
-@use "../../styles/colors" as *;
-@use "../../styles/mixins" as *;
-@use "../../styles/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .heading-with-back-arrow {
   display: flex;

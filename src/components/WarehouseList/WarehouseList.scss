@@ -1,6 +1,6 @@
-@use '../../styles/colors'as *;
-@use '../../styles/mixins'as *;
-@use '../../styles/typography'as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
 
 .warehouse {
     width: 100%;
