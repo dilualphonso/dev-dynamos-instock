@@ -1,6 +1,6 @@
-@use "../../styles/typography" as *;
-@use "../../styles/colors" as *;
-@use "../../styles/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
 
 footer {
   // z-index: 1;
