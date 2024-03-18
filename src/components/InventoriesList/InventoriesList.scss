@@ -35,6 +35,10 @@
     font-family: "Titillium-SemiBold";
     font-size: 1.25rem;
     line-height: 1.75rem;
+
+    @include tablet {
+      @include desktop-tablet-font-h1;
+    }
   }
 
   &__search {
