@@ -1,12 +1,8 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.warehouse-dropdown{
-
-    &--error{
-        @include inputErrorStyle();
-    }
-    &__option{
-
-    }
+.warehouse-dropdown {
+  &--error {
+    @include inputErrorStyle();
+  }
 }

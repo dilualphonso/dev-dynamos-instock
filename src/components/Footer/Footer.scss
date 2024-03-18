@@ -3,7 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 
 footer {
-  // z-index: 1;
   position: absolute;
   display: flex;
   bottom: 0;
@@ -11,16 +10,13 @@ footer {
   background-color: $bg-light;
   justify-content: center;
   align-items: center;
-  // padding: 3rem 0;
   height: 6rem;
 
   @include tablet {
     height: 8rem;
-    // padding: 4rem 0;
     font-size: 0.75rem;
   }
   @include desktop {
-    // padding: 3rem 0;
     height: 6rem;
   }
 
@@ -30,8 +26,6 @@ footer {
     font-size: 1rem;
     text-align: center;
     color: $secondary-slate;
-    // padding: 3rem;
-
     font-size: 0.6875rem;
   }
 }

@@ -4,12 +4,10 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/global" as *;
 
-
-.single-warehouse-page{
+.single-warehouse-page {
   @include pageCard();
 }
 .single-warehouse-container {
-  // padding-bottom: 1rem;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
@@ -79,11 +77,10 @@
       padding-left: 2.5rem;
       flex-basis: 64%;
     }
-    &__name{
-      @include tablet(){
+    &__name {
+      @include tablet() {
         margin-right: 2rem;
       }
-      
     }
     .contact-details {
       margin-left: 5rem;
